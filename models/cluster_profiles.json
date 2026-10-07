@@ -1,0 +1,97 @@
+{
+  "0": {
+    "label": "Balanced Evaluative Review",
+    "description": "A review that discusses an overall opinion while weighing positive and negative points.",
+    "informational_value": "Moderate to high",
+    "top_terms": [
+      "not",
+      "good",
+      "great",
+      "like",
+      "works",
+      "just",
+      "little",
+      "work",
+      "no",
+      "really",
+      "does",
+      "don"
+    ]
+  },
+  "1": {
+    "label": "Extended Analytical Review",
+    "description": "A longer, multi-sentence review with detailed explanation, reflection, or analysis.",
+    "informational_value": "High",
+    "top_terms": [
+      "not",
+      "like",
+      "just",
+      "good",
+      "time",
+      "no",
+      "great",
+      "way",
+      "really",
+      "don",
+      "new",
+      "does"
+    ]
+  },
+  "2": {
+    "label": "Concise General Opinion",
+    "description": "A brief review centred on broad praise, criticism, ratings, or general impressions.",
+    "informational_value": "Low to moderate",
+    "top_terms": [
+      "stars",
+      "great",
+      "good",
+      "works",
+      "excellent",
+      "not",
+      "easy",
+      "work",
+      "nice",
+      "just",
+      "love",
+      "perfect"
+    ]
+  },
+  "3": {
+    "label": "Long-Term Usage Experience",
+    "description": "A review containing evidence from real use over time, often including duration, performance details, or specific issues.",
+    "informational_value": "High",
+    "top_terms": [
+      "great",
+      "not",
+      "used",
+      "good",
+      "works",
+      "years",
+      "using",
+      "use",
+      "months",
+      "better",
+      "just",
+      "bought"
+    ]
+  },
+  "4": {
+    "label": "Personal Experience and Recommendation",
+    "description": "A first-person review describing individual use, satisfaction, and recommendation behaviour.",
+    "informational_value": "Moderate",
+    "top_terms": [
+      "great",
+      "not",
+      "love",
+      "good",
+      "just",
+      "like",
+      "works",
+      "recommend",
+      "bought",
+      "use",
+      "stars",
+      "really"
+    ]
+  }
+}

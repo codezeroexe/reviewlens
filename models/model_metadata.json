@@ -1,0 +1,25 @@
+{
+  "pipeline": "clean text -> category-term-reduced TF-IDF + universal writing-style features -> TruncatedSVD -> Normalizer -> MiniBatchKMeans",
+  "sample_size": 100000,
+  "sources": [
+    "Books",
+    "Electronics"
+  ],
+  "n_clusters": 5,
+  "svd_components": 100,
+  "retained_text_features": 75948,
+  "style_features": [
+    "log_word_count",
+    "sentence_count",
+    "vocabulary_diversity",
+    "numeric_detail_rate",
+    "first_person_rate",
+    "long_term_experience_rate",
+    "comparison_rate",
+    "contrast_pros_cons_rate",
+    "exclamation_count"
+  ],
+  "style_weight": 0.8,
+  "category_specific_terms_removed": 4052,
+  "random_state": 42
+}
