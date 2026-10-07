@@ -180,6 +180,8 @@ Install the dependencies:
 pip install -r requirements.txt
 ```
 
+`scikit-learn` is pinned to version `1.6.1`, the version used to train and save the model artifacts. This avoids incompatibility warnings when the serialized models are loaded.
+
 Use the saved model from Python:
 
 ```python
