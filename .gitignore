@@ -1,0 +1,18 @@
+# Raw Amazon review datasets: never commit these files.
+data/
+*.tsv
+
+# Python and notebook-generated files.
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# OS and editor files.
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Keep trained artifacts only if they are intentionally added and under GitHub's size limit.
+# Check every model file before committing it.
