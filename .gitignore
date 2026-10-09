@@ -1,3 +1,6 @@
+# Global git ignore is a wildcard allowlist; re-include everything here, then ignore specifics below.
+!*
+
 # Raw Amazon review datasets: never commit these files.
 data/
 *.tsv
@@ -16,3 +19,10 @@ Thumbs.db
 
 # Keep trained artifacts only if they are intentionally added and under GitHub's size limit.
 # Check every model file before committing it.
+
+# Internal working docs.
+PLAN.md
+TASKS.md
+
+# Local tooling.
+.claude/
