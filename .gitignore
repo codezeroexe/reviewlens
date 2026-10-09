@@ -23,6 +23,10 @@ Thumbs.db
 # Internal working docs.
 PLAN.md
 TASKS.md
+CLAUDE.md
+PRODUCT.md
+REPORT.md
+SLIDES.md
 
 # Local tooling.
 .claude/
