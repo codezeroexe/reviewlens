@@ -268,3 +268,7 @@ th { text-align: left; }
 
 /* Wordmark */
 .databar .brand-name { font-size: clamp(44px, 6vw, 80px); line-height: 0.95; letter-spacing: -0.03em; margin-right: 16px; }
+
+.brand-lockup { display: inline-flex; align-items: center; gap: 14px; margin-right: 16px; }
+.brand-lockup .brand-name { margin-right: 0; }
+.logo { height: clamp(44px, 6vw, 80px); width: auto; aspect-ratio: 1; color: var(--text); flex-shrink: 0; }

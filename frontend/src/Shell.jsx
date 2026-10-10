@@ -12,6 +12,17 @@ const NAV = [
 
 const closeMenu = (event) => { const menu = event.currentTarget.closest("details"); if (menu) menu.open = false; };
 
+/** Monochrome magnifying glass. Uses the text colour, so it matches the wordmark. */
+function Logo() {
+  return (
+    <svg className="logo" viewBox="0 0 48 48" role="img" aria-label="ReviewLens logo" fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="square">
+      <circle cx="20" cy="20" r="13" />
+      <path d="M31 31 L43 43" strokeWidth="7" />
+      <path d="M13 18 A8 8 0 0 1 19 12" strokeWidth="3" />
+    </svg>
+  );
+}
+
 function Steps() {
   const { steps, job, analyzing } = useApp();
   if (!job || job.status === "idle") return null;
@@ -42,7 +53,7 @@ function DatasetBar() {
   return (
     <header className="databar">
       <div className="databar-main">
-        <span className="brand-name">ReviewLens</span>
+        <span className="brand-lockup"><Logo /><span className="brand-name">ReviewLens</span></span>
         <span className="dataset-chip" title={summary}>{summary}</span>
         <details className="menu">
           <summary className="chip">Change dataset</summary>
