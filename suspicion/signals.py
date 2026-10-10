@@ -46,8 +46,9 @@ def exact_duplicates(df: pd.DataFrame) -> dict:
 
 def near_duplicates(df: pd.DataFrame) -> dict:
     norm = df["review_text"].map(normalize)
-    eligible = df[norm.str.split().str.len().fillna(0) >= MIN_TOKENS].reset_index(drop=True)
-    tfidf = TfidfVectorizer(min_df=1).fit_transform(norm[eligible.index].tolist())
+    mask = norm.str.split().str.len().fillna(0) >= MIN_TOKENS
+    eligible = df[mask].reset_index(drop=True)
+    tfidf = TfidfVectorizer(min_df=1).fit_transform(norm[mask].tolist())  # same rows, same order as `eligible`
     out = {}
     for _, grp in eligible.groupby("product_id"):
         if len(grp) < 2:
@@ -127,3 +128,13 @@ def bursts(df: pd.DataFrame) -> dict:
                     out[rid] = {"product_id": product, "date": str(d), "count": int(n),
                                 "baseline_mean": round(float(mean), 3), "baseline_std": round(float(std), 3)}
     return out
+
+
+if __name__ == "__main__":
+    # Self-check: a duplicate pair that comes AFTER short reviews must still be found (row alignment).
+    demo = pd.DataFrame({"review_id": ["s1", "s2", "a", "b", "c"], "product_id": ["P"] * 5, "review_text": [
+        "ok", "great", "the battery lasts very long indeed", "the battery lasts very long indeed",
+        "something completely different here today"]})
+    found = near_duplicates(demo)
+    assert set(found) == {"a", "b"}, found
+    print("signals self-check OK")
