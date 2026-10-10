@@ -265,3 +265,6 @@ th { text-align: left; }
 /* Use the full window width. */
 .shell { max-width: none; margin: 0; padding: 20px 20px; }
 @media (max-width: 960px) { .shell { padding: 16px 12px; } }
+
+/* Wordmark */
+.databar .brand-name { font-size: clamp(44px, 6vw, 80px); line-height: 0.95; letter-spacing: -0.03em; margin-right: 16px; }
