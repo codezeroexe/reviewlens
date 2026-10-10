@@ -10,8 +10,8 @@
 - NLI label counts: {'neutral': 1582, 'contradiction': 1079, 'entailment': 76}
 - NLI contradictions before strict filter: 1079
 - Filter: NLI contradiction, score >= 0.9, both quotes contain the same aspect keyword
-- Conflicts shown after strict filter: 567
-- Runtime: 106.4 s
+- Conflicts shown after strict filter: 567 aspect matches = 420 unique review pairs
+- Runtime: 107.6 s
 - Polarity: VADER compound, positive > 0.3, negative < -0.3
 - Embeddings for ranking: sentence-transformers all-MiniLM-L6-v2
 

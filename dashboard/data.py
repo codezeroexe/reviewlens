@@ -23,7 +23,8 @@ class UploadError(ValueError):
     pass
 
 
-def _read(name: str, data: bytes) -> pd.DataFrame:
+def _read(name: str, data: bytes) -> tuple[pd.DataFrame, int]:
+    """Return (raw rows, count of malformed lines skipped)."""
     suffix = Path(name).suffix.lower()
     if suffix not in ALLOWED:
         raise UploadError(f"Unsupported file type '{suffix}'. Use CSV, TSV, TXT, or XLSX.")
@@ -31,11 +32,14 @@ def _read(name: str, data: bytes) -> pd.DataFrame:
         raise UploadError("The file is empty.")
     try:
         if suffix == ".xlsx":
-            return pd.read_excel(io.BytesIO(data), dtype=str)
+            return pd.read_excel(io.BytesIO(data), dtype=str), 0
         text = data.decode("utf-8-sig", errors="strict")
         first = text.split("\n", 1)[0]
         sep = "\t" if first.count("\t") > first.count(",") else ","
-        return pd.read_csv(io.StringIO(text), sep=sep, dtype=str, on_bad_lines="skip")
+        skipped = []
+        frame = pd.read_csv(io.StringIO(text), sep=sep, dtype=str, engine="python",
+                            on_bad_lines=lambda line: skipped.append(line))  # returns None -> line skipped and counted
+        return frame, len(skipped)
     except UnicodeDecodeError:
         raise UploadError("The file is not UTF-8 text. Save it as UTF-8 CSV and try again.")
     except Exception as error:
@@ -60,12 +64,14 @@ def _adapt(raw: pd.DataFrame) -> pd.DataFrame:
 def load_upload(name: str, data: bytes) -> dict:
     if len(data) > MAX_BYTES:
         raise UploadError("File is larger than 200 MB.")
-    raw = _adapt(_read(name, data))
+    raw, bad_lines = _read(name, data)
+    raw = _adapt(raw)
     if raw.empty:
         raise UploadError("The file has no rows.")
     df, report = clean_reviews(raw)
     df, dups = dedupe_reviews(df)
     report["dropped_duplicate_review_id"] = dups
+    report["bad_lines_skipped"] = bad_lines
     if df.empty:
         raise UploadError(f"No usable reviews after cleaning: {report}")
     UPLOAD_DIR.mkdir(parents=True, exist_ok=True)

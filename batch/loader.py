@@ -7,7 +7,7 @@ import pandas as pd
 
 from batch.schema import clean_reviews, dedupe_reviews
 
-# Local copy only. Raw TSVs are gitignored and were not found on disk in phase 1.
+# Local copy only. Raw TSVs are gitignored and never committed.
 DEMO_FILE = Path("data/amazon_reviews_us_Electronics_v1_00.tsv")
 
 
@@ -24,7 +24,7 @@ def load_reviews(path: Path, nrows: int | None = None, chunksize: int = 50_000) 
         on_bad_lines=on_bad, chunksize=chunksize, nrows=nrows, dtype=str,
     )
     parts, totals = [], {"rows_in": 0, "dropped_empty_text": 0, "rating_set_null": 0,
-                         "date_set_null": 0, "votes_set_null": 0}
+                         "date_set_null": 0, "votes_set_null": 0, "verified_set_null": 0}
     for chunk in reader:
         clean, rep = clean_reviews(chunk)
         parts.append(clean)

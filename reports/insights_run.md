@@ -1,8 +1,8 @@
 # Insight engine run
 
-- Runtime: 7.1 s
+- Runtime: 6.6 s
 - Reviews in base: 20000 (first 20000 rows; same subset as phases 3-5)
-- Insights generated per type: {'quality_warning': 21, 'experience_gap': 11, 'common_problem': 1, 'comparison': 1}
+- Insights generated per type: {'quality_warning': 20, 'experience_gap': 11, 'common_problem': 1, 'comparison': 1}
 - Overview shown: 4
 - Omitted types and reasons:
   - informative_evidence: no usefulness model output exists (phase 2 experiment saved no model; batch/predict has no usefulness column)
@@ -10,7 +10,7 @@
 
 ## Limitations
 
-- One week of data (2015-08-25 to 2015-08-31): no meaningful time trend.
+- Data span 2015-08-25 to 2015-08-31: no meaningful time trend.
 - Usefulness is not available (no model output). Not claimed.
-- Complaint clusters are preliminary (HDBSCAN found 2 clusters; one is a generic catch-all).
+- Complaint clusters are preliminary (2 found; clusters holding over half of clustered reviews are treated as catch-alls and kept out of insights).
 - Quality warnings are similarity signals, not proof of manipulation.

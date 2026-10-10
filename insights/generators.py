@@ -1,6 +1,5 @@
 """Insight generators. Each returns (list_of_insights, omitted_reason_or_None). Reads phase outputs only; no edits to them."""
 
-import json
 from pathlib import Path
 
 import pandas as pd
@@ -16,24 +15,14 @@ MIN_WARN_REVIEWS = 10
 WARN_SHARE = 0.20
 
 
-# Label words too generic to name a problem. A cluster needs >= 2 non-generic words to be shown on the overview.
-GENERIC = {"good", "great", "work", "works", "working", "worked", "did", "does", "product", "time", "months",
-           "days", "stars", "just", "like", "really", "use", "used", "bought", "buy", "ok", "okay", "nice", "thing"}
-
-
-def is_generic(label: str) -> bool:
-    words = [w.strip() for w in label.split(",") if w.strip()]
-    return sum(w not in GENERIC for w in words) < 2
-
-
 def common_problem(assign: pd.DataFrame, clusters: list[dict]):
     complaints = int((assign["status"].isin(["clustered", "unclustered"])).sum())  # rating <= 3 rows that were clustered or noise
     out = []
     for c in clusters:
         if c["size"] < MIN_CLUSTER:
             continue
-        if is_generic(c["label"]):
-            continue  # generic label: not a named problem, keep out of insights
+        if c.get("label_quality") == "generic":
+            continue  # catch-all cluster: no single theme, keep out of insights
         reps = [r for r in c["representative_reviews"][:3]]
         out.append(make(
             id=f"common_problem_{c['cluster_id']}", type="common_problem",
@@ -43,7 +32,7 @@ def common_problem(assign: pd.DataFrame, clusters: list[dict]):
             excerpts=[{"review_id": r["review_id"], "text": r["text"]} for r in reps[:3]],
             warning=None, evidence_ref={"page": "complaints", "filters": {"cluster_id": c["cluster_id"]}},
             score=c["size"] / max(complaints, 1)))
-    return out, None if out else f"no cluster with size >= {MIN_CLUSTER} and a non-generic label"
+    return out, None if out else f"no cluster with size >= {MIN_CLUSTER} and a specific label"
 
 
 def experience_gap(sentences: pd.DataFrame, texts: dict):

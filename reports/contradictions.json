@@ -16971,5 +16971,7 @@
     "entailment": 76
   },
   "filter": "NLI contradiction, score >= 0.9, both quotes contain the same aspect keyword",
-  "conflicts_before_strict_filter": 1079
+  "conflicts_before_strict_filter": 1079,
+  "conflict_rows": 567,
+  "unique_review_pairs": 420
 }

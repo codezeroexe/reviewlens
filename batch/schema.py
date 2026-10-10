@@ -14,6 +14,9 @@ RAW_TO_INTERNAL = {
     "verified_purchase": "verified_purchase",
 }
 
+# Accepted spellings for verified_purchase. Anything else becomes null and is counted.
+VERIFIED = {"y": True, "yes": True, "true": True, "1": True, "n": False, "no": False, "false": False, "0": False}
+
 
 def _text_col(raw: pd.DataFrame, name: str) -> pd.Series:
     if name not in raw.columns:
@@ -30,7 +33,7 @@ def clean_reviews(raw: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
     df["review_text"] = (_text_col(raw, "review_headline") + " " + _text_col(raw, "review_body")).str.strip()
 
     report = {"rows_in": len(raw), "dropped_empty_text": 0, "rating_set_null": 0,
-              "date_set_null": 0, "votes_set_null": 0}
+              "date_set_null": 0, "votes_set_null": 0, "verified_set_null": 0}
 
     empty = df["review_text"] == ""
     report["dropped_empty_text"] = int(empty.sum())
@@ -54,7 +57,9 @@ def clean_reviews(raw: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
             df[col] = num.astype("Int64")
 
     if "verified_purchase" in df:
-        df["verified_purchase"] = df["verified_purchase"].map({"Y": True, "N": False})
+        flag = df["verified_purchase"].astype("string").str.strip().str.lower().map(VERIFIED)
+        report["verified_set_null"] = int((df["verified_purchase"].notna() & flag.isna()).sum())
+        df["verified_purchase"] = flag.astype("boolean")
 
     report["rows_kept"] = len(df)
     return df.reset_index(drop=True), report
@@ -76,7 +81,7 @@ if __name__ == "__main__":
         "review_date": ["2020-01-02", "2020-01-02", "2020-01-02", "not a date", "2020-01-02", "2021-05-05"],
         "helpful_votes": [1, 0, 0, 0, 1, "x"],
         "total_votes": [2, 0, 0, 0, 2, 3],
-        "verified_purchase": ["Y", "N", "N", "N", "Y", "Y"],
+        "verified_purchase": ["Y", "N", "N", "N", "Y", "maybe"],
     })
     clean, rep = clean_reviews(raw)
     clean, dups = dedupe_reviews(clean)
@@ -86,5 +91,6 @@ if __name__ == "__main__":
     assert rep["rating_set_null"] == 2  # 9 and "abc"
     assert rep["date_set_null"] == 1
     assert rep["votes_set_null"] == 1  # "x"
+    assert rep["verified_set_null"] == 1  # "maybe"
     assert rep["dropped_duplicate_review_id"] == 1  # second 'a' dropped, first kept
     print("schema self-check OK")

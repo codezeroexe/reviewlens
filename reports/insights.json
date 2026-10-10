@@ -81,7 +81,7 @@
     {
       "id": "common_problem_1",
       "type": "common_problem",
-      "headline": "Recurring complaint: \"sound, good, quality\"",
+      "headline": "Recurring complaint: \"sound, earbuds, waste\"",
       "interpretation": "Reviews with similar wording in the complaint group (rating 1-3). Preliminary cluster, quality not evaluated.",
       "numbers": [
         {
@@ -277,7 +277,7 @@
     {
       "id": "common_problem_1",
       "type": "common_problem",
-      "headline": "Recurring complaint: \"sound, good, quality\"",
+      "headline": "Recurring complaint: \"sound, earbuds, waste\"",
       "interpretation": "Reviews with similar wording in the complaint group (rating 1-3). Preliminary cluster, quality not evaluated.",
       "numbers": [
         {
@@ -856,38 +856,6 @@
       "score": 0.696
     },
     {
-      "id": "warning_B00L3KNWBU",
-      "type": "quality_warning",
-      "headline": "Warning signal: many similar-text reviews for product B00L3KNWBU",
-      "interpretation": "Warning signal, not proof of manipulation. Reviews share near-identical or similar wording.",
-      "numbers": [
-        {
-          "label": "reviews with near-duplicate or similar-text signal",
-          "numerator": 4,
-          "denominator": 15,
-          "pct": 26.7
-        }
-      ],
-      "excerpts": [
-        {
-          "review_id": "RMEHWWPJ7T2RB",
-          "text": "Five Stars Nice quality product"
-        },
-        {
-          "review_id": "R3KDQUPXXVGBI4",
-          "text": "Five Stars Cables shipped fast and work as expected."
-        }
-      ],
-      "warning": null,
-      "evidence_ref": {
-        "page": "suspicion",
-        "filters": {
-          "product_id": "B00L3KNWBU"
-        }
-      },
-      "score": 0.617
-    },
-    {
       "id": "warning_B0031TRZX2",
       "type": "quality_warning",
       "headline": "Warning signal: many similar-text reviews for product B0031TRZX2",
@@ -1342,10 +1310,10 @@
   },
   "note": null,
   "inputs": {
-    "reports/complaint_clusters.json": 1791572660.5759437,
-    "reports/complaint_assignments.csv": 1791572661.0719512,
-    "reports/suspicion_results.csv": 1791572773.8743887,
-    "reports/contradictions.json": 1791572767.4510543
+    "reports/complaint_clusters.json": 1791612959.1729896,
+    "reports/complaint_assignments.csv": 1791612959.2882683,
+    "reports/suspicion_results.csv": 1791613082.0882993,
+    "reports/contradictions.json": 1791613069.047598
   },
-  "built_seconds": 7.1
+  "built_seconds": 6.6
 }

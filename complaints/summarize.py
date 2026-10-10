@@ -10,7 +10,10 @@ from sklearn.feature_extraction.text import TfidfVectorizer, ENGLISH_STOP_WORDS
 
 # Extra filler for labels only (chat-speak, contractions, rating words). Not used for clustering.
 LABEL_STOP = set(ENGLISH_STOP_WORDS) | {"br", "didn", "don", "doesn", "isn", "ve", "ll", "star", "stars",
-    "just", "like", "really", "product", "item", "use", "used", "got", "bought", "buy", "ok", "okay"}
+    "just", "like", "really", "product", "item", "use", "used", "got", "bought", "buy", "ok", "okay",
+    # praise and generic verbs: a complaint label must name the problem, not repeat the praise
+    "good", "great", "nice", "fine", "quality", "love", "excellent", "perfect", "work", "works", "worked",
+    "working", "did", "does"}
 
 NOT_AVAILABLE = "not available"
 PRELIMINARY = "PRELIMINARY - cluster quality not yet evaluated"
@@ -25,32 +28,44 @@ def _sentiment_mix(ratings: pd.Series) -> dict:
     return {"positive_pct": pct(pos), "mixed_pct": pct(mixed), "negative_pct": pct(neg)}
 
 
+MAX_CLUSTER_SHARE = 0.5  # a cluster holding more than half of all clustered reviews has no single theme
+GENERIC_LABEL = "Mixed complaints, no single theme"
+
+
 def summarize(assigned: pd.DataFrame, method: str) -> tuple[list[dict], dict]:
     clustered = assigned[assigned["status"] == "clustered"]
     clusters = []
     if clustered.empty:
         return clusters, _meta(assigned, method, 0)
-    texts = clustered["review_text"].tolist()
+    # Terms are scored against ALL complaint reviews (clustered + noise), so words common to every complaint drop out.
+    complaints = assigned[assigned["status"].isin(["clustered", "unclustered"])]
+    texts = complaints["review_text"].tolist()
     tfidf = TfidfVectorizer(stop_words=list(LABEL_STOP), min_df=min(2, len(texts)), max_features=20_000,
                             token_pattern=r"(?u)\b[a-z][a-z]+\b")
     try:
         matrix = tfidf.fit_transform(texts)
         terms = np.array(tfidf.get_feature_names_out())
+        global_mean = np.asarray(matrix.mean(axis=0)).ravel()
     except ValueError:  # too little text for any term (e.g. only stopwords)
-        matrix, terms = None, np.array([])
-    positions = {idx: i for i, idx in enumerate(clustered.index)}
+        matrix, terms, global_mean = None, np.array([]), None
+    positions = {idx: i for i, idx in enumerate(complaints.index)}
 
     for cid, grp in clustered.groupby("cluster_id"):
         rows = [positions[i] for i in grp.index]
         if matrix is None:
             top = np.array(["n/a (too little text)"])
         else:
-            mean_vec = np.asarray(matrix[rows].mean(axis=0)).ravel()
+            # distinctiveness = cluster mean minus corpus mean
+            mean_vec = np.asarray(matrix[rows].mean(axis=0)).ravel() - global_mean
             top = terms[np.argsort(mean_vec)[::-1][:3]]
+        share = len(grp) / len(clustered)
+        generic = share > MAX_CLUSTER_SHARE
         reps = grp.sort_values("similarity", ascending=False).head(5)
         clusters.append({
             "cluster_id": int(cid),
             "label": ", ".join(top),
+            "label_quality": "generic" if generic else "specific",
+            "display_label": GENERIC_LABEL if generic else ", ".join(top),
             "size": int(len(grp)),
             "products_covered": int(grp["product_id"].nunique()),
             "categories_covered": int(grp["product_category"].nunique()),

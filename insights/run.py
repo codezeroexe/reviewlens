@@ -59,12 +59,12 @@ def build() -> dict:
         f"- Reviews in base: {len(df)} (first {N_ROWS} rows; same subset as phases 3-5)",
         f"- Insights generated per type: {per_type}",
         f"- Overview shown: {len(top)}",
-        f"- Omitted types and reasons:",
+        "- Omitted types and reasons:",
     ] + [f"  - {k}: {v}" for k, v in omitted.items()] + [
         "", "## Limitations", "",
-        "- One week of data (2015-08-25 to 2015-08-31): no meaningful time trend.",
+        f"- Data span {df['date'].min().date()} to {df['date'].max().date()}: no meaningful time trend." if df["date"].notna().any() else "- Dates unavailable: no time trend.",
         "- Usefulness is not available (no model output). Not claimed.",
-        "- Complaint clusters are preliminary (HDBSCAN found 2 clusters; one is a generic catch-all).",
+        f"- Complaint clusters are preliminary ({sum(1 for c in clusters)} found; clusters holding over half of clustered reviews are treated as catch-alls and kept out of insights).",
         "- Quality warnings are similarity signals, not proof of manipulation.",
     ]
     (REPORTS / "insights_run.md").write_text("\n".join(md) + "\n")

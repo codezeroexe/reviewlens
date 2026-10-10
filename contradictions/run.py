@@ -2,7 +2,6 @@
 
 import json
 import time
-from collections import Counter
 from pathlib import Path
 
 import pandas as pd
@@ -49,6 +48,8 @@ def main() -> None:
         conflicts = verified
         loose_count = len(verified)
     reports = [build(r) for r in conflicts.to_dict(orient="records")]
+    pair_count = len({(r["observed_evidence"]["positive"]["review_id"], r["observed_evidence"]["negative"]["review_id"])
+                      for r in reports})  # one review pair can match two aspects
     REPORTS.mkdir(exist_ok=True)
     (REPORTS / "contradictions.json").write_text(json.dumps({
         "method": method, "embedding_method": emb_method, "conflicts": reports,
@@ -56,6 +57,7 @@ def main() -> None:
         "nli_label_counts": verified["nli_label"].value_counts().to_dict() if method == "nli" else {},
         "filter": f"NLI contradiction, score >= {NLI_MIN_SCORE}, both quotes contain the same aspect keyword",
         "conflicts_before_strict_filter": loose_count,
+        "conflict_rows": len(reports), "unique_review_pairs": pair_count,
     }, indent=2, default=str))
     pd.DataFrame(reports).drop(columns=["observed_evidence", "unknown_or_missing_context"], errors="ignore").to_csv(
         REPORTS / "contradictions.csv", index=False)
@@ -72,9 +74,9 @@ def main() -> None:
         f"- NLI label counts: {verified['nli_label'].value_counts().to_dict() if method == 'nli' else 'n/a'}",
         f"- NLI contradictions before strict filter: {loose_count}",
         f"- Filter: NLI contradiction, score >= {NLI_MIN_SCORE}, both quotes contain the same aspect keyword",
-        f"- Conflicts shown after strict filter: {len(reports)}",
+        f"- Conflicts shown after strict filter: {len(reports)} aspect matches = {pair_count} unique review pairs",
         f"- Runtime: {elapsed} s",
-        f"- Polarity: VADER compound, positive > 0.3, negative < -0.3",
+        "- Polarity: VADER compound, positive > 0.3, negative < -0.3",
         f"- Embeddings for ranking: {emb_method}",
         "", "## Limitations", "",
         "- Aspects are keyword matches. They miss paraphrases and can match the wrong sense.",

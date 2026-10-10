@@ -27,3 +27,8 @@ def get_review(review_id: str) -> dict | None:
     df = pd.read_csv(path, dtype={"review_id": str, "product_id": str})
     rows = df[df["review_id"] == str(review_id)]
     return None if rows.empty else rows.iloc[0].to_dict()
+
+
+def pair_count(items: list[dict]) -> int:
+    """Unique review pairs. One pair can appear under two aspects."""
+    return len({(i["observed_evidence"]["positive"]["review_id"], i["observed_evidence"]["negative"]["review_id"]) for i in items})

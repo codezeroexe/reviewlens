@@ -11,11 +11,11 @@ from urllib.parse import parse_qs, unquote, urlparse
 import pandas as pd
 
 from complaints.service import get_cluster_reviews, get_clusters, get_unclustered_reviews
-from contradictions.service import find_contradictions, get_review
+from contradictions.service import find_contradictions, get_review, pair_count
 from suspicion.service import dismiss, get_results, get_similar, list_dismissed
 from insights.service import get_all, get_evidence, get_overview
 from dashboard.state import filtered_view, get_overview as app_overview, get_status, load_demo, start_run
-from dashboard.data import MAX_BYTES, UploadError, load_upload
+from dashboard.data import MAX_BYTES, load_upload
 from src.reviewlens_inference import ReviewLens
 
 model = ReviewLens("models")  # load once at startup
@@ -75,7 +75,8 @@ class Handler(BaseHTTPRequestHandler):
                 raise ValueError("bad cluster id")
             return self._send(200, get_cluster_reviews(int(cid)))
         if path == "/contradictions":
-            return self._send(200, {"conflicts": find_contradictions()})
+            items = find_contradictions()
+            return self._send(200, {"conflicts": items, "unique_pairs": pair_count(items)})
         if path.startswith("/contradictions/review/"):
             row = get_review(path[len("/contradictions/review/"):])
             return self._send(200, row) if row else self._send(404, {"error": "review not found"})

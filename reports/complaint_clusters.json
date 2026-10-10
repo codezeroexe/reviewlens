@@ -14,7 +14,9 @@
   "clusters": [
     {
       "cluster_id": 0,
-      "label": "work, did, good",
+      "label": "broke, expected, returned",
+      "label_quality": "generic",
+      "display_label": "Mixed complaints, no single theme",
       "size": 734,
       "products_covered": 667,
       "categories_covered": 1,
@@ -62,7 +64,9 @@
     },
     {
       "cluster_id": 1,
-      "label": "sound, good, quality",
+      "label": "sound, earbuds, waste",
+      "label_quality": "specific",
+      "display_label": "sound, earbuds, waste",
       "size": 85,
       "products_covered": 84,
       "categories_covered": 1,

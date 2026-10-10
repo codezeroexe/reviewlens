@@ -46,6 +46,8 @@ def main() -> None:
     results.to_csv(REPORTS / "suspicion_results.csv", index=False)
 
     counts = results["category"].value_counts().to_dict()
+    flagged = results[results["signal_count"] > 0]
+    five_stars = int(flagged["details"].str.contains("'five stars'").sum())
     per_signal = {
         "exact_duplicate": len(sig["exact"]), "near_duplicate": len(sig["near"]),
         "semantic_similar": len(sig["semantic"]), "promo_repetition": len(sig["promo"]),
@@ -61,8 +63,9 @@ def main() -> None:
         f"- Embedding for semantic signal: {emb_method}",
         f"- Category counts: {counts}",
         f"- Reviews with each signal: {per_signal}",
+        f"- Flagged (any signal): {len(flagged)}; of these {five_stars} matched the 'five stars' phrase (often a rating headline, not promotion)",
         f"- Signals skipped: {skipped if skipped else 'none'}",
-        f"- Legacy model prediction: not available (no existing detector in the project)",
+        "- Legacy model prediction: not available (no existing detector in the project)",
         "", "## Limitations", "",
         "- No ground-truth fake labels. Signals are patterns, not proof.",
         f"- Short reviews (< {S.MIN_TOKENS} tokens) excluded from duplicate and similarity signals.",

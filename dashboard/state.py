@@ -37,8 +37,8 @@ def load_demo() -> dict:
     _stats.update({
         "review_count": int(len(df)),
         "products": int(df["product_id"].nunique()),
-        "date_min": str(df["date"].min().date()) if len(df) else None,
-        "date_max": str(df["date"].max().date()) if len(df) else None,
+        "date_min": str(df["date"].min().date()) if df["date"].notna().any() else None,
+        "date_max": str(df["date"].max().date()) if df["date"].notna().any() else None,
         "categories": sorted(df["product_category"].dropna().unique().tolist()),
         "source": str(DEMO_FILE),
         "load_report": rep,
@@ -130,6 +130,14 @@ def _signal_counts(flagged: pd.DataFrame) -> dict:
     return counts
 
 
+def _trend_note() -> str:
+    lo, hi = _stats.get("date_min"), _stats.get("date_max")
+    if not lo or not hi:
+        return "Trend not shown: dates unavailable."
+    days = (pd.Timestamp(hi) - pd.Timestamp(lo)).days + 1
+    return f"Trend not shown: all reviews fall in {days} day(s) ({lo} to {hi}); fewer than 3 periods." if days < 21 else ""
+
+
 def get_overview() -> dict:
     if FRAME["kind"] == "upload":
         # Demo-sample results must not appear next to an uploaded file.
@@ -149,6 +157,7 @@ def get_overview() -> dict:
             seen.add(key)
             unique.append(c)
     top_contra = unique[:3]
+    five_stars = int(flagged["details"].str.contains("'five stars'").sum())
     from insights.service import get_overview as insight_overview
     ins = insight_overview()
     return {
@@ -167,8 +176,10 @@ def get_overview() -> dict:
             "by_level": susp["category"].value_counts().to_dict(),
             "by_signal": _signal_counts(flagged),
             "flagged_total": int(len(flagged)),
+            "flagged_five_stars": five_stars,
         },
-        "notes": {"trend": "Not shown: all reviews fall in one week (fewer than 3 periods)."},
+        "contradiction_counts": {"pairs": len(unique), "aspect_matches": len(contra["conflicts"])},
+        "notes": {"trend": _trend_note()},
     }
 
 
