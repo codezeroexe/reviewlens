@@ -22,7 +22,7 @@ function FilterBar({ options, filters, setFilters }) {
       {options.products.length > 0 && (
         <select value={filters.product} onChange={set("product")} aria-label="Product">
           <option value="">All products ({options.products_total > options.products.length ? `top ${options.products.length} of ${options.products_total}` : "30+ reviews"})</option>
-          {options.products.map((p) => <option key={p} value={p}>{p}</option>)}
+          {options.products.map((p) => <option key={p} value={p}>{options.names?.[p] ?? p}</option>)}
         </select>
       )}
       {options.has_rating && (
@@ -109,7 +109,7 @@ function DatasetSection() {
               <thead><tr><th>Date</th><th>Product</th><th>Rating</th><th>Review</th></tr></thead>
               <tbody>
                 {data.reviews.map((r) => (
-                  <tr key={r.review_id}><td>{r.date ?? "—"}</td><td>{r.product_id ?? "—"}</td><td>{r.rating ?? "—"}</td><td className="review-text">{plain(r.text)}</td></tr>
+                  <tr key={r.review_id}><td>{r.date ?? "—"}</td><td title={r.product_id}>{r.product_name ?? r.product_id ?? "—"}</td><td>{r.rating ?? "—"}</td><td className="review-text">{plain(r.text)}</td></tr>
                 ))}
               </tbody>
             </table>
@@ -188,7 +188,7 @@ function Findings({ go }) {
           {data.contradictions.length === 0 && <p className="muted">No contradiction found.</p>}
           {data.contradictions.map((c, i) => (
             <button key={i} type="button" className="list-row" onClick={() => go("contradictions", { product_id: c.product_id, aspect: c.aspect })}>
-              <div className="small muted">{c.aspect} · product {c.product_id}</div>
+              <div className="small muted" title={c.product_id}>{c.aspect} · {c.product_name ?? c.product_id}</div>
               <p className="small clamp">+ "{plain(c.observed_evidence.positive.quote)}" ({c.observed_evidence.positive.rating}★)</p>
               <p className="small clamp">− "{plain(c.observed_evidence.negative.quote)}" ({c.observed_evidence.negative.rating}★)</p>
             </button>

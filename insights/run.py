@@ -8,6 +8,7 @@ import pandas as pd
 
 from batch.loader import load_demo
 from contradictions.extract import extract
+from dashboard.products import Names
 from insights import generators as G
 from insights.models import check_excerpts
 from insights.rank import rank
@@ -26,14 +27,15 @@ def build() -> dict:
     assign = pd.read_csv(REPORTS / "complaint_assignments.csv", dtype={"review_id": str, "product_id": str})
     susp = pd.read_csv(REPORTS / "suspicion_results.csv", dtype={"review_id": str, "product_id": str}, keep_default_na=False)
     sentences = extract(df)
+    names = Names(df)
 
     gens = {
         "common_problem": G.common_problem(assign, clusters),
-        "experience_gap": G.experience_gap(sentences, texts),
+        "experience_gap": G.experience_gap(sentences, texts, names),
         "informative_evidence": G.informative_evidence(),
         "emerging": G.emerging(df),
-        "comparison": G.comparison(df),
-        "quality_warning": G.quality_warning(df, susp),
+        "comparison": G.comparison(df, names),
+        "quality_warning": G.quality_warning(df, susp, names),
     }
     found, omitted = [], {}
     for name, (items, reason) in gens.items():

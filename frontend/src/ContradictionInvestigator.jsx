@@ -30,6 +30,7 @@ function Conflicts({ focus, clearFocus }) {
   const aspects = useMemo(() => [...new Set(items.map((i) => i.aspect))].sort(), [items]);
   if (!data) return <Fetching loading={loading} error={error} />;
   const shown = items.filter((i) => (!product || i.product_id === product) && (!aspect || i.aspect === aspect));
+  const nameOf = (id) => data.names?.[id] ?? id;
   const reset = () => { setProduct(""); setAspect(""); clearFocus(); };
 
   return (
@@ -39,7 +40,7 @@ function Conflicts({ focus, clearFocus }) {
         <div className="filter-bar">
           <select value={product} onChange={(e) => setProduct(e.target.value)} aria-label="Product">
             <option value="">All products ({products.length})</option>
-            {products.map((p) => <option key={p} value={p}>{p}</option>)}
+            {products.map((p) => <option key={p} value={p}>{nameOf(p)}</option>)}
           </select>
           <select value={aspect} onChange={(e) => setAspect(e.target.value)} aria-label="Aspect">
             <option value="">All aspects</option>
@@ -56,7 +57,7 @@ function Conflicts({ focus, clearFocus }) {
 
       {shown.slice(0, 50).map((c, idx) => (
         <section key={idx} className="card">
-          <div className="label">{c.aspect} · product {c.product_id} · {c.verdict}</div>
+          <div className="label" title={c.product_id}>{c.aspect} · {nameOf(c.product_id)} · {c.verdict}</div>
           <div className="grid-2">
             <EvidenceCard side="Positive" data={c.observed_evidence.positive} aspect={c.aspect} />
             <EvidenceCard side="Negative" data={c.observed_evidence.negative} aspect={c.aspect} />

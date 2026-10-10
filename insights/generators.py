@@ -34,7 +34,7 @@ def common_problem(assign: pd.DataFrame, clusters: list[dict]):
     return out, None if out else f"no cluster with size >= {MIN_CLUSTER} and a specific label"
 
 
-def experience_gap(sentences: pd.DataFrame, texts: dict):
+def experience_gap(sentences: pd.DataFrame, texts: dict, names):
     out = []
     usable = sentences[sentences["polarity"].isin(["positive", "negative"])]
     for (product, aspect), grp in usable.groupby(["product_id", "aspect"]):
@@ -45,7 +45,7 @@ def experience_gap(sentences: pd.DataFrame, texts: dict):
         p, n = pos.iloc[0], neg.iloc[0]
         out.append(make(
             id=f"gap_{product}_{aspect.replace(' ', '_')}", type="experience_gap",
-            headline=f"Mixed experiences on {aspect} for product {product}",
+            headline=f"Mixed experiences on {aspect} for {names.label(product)}",
             interpretation="Both positive and negative sentences about this aspect. The reason is not stated in these sentences.",
             numbers=[{"label": "positive sentences", "numerator": len(pos), "denominator": len(grp)},
                      {"label": "negative sentences", "numerator": len(neg), "denominator": len(grp)}],
@@ -56,7 +56,7 @@ def experience_gap(sentences: pd.DataFrame, texts: dict):
     return out, None if out else f"no product+aspect with >= {MIN_POS_NEG} positive AND >= {MIN_POS_NEG} negative sentences"
 
 
-def comparison(df: pd.DataFrame):
+def comparison(df: pd.DataFrame, names):
     grp = df.groupby("product_id").agg(n=("rating", "size"), comp=("rating", lambda r: int((r <= 3).sum())))
     grp = grp[grp["n"] >= MIN_PRODUCT].copy()
     if len(grp) < 2:
@@ -70,16 +70,16 @@ def comparison(df: pd.DataFrame):
     ex_lo = df[(df["product_id"] == bottom) & (df["rating"] >= 4)].iloc[0]
     return [make(
         id=f"comparison_{top}_{bottom}", type="comparison",
-        headline=f"Complaint rate differs between products: {top} vs {bottom}",
+        headline=f"Complaint rate differs between products: {names.label(top)} vs {names.label(bottom)}",
         interpretation="Share of reviews rated 1-3 stars. Shows the gap only; the reason is not stated.",
-        numbers=[{"label": f"{top} complaint reviews", "numerator": int(grp.loc[top, "comp"]), "denominator": int(grp.loc[top, "n"])},
-                 {"label": f"{bottom} complaint reviews", "numerator": int(grp.loc[bottom, "comp"]), "denominator": int(grp.loc[bottom, "n"])}],
+        numbers=[{"label": f"{names.label(top)} complaint reviews", "numerator": int(grp.loc[top, "comp"]), "denominator": int(grp.loc[top, "n"])},
+                 {"label": f"{names.label(bottom)} complaint reviews", "numerator": int(grp.loc[bottom, "comp"]), "denominator": int(grp.loc[bottom, "n"])}],
         excerpts=[{"review_id": str(ex_hi["review_id"]), "text": str(ex_hi["review_text"])[:300]},
                   {"review_id": str(ex_lo["review_id"]), "text": str(ex_lo["review_text"])[:300]}],
         warning=None, evidence_ref={"page": "overview", "filters": {"products": [top, bottom]}})], None
 
 
-def quality_warning(df: pd.DataFrame, susp: pd.DataFrame):
+def quality_warning(df: pd.DataFrame, susp: pd.DataFrame, names):
     flagged = susp["signal_groups"].fillna("").str.contains("near_duplicate|similar_text")
     s = susp.assign(flag=flagged)
     out = []
@@ -92,7 +92,7 @@ def quality_warning(df: pd.DataFrame, susp: pd.DataFrame):
         hits = grp[grp["flag"]].head(2)
         out.append(make(
             id=f"warning_{product}", type="quality_warning",
-            headline=f"Warning signal: many similar-text reviews for product {product}",
+            headline=f"Warning signal: many similar-text reviews for {names.label(product)}",
             interpretation="Warning signal, not proof of manipulation. Reviews share near-identical or similar wording.",
             numbers=[{"label": "reviews with near-duplicate or similar-text signal", "numerator": int(grp["flag"].sum()), "denominator": len(grp)}],
             excerpts=[{"review_id": r.review_id, "text": r.review_text[:300]} for r in hits.itertuples()],

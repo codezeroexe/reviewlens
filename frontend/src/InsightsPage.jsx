@@ -27,7 +27,7 @@ function Card({ ins, onInspect, open, evidence }) {
             <table>
               <thead><tr><th>Review</th><th>Product</th><th>Rating</th><th>Text</th></tr></thead>
               <tbody>
-                {evidence.rows.map((r) => <tr key={r.review_id}><td>{r.review_id}</td><td>{r.product_id}</td><td>{r.rating}</td><td className="review-text">{plain(r.review_text)}</td></tr>)}
+                {evidence.rows.map((r) => <tr key={r.review_id}><td>{r.review_id}</td><td title={r.product_id}>{r.product_name ?? r.product_id}</td><td>{r.rating}</td><td className="review-text">{plain(r.review_text)}</td></tr>)}
               </tbody>
             </table>
           )}

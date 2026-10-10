@@ -12,6 +12,7 @@ import pandas as pd
 
 from batch.loader import DEMO_FILE, load_reviews
 from batch.predict import predict_batch
+from dashboard.products import Names
 from dashboard.data import FRAME, metrics as frame_metrics, set_demo
 
 REPORTS = Path("reports")
@@ -152,6 +153,17 @@ def get_status() -> dict:
     }
 
 
+_names_cache = {"frame": None, "names": Names()}
+
+
+def current_names() -> Names:
+    """Product names for the active dataset (empty when the file has no product_title column)."""
+    df = FRAME["df"]
+    if _names_cache["frame"] is not df:
+        _names_cache.update(frame=df, names=Names(df) if df is not None else Names())
+    return _names_cache["names"]
+
+
 def _signal_counts(flagged: pd.DataFrame) -> dict:
     counts: dict[str, int] = {}
     for cell in flagged["signals"]:
@@ -186,7 +198,8 @@ def get_overview() -> dict:
         if key not in seen:
             seen.add(key)
             unique.append(c)
-    top_contra = unique[:3]
+    names = current_names()
+    top_contra = [{**c, "product_name": names.label(c["product_id"])} for c in unique[:3]]
     five_stars = int(flagged["details"].str.contains("'five stars'").sum())
     from insights.service import get_overview as insight_overview
     ins = insight_overview()
@@ -256,7 +269,12 @@ def filtered_view(params: dict, model=None) -> dict:
                 "rating": getattr(r, "rating", None),
                 "date": None if pd.isna(getattr(r, "date", pd.NaT)) else str(r.date.date()),
                 "text": str(r.review_text)[:240]} for r in shown.itertuples()]
+    names = current_names()
+    for r, pid in zip(reviews, shown["product_id"] if "product_id" in shown else []):
+        r["product_name"] = names.label(pid)
+    options = filter_options(df)
+    options["names"] = names.for_ids(options["products"])
     return {"available": True, "metrics": m, "reviews": reviews, "matching": int(len(sub)),
             "filtered": any(params.get(k) for k in ("product", "rating", "date_from", "date_to")),
             "patterns": pattern_mix(df, sub, model) if model is not None and len(sub) else None,
-            "options": filter_options(df), "kind": FRAME["kind"], "source": FRAME["name"]}
+            "options": options, "kind": FRAME["kind"], "source": FRAME["name"]}

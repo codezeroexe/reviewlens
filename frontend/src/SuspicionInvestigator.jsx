@@ -24,6 +24,7 @@ function Flags({ focus, clearFocus }) {
   const signals = useMemo(() => [...new Set(rows.flatMap((r) => (r.signals ? r.signals.split("; ") : [])))].sort(), [rows]);
   if (!data) return <Fetching loading={loading} error={error} />;
 
+  const nameOf = (id) => data.names?.[id] ?? id;
   const shown = rows.filter((r) =>
     (!level || r.category === level) && (!product || r.product_id === product) &&
     (!signal || r.signals.split("; ").includes(signal)) && (showDismissed || !dismissed[r.review_id]));
@@ -59,7 +60,7 @@ function Flags({ focus, clearFocus }) {
           </select>
           <select value={product} onChange={(e) => setProduct(e.target.value)} aria-label="Product">
             <option value="">All products</option>
-            {products.map((p) => <option key={p} value={p}>{p}</option>)}
+            {products.map((p) => <option key={p} value={p}>{nameOf(p)}</option>)}
           </select>
           <select value={signal} onChange={(e) => setSignal(e.target.value)} aria-label="Signal">
             <option value="">Any signal</option>
@@ -84,7 +85,7 @@ function Flags({ focus, clearFocus }) {
                   <tr key={r.review_id} className="clickable" tabIndex={0} style={dismissed[r.review_id] ? { opacity: 0.5 } : undefined}
                       onClick={() => openReview(r)} onKeyDown={(e) => e.key === "Enter" && openReview(r)}>
                     <td>{r.review_id}{dismissed[r.review_id] ? " (dismissed)" : ""}</td>
-                    <td>{r.category}</td><td>{r.signals}</td><td>{r.product_id}</td>
+                    <td>{r.category}</td><td>{r.signals}</td><td title={r.product_id}>{nameOf(r.product_id)}</td>
                   </tr>
                 ))}
               </tbody>

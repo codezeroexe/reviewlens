@@ -15,7 +15,7 @@ from complaints.service import get_cluster_reviews, get_clusters, get_unclustere
 from contradictions.service import find_contradictions, get_review, pair_count
 from suspicion.service import dismiss, get_results, get_similar, list_dismissed
 from insights.service import get_all, get_evidence, get_overview
-from dashboard.state import (filtered_view, get_overview as app_overview, get_status, load_demo, require_demo,
+from dashboard.state import (current_names, filtered_view, get_overview as app_overview, get_status, load_demo, require_demo,
                              reset_job, restore_demo, start_run)
 from dashboard.data import MAX_BYTES, load_upload
 from src.reviewlens_inference import ReviewLens
@@ -81,7 +81,8 @@ class Handler(BaseHTTPRequestHandler):
             return self._send(200, get_cluster_reviews(int(cid)))
         if path == "/contradictions":
             items = find_contradictions()
-            return self._send(200, {"conflicts": items, "unique_pairs": pair_count(items)})
+            return self._send(200, {"conflicts": items, "unique_pairs": pair_count(items),
+                                    "names": current_names().for_ids(i["product_id"] for i in items)})
         if path.startswith("/contradictions/review/"):
             row = get_review(path[len("/contradictions/review/"):])
             return self._send(200, row) if row else self._send(404, {"error": "review not found"})
@@ -91,6 +92,7 @@ class Handler(BaseHTTPRequestHandler):
             five_stars = int(rows["details"].fillna("").str.contains("'five stars'").sum())
             rows = rows.drop(columns=["details"], errors="ignore")
             return self._send(200, {"rows": rows.fillna("").to_dict(orient="records"), "five_stars_flagged": five_stars,
+                                    "names": current_names().for_ids(rows["product_id"]),
                                     "dismissed": list_dismissed(),
                                     "rule": "0 signals: No signals; 1: Low; 2: Medium; 3+: High (counts of different signals, not a probability)"})
         if path.startswith("/suspicion/similar/"):
@@ -106,7 +108,9 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/insights/all":
             return self._send(200, get_all(self.query.get("type")))
         if path.startswith("/insights/evidence/"):
-            return self._send(200, get_evidence(path[len("/insights/evidence/"):]))
+            rows = get_evidence(path[len("/insights/evidence/"):])
+            names = current_names()
+            return self._send(200, [{**r, "product_name": names.label(r["product_id"])} for r in rows])
         self._send(404, {"error": "not found"})
 
     # ---- POST ----

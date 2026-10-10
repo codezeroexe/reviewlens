@@ -45,3 +45,4 @@ Browser pane, dev server 5174, API 8001. Viewports 1366x900 and 375x812.
 - Not checked: keyboard-only walk-through, screen reader, Safari/Firefox.
 
 - Check a review (replaces the old Analyze page): example chip fills the box; result shows pattern, value, next closest pattern and "17.6% of 20,000 reviews ... fall in this pattern". Overview shows the writing-pattern mix. PASS
+- Product names: Overview filter and review table, Contradictions, Suspicious Reviews and Insights headlines and evidence show product titles; the id is kept in the hover text, and added to the name only when two products share a title. PASS
