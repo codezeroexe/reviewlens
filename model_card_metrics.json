@@ -1,0 +1,184 @@
+{
+  "model_name": "Review Intelligence (ReviewLens prototype)",
+  "version": "phase-8 snapshot",
+  "dataset": {
+    "file": "data/amazon_reviews_us_Electronics_v1_00.tsv",
+    "size_bytes": 1725988504,
+    "sample_rows": 20000,
+    "rows_read": 20000,
+    "rows_retained": 20000,
+    "rows_excluded": 0,
+    "products": 10050,
+    "categories": 1,
+    "date_min": "2015-08-25",
+    "date_max": "2015-08-31",
+    "distinct_months": 1,
+    "exact_duplicate_texts_normalised": 1761
+  },
+  "usefulness_task": {
+    "label_rule": "helpful_votes/total_votes >= 0.6, total_votes >= 5",
+    "labelled_rows_in_sample": 723,
+    "train": 12068,
+    "validation": 2586,
+    "test": 2587,
+    "test_class_distribution": {
+      "0": 555,
+      "1": 2032
+    }
+  },
+  "test_results": {
+    "best_config": "unigram",
+    "ngram_range": [
+      1,
+      1
+    ],
+    "C": 10.0,
+    "accuracy": 0.8179,
+    "macro_f1": 0.6863,
+    "weighted_f1": 0.8023,
+    "vocab_size": 16688,
+    "train_seconds": 0.58,
+    "source": "reports/ngram_results.json",
+    "all_configs": {
+      "unigram": {
+        "ngram_range": [
+          1,
+          1
+        ],
+        "C": 10.0,
+        "train_seconds": 0.58,
+        "vocab_size": 16688,
+        "macro_f1": 0.6863,
+        "weighted_f1": 0.8023,
+        "accuracy": 0.8179
+      },
+      "bigram": {
+        "ngram_range": [
+          2,
+          2
+        ],
+        "C": 10.0,
+        "train_seconds": 1.37,
+        "vocab_size": 146417,
+        "macro_f1": 0.618,
+        "weighted_f1": 0.7718,
+        "accuracy": 0.8079
+      },
+      "uni_bigram": {
+        "ngram_range": [
+          1,
+          2
+        ],
+        "C": 10.0,
+        "train_seconds": 1.95,
+        "vocab_size": 163105,
+        "macro_f1": 0.6566,
+        "weighted_f1": 0.7897,
+        "accuracy": 0.8148
+      }
+    }
+  },
+  "baseline_majority": {
+    "accuracy": 0.7855,
+    "per_class": {
+      "0": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 555.0
+      },
+      "1": {
+        "precision": 0.7855,
+        "recall": 1.0,
+        "f1-score": 0.8798,
+        "support": 2032.0
+      }
+    },
+    "macro_f1": 0.4399,
+    "weighted_f1": 0.6911,
+    "confusion_matrix": [
+      [
+        0,
+        555
+      ],
+      [
+        0,
+        2032
+      ]
+    ]
+  },
+  "production_model_on_same_test_set": "N/A: ReviewLens is unsupervised (5 clusters). No usefulness output to score.",
+  "error_analysis": {
+    "misclassified": 471,
+    "test_rows": 2587,
+    "false_positive": 335,
+    "false_negative": 136,
+    "median_words_misclassified": 58.0,
+    "median_words_all_test": 94.0,
+    "title_star_pattern": {
+      "share_of_test_rows": 0.0831,
+      "accuracy_rows_with_title_star": 0.6977,
+      "accuracy_rows_without": 0.8288,
+      "share_of_errors_with_title_star": 0.138,
+      "errors_false_positive_useful": 335,
+      "errors_false_negative": 136
+    },
+    "examples_file": "reports/ngram_report.md"
+  },
+  "complaint_clusters": {
+    "status": "PRELIMINARY - cluster quality not yet evaluated",
+    "method": "sentence-transformers all-MiniLM-L6-v2; clustering: HDBSCAN min_cluster_size=10",
+    "clusters": 2,
+    "clustered": 819,
+    "unclustered": 3965,
+    "not_complaint": 15216,
+    "rule": "rating <= 3"
+  },
+  "contradictions": {
+    "method": "nli",
+    "all_pairs_checked": 2737,
+    "nli_label_counts": {
+      "neutral": 1582,
+      "contradiction": 1079,
+      "entailment": 76
+    },
+    "shown_after_filter": 567,
+    "filter": "NLI contradiction, score >= 0.9, both quotes contain the same aspect keyword"
+  },
+  "suspicion": {
+    "type": "heuristic / similarity-based (not validated)",
+    "source": "reports/suspicion_run.md"
+  },
+  "quality_checks": {
+    "counts": {
+      "PASS": 10,
+      "NOT VERIFIED": 2
+    },
+    "source": "reports/quality_check.md"
+  },
+  "runtime_seconds": {
+    "complaints_run_s": "see reports/complaint_run.md",
+    "insights_built_s": 3.5
+  },
+  "environment": {
+    "python": "3.11.15",
+    "os": "Darwin 27.0.0",
+    "machine": "arm64",
+    "packages": {
+      "scikit-learn": "1.6.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.6",
+      "scipy": "1.17.1",
+      "joblib": "1.6.0",
+      "sentence-transformers": "6.1.0",
+      "hdbscan": "0.8.44",
+      "transformers": "5.19.0",
+      "torch": "2.14.1",
+      "vaderSentiment": "3.3.2",
+      "openpyxl": "3.1.5"
+    },
+    "embedding_model": "all-MiniLM-L6-v2 (sentence-transformers)",
+    "nli_model": "cross-encoder/nli-deberta-v3-small",
+    "random_seed": 42
+  }
+}

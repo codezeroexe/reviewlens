@@ -1,5 +1,11 @@
 import { Fragment, useEffect, useState } from "react";
 import { PRODUCTS } from "./presets.js";
+import ComplaintDiscovery from "./ComplaintDiscovery.jsx";
+import ContradictionInvestigator from "./ContradictionInvestigator.jsx";
+import SuspicionInvestigator from "./SuspicionInvestigator.jsx";
+import InsightsPage from "./InsightsPage.jsx";
+import Shell from "./Shell.jsx";
+import Overview from "./Overview.jsx";
 
 // Order and colours for the five learned patterns.
 const PATTERNS = [
@@ -50,6 +56,8 @@ export default function App() {
   const [filter, setFilter] = useState("All");
   const [openKey, setOpenKey] = useState(null);
   const [draft, setDraft] = useState("");
+  const [lastCustomId, setLastCustomId] = useState(null);
+  const [view, setView] = useState("overview");
   const hasCustom = rows.some((r) => r.product === "Custom");
 
   // Run one analysis and write the result into the matching row.
@@ -79,12 +87,14 @@ export default function App() {
     const text = draft.trim();
     if (!text) return;
     const id = `custom-${Date.now()}`;
+    setLastCustomId(id);
     setRows((prev) => [...prev, { id, product: "Custom", sample: "Your review", text, status: "pending" }]);
     setFilter("All");
     setDraft("");
     runRow(id, text);
   }
 
+  const lastCustom = rows.find((r) => r.id === lastCustomId) ?? null;
   const analyzedAll = rows.filter((r) => r.status === "done");
   const visible = filter === "All" ? rows : rows.filter((r) => r.product === filter);
   const visibleDone = visible.filter((r) => r.status === "done");
@@ -96,20 +106,15 @@ export default function App() {
     : 0;
   const pending = rows.length - analyzedAll.length - rows.filter((r) => r.status === "error").length;
 
-  return (
-    <div className="page">
-      <header className="header">
-        <span className="brand">
-          <svg className="logo-mark" viewBox="0 0 48 48" aria-hidden="true">
-            <circle cx="20" cy="20" r="13" fill="#FFE7F1" stroke="#15142B" strokeWidth="4" />
-            <path d="M12 16 Q14 11 20 11" fill="none" stroke="#FF4F9A" strokeWidth="3" strokeLinecap="round" />
-            <line x1="29.5" y1="29.5" x2="43" y2="43" stroke="#15142B" strokeWidth="6" strokeLinecap="round" />
-          </svg>
-          ReviewLens
-        </span>
-        <span className="mono">PATTERN ANALYTICS / BOOKS + ELECTRONICS</span>
-      </header>
+  const wrap = (node) => <Shell view={view} setView={setView}>{node}</Shell>;
+  if (view === "overview") return wrap(<Overview setView={setView} />);
+  if (view === "complaints") return wrap(<ComplaintDiscovery onBack={() => setView("overview")} />);
+  if (view === "contradictions") return wrap(<ContradictionInvestigator onBack={() => setView("overview")} />);
+  if (view === "suspicion") return wrap(<SuspicionInvestigator onBack={() => setView("overview")} />);
+  if (view === "insights") return wrap(<InsightsPage onBack={() => setView("overview")} />);
 
+  return wrap(
+    <div className="page">
       <div className="chips" role="tablist" aria-label="Product filter">
         {["All", ...PRODUCTS.map((p) => p.name), ...(hasCustom ? ["Custom"] : [])].map((name) => (
           <button
@@ -135,6 +140,25 @@ export default function App() {
           aria-label="Your review"
         />
         <button type="submit" className="cta" disabled={!draft.trim()}>Add and analyze</button>
+        {lastCustom && (
+          <div className="custom-result" aria-live="polite">
+            <div className="label">Result for your review</div>
+            {lastCustom.status === "pending" && <p className="muted">Analyzing...</p>}
+            {lastCustom.status === "error" && <p className="danger-text">{lastCustom.error}</p>}
+            {lastCustom.status === "done" && (
+              <>
+                <div className="custom-pattern">
+                  <span className="dot" style={{ background: colorOf(lastCustom.result.review_pattern) }} />
+                  <b>{lastCustom.result.review_pattern}</b>
+                  <span className="badge badge-muted">Informational value: {lastCustom.result.informational_value}</span>
+                </div>
+                <p className="description">{lastCustom.result.description}</p>
+                <p className="muted small">Next closest pattern: {lastCustom.result.alternative_pattern}</p>
+                <p className="note">{lastCustom.result.note}</p>
+              </>
+            )}
+          </div>
+        )}
       </form>
 
       <section className="kpis">

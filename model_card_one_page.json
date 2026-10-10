@@ -1,0 +1,122 @@
+{
+  "model": "Review usefulness classifier (ReviewLens experiment, unigram config)",
+  "task": "Binary: useful (1) vs not useful (0), derived label",
+  "algorithm": "TF-IDF (unigrams, min_df=2) + Logistic Regression (C=10)",
+  "training_data": "Electronics reviews, first 500,000 rows, 17,241 labelled after dedupe (total_votes >= 5)",
+  "split": "70/15/15 stratified, seed 42. Train 12,068, validation 2,586, test 2,587",
+  "labels": "helpful_votes / total_votes >= 0.6 (not human-labelled; votes are noisy)",
+  "overall": {
+    "accuracy": 0.8179,
+    "macro_f1": 0.6863,
+    "baseline_accuracy": 0.7855,
+    "baseline_macro_f1": 0.4399,
+    "baseline_name": "majority class"
+  },
+  "per_class": {
+    "not_useful": {
+      "precision": 0.618,
+      "recall": 0.396,
+      "f1": 0.483
+    },
+    "useful": {
+      "precision": 0.85,
+      "recall": 0.933,
+      "f1": 0.89
+    }
+  },
+  "subgroups": [
+    {
+      "name": "Short reviews",
+      "how": "fewer than 20 words",
+      "n": 321,
+      "accuracy": 0.6729,
+      "macro_f1": 0.6687
+    },
+    {
+      "name": "Long reviews",
+      "how": "20 words or more",
+      "n": 2266,
+      "accuracy": 0.8385,
+      "macro_f1": 0.6237
+    },
+    {
+      "name": "Rating-title reviews",
+      "how": "start with 'One..Five Star(s)'",
+      "n": 215,
+      "accuracy": 0.6977,
+      "macro_f1": 0.6818
+    },
+    {
+      "name": "Other reviews",
+      "how": "no rating title",
+      "n": 2372,
+      "accuracy": 0.8288,
+      "macro_f1": 0.6372
+    },
+    {
+      "name": "Negation words",
+      "how": "contains not / never / no / n't",
+      "n": 1664,
+      "accuracy": 0.8317,
+      "macro_f1": 0.6683
+    },
+    {
+      "name": "No negation",
+      "how": "none of the above",
+      "n": 923,
+      "accuracy": 0.7931,
+      "macro_f1": 0.7031
+    }
+  ],
+  "top_features": {
+    "useful": [
+      [
+        "pictures",
+        5.21
+      ],
+      [
+        "upon",
+        5.13
+      ],
+      [
+        "original",
+        4.74
+      ],
+      [
+        "pairs",
+        4.74
+      ],
+      [
+        "previous",
+        4.61
+      ]
+    ],
+    "not_useful": [
+      [
+        "intone",
+        -4.8
+      ],
+      [
+        "itunes",
+        -4.36
+      ],
+      [
+        "uncomfortable",
+        -4.31
+      ],
+      [
+        "not",
+        -4.24
+      ],
+      [
+        "causing",
+        -4.24
+      ]
+    ]
+  },
+  "lime": "NOT RUN (lime not installed)",
+  "errors": {
+    "misclassified": 471,
+    "of": 2587
+  }
+}

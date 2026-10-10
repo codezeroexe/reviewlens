@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "status": "PRELIMINARY - cluster quality not yet evaluated",
+    "embedding_method": "sentence-transformers all-MiniLM-L6-v2; clustering: HDBSCAN min_cluster_size=10",
+    "complaint_rule": "rating <= 3",
+    "sentiment_rule": "rating 4-5 positive, 3 mixed, 1-2 negative",
+    "rows_total": 20000,
+    "clustered": 819,
+    "unclustered": 3965,
+    "not_complaint": 15216,
+    "skipped_small_group": 0,
+    "cluster_count": 2
+  },
+  "clusters": [
+    {
+      "cluster_id": 0,
+      "label": "work, did, good",
+      "size": 734,
+      "products_covered": 667,
+      "categories_covered": 1,
+      "sentiment_mix": {
+        "positive_pct": 0.0,
+        "mixed_pct": 23.8,
+        "negative_pct": 76.2
+      },
+      "usefulness": "not available",
+      "suspicious_pct": "not available",
+      "avg_similarity": 0.7567,
+      "ambiguous_count": 184,
+      "representative_reviews": [
+        {
+          "review_id": "R1VI0RJ0QHE7E8",
+          "rating": 1.0,
+          "similarity": 0.9095,
+          "text": "One Star very bad product-it broke in no time"
+        },
+        {
+          "review_id": "R22CXUZ7BNGRIW",
+          "rating": 1.0,
+          "similarity": 0.9013,
+          "text": "One Star Did not work even a little bit"
+        },
+        {
+          "review_id": "R1KCLGR76JPQ6Y",
+          "rating": 1.0,
+          "similarity": 0.9011,
+          "text": "One Star NOT A GOOD PRODUCT"
+        },
+        {
+          "review_id": "R2JVJIOO54MJ3",
+          "rating": 1.0,
+          "similarity": 0.9004,
+          "text": "One Star It didn't work"
+        },
+        {
+          "review_id": "R2QUCN7QBMWE46",
+          "rating": 1.0,
+          "similarity": 0.9002,
+          "text": "One Star It did not work"
+        }
+      ]
+    },
+    {
+      "cluster_id": 1,
+      "label": "sound, good, quality",
+      "size": 85,
+      "products_covered": 84,
+      "categories_covered": 1,
+      "sentiment_mix": {
+        "positive_pct": 0.0,
+        "mixed_pct": 20.0,
+        "negative_pct": 80.0
+      },
+      "usefulness": "not available",
+      "suspicious_pct": "not available",
+      "avg_similarity": 0.6457,
+      "ambiguous_count": 21,
+      "representative_reviews": [
+        {
+          "review_id": "RWPLIV1H4BK1C",
+          "rating": 1.0,
+          "similarity": 0.8034,
+          "text": "Piece of junk. Don't buy them. They worked nice for about a month and one earbud stopped working completely. I cannot return it now."
+        },
+        {
+          "review_id": "R35BMC1G8K01C",
+          "rating": 1.0,
+          "similarity": 0.7928,
+          "text": "Waste of Do not buy. This is my 3rd day of using and one of the ear buds is already not working. Waste of money"
+        },
+        {
+          "review_id": "R10E0EHWLXOK6U",
+          "rating": 1.0,
+          "similarity": 0.7842,
+          "text": "Not Good These earbuds are low quality. They break easily. Mine broke in two days. I recommend that you do not get these earbuds."
+        },
+        {
+          "review_id": "R1QMQ4FJU8TKZQ",
+          "rating": 1.0,
+          "similarity": 0.7456,
+          "text": "Don't buy I was not lucky with my order I guess...  Very poor headset.  Never able to make it work."
+        },
+        {
+          "review_id": "R25K4QXMI7S7KQ",
+          "rating": 1.0,
+          "similarity": 0.7324,
+          "text": "DO NOT BUY THIS PRODUCT! Very disappointed with this product. Poor quality and do not sound good or have any good qualities to it"
+        }
+      ]
+    }
+  ]
+}

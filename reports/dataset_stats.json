@@ -1,0 +1,20 @@
+{
+  "review_count": 20000,
+  "products": 10050,
+  "date_min": "2015-08-25",
+  "date_max": "2015-08-31",
+  "categories": [
+    "Electronics"
+  ],
+  "source": "data/amazon_reviews_us_Electronics_v1_00.tsv",
+  "load_report": {
+    "rows_in": 20000,
+    "dropped_empty_text": 0,
+    "rating_set_null": 0,
+    "date_set_null": 0,
+    "votes_set_null": 0,
+    "dropped_duplicate_review_id": 0,
+    "bad_lines_skipped": 0,
+    "rows_kept": 20000
+  }
+}

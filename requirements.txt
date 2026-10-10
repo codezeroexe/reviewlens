@@ -4,3 +4,9 @@ pandas>=2.0
 # The saved model artifacts were trained with scikit-learn 1.6.1.
 scikit-learn==1.6.1
 scipy>=1.10
+# Complaint Discovery (phase 3). Falls back to TF-IDF+SVD and KMeans if missing.
+sentence-transformers==6.1.0
+hdbscan==0.8.44
+# Contradiction Investigator (phase 4): sentence polarity.
+vaderSentiment==3.3.2
+openpyxl==3.1.5

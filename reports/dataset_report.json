@@ -1,0 +1,137 @@
+{
+  "file": {
+    "path": "data/amazon_reviews_us_Electronics_v1_00.tsv",
+    "size_bytes": 1725988504,
+    "sample_rows": 20000
+  },
+  "rows": {
+    "read": 20000,
+    "retained": 20000,
+    "excluded": 0,
+    "exclusion_reasons": {
+      "dropped_empty_text": 0,
+      "rating_set_null": 0,
+      "date_set_null": 0,
+      "votes_set_null": 0,
+      "dropped_duplicate_review_id": 0,
+      "bad_lines_skipped": 0
+    }
+  },
+  "unique": {
+    "products": 10050,
+    "categories": 1,
+    "review_ids": 20000,
+    "customers": 17380
+  },
+  "products_with_30plus_reviews": 27,
+  "rating_distribution": {
+    "1": {
+      "count": 2351,
+      "pct": 11.76
+    },
+    "2": {
+      "count": 1069,
+      "pct": 5.34
+    },
+    "3": {
+      "count": 1364,
+      "pct": 6.82
+    },
+    "4": {
+      "count": 2964,
+      "pct": 14.82
+    },
+    "5": {
+      "count": 12252,
+      "pct": 61.26
+    }
+  },
+  "labels": {
+    "usefulness": {
+      "status": "derived, see label_notes",
+      "rule": "helpful_votes/total_votes >= 0.6 with total_votes >= 5",
+      "labelled_rows": 723
+    },
+    "fake_or_suspicious": "none (no labels in dataset)"
+  },
+  "missing_values": {
+    "marketplace": {
+      "count": 0,
+      "pct": 0.0
+    },
+    "customer_id": {
+      "count": 0,
+      "pct": 0.0
+    },
+    "review_id": {
+      "count": 0,
+      "pct": 0.0
+    },
+    "product_id": {
+      "count": 0,
+      "pct": 0.0
+    },
+    "product_parent": {
+      "count": 0,
+      "pct": 0.0
+    },
+    "product_title": {
+      "count": 0,
+      "pct": 0.0
+    },
+    "product_category": {
+      "count": 0,
+      "pct": 0.0
+    },
+    "star_rating": {
+      "count": 0,
+      "pct": 0.0
+    },
+    "helpful_votes": {
+      "count": 0,
+      "pct": 0.0
+    },
+    "total_votes": {
+      "count": 0,
+      "pct": 0.0
+    },
+    "vine": {
+      "count": 0,
+      "pct": 0.0
+    },
+    "verified_purchase": {
+      "count": 0,
+      "pct": 0.0
+    },
+    "review_headline": {
+      "count": 0,
+      "pct": 0.0
+    },
+    "review_body": {
+      "count": 1,
+      "pct": 0.005
+    },
+    "review_date": {
+      "count": 0,
+      "pct": 0.0
+    }
+  },
+  "duplicates": {
+    "exact_duplicate_review_ids": 0,
+    "exact_duplicate_texts_normalised": 1761,
+    "near_duplicates": "not counted here; method: exact-after-normalisation (lowercase, punctuation removed) within the sample; no fuzzy matching"
+  },
+  "date_coverage": {
+    "min": "2015-08-25",
+    "max": "2015-08-31",
+    "distinct_months": 1
+  },
+  "metadata_columns": {
+    "verified_purchase": true,
+    "vine": true,
+    "helpful_votes": true,
+    "total_votes": true,
+    "review_date": true,
+    "customer_id": true
+  }
+}

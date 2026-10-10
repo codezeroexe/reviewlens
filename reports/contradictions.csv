@@ -1,0 +1,568 @@
+product_id,aspect,method,verdict,nli_label,nli_score,context_differs,review_similarity,possible_interpretation
+B00001P4ZH,sound quality,nli,NLI: contradiction (model score),contradiction,0.9972,False,0.5796,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00001WRSJ,sound quality,nli,NLI: contradiction (model score),contradiction,0.9795,False,0.6767,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00001WRSJ,sound quality,nli,NLI: contradiction (model score),contradiction,0.9957,False,0.6767,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00001WRSJ,sound quality,nli,NLI: contradiction (model score),contradiction,0.9991,False,0.6319,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00001WRSJ,sound quality,nli,NLI: contradiction (model score),contradiction,0.9991,False,0.6319,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00001WRSJ,sound quality,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.55,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00001WRSJ,sound quality,nli,NLI: contradiction (model score),contradiction,0.9936,False,0.5486,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00001WRSJ,sound quality,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.5486,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B000FBK3QK,delivery,nli,NLI: contradiction (model score),contradiction,0.9947,False,0.4614,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B000TQ4D8K,sound quality,nli,NLI: contradiction (model score),contradiction,0.9993,False,0.3561,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B0012N0ZAY,comfort,nli,NLI: contradiction (model score),contradiction,0.9685,False,0.2236,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B0012S4APK,comfort,nli,NLI: contradiction (model score),contradiction,0.999,False,0.1957,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B0012S4APK,comfort,nli,NLI: contradiction (model score),contradiction,0.9986,False,0.1957,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B0016OEV7C,sound quality,nli,NLI: contradiction (model score),contradiction,0.9993,False,0.5256,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B001CROHX6,connectivity,nli,NLI: contradiction (model score),contradiction,0.9925,False,0.3404,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B001EZUQ5E,comfort,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.4148,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B001EZYMF4,comfort,nli,NLI: contradiction (model score),contradiction,0.9905,False,0.5693,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B001EZYMF4,comfort,nli,NLI: contradiction (model score),contradiction,0.9159,False,0.5491,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B002GQRROS,comfort,nli,NLI: contradiction (model score),contradiction,0.9972,False,0.5055,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B002GQRROS,sound quality,nli,NLI: contradiction (model score),contradiction,0.991,False,0.5721,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B002GQRROS,sound quality,nli,NLI: contradiction (model score),contradiction,0.9591,False,0.4205,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B002ROEKBW,durability,nli,NLI: contradiction (model score),contradiction,0.9925,False,0.3474,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B002VPDOH8,sound quality,nli,NLI: contradiction (model score),contradiction,0.9189,False,0.5166,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00372YKMM,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.4418,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00372YKMM,sound quality,nli,NLI: contradiction (model score),contradiction,0.9987,False,0.4418,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B0038W0K2K,comfort,nli,NLI: contradiction (model score),contradiction,0.9984,False,0.5928,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B0038W0K2K,comfort,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.4268,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B0038W0K2K,sound quality,nli,NLI: contradiction (model score),contradiction,0.9982,False,0.4935,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B0038W0K2K,sound quality,nli,NLI: contradiction (model score),contradiction,0.9209,False,0.4315,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B0038W0K2K,sound quality,nli,NLI: contradiction (model score),contradiction,0.9988,False,0.3882,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003AIL2HE,comfort,nli,NLI: contradiction (model score),contradiction,0.9969,False,0.4632,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003CJTR82,comfort,nli,NLI: contradiction (model score),contradiction,0.9984,False,0.5109,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003CJTR82,comfort,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.5109,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003CJTR82,comfort,nli,NLI: contradiction (model score),contradiction,0.9984,False,0.5109,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003CJTR82,comfort,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.5109,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003CJTR82,comfort,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.3195,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003CJTR82,comfort,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.3195,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003CJTR8M,sound quality,nli,NLI: contradiction (model score),contradiction,0.9224,False,0.2221,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003ELYQGG,sound quality,nli,NLI: contradiction (model score),contradiction,0.9984,False,0.4014,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003ELYQGG,sound quality,nli,NLI: contradiction (model score),contradiction,0.9984,False,0.4014,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003ELYQHK,sound quality,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.6782,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003ELYQHK,sound quality,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.5882,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003ELYQHK,sound quality,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.5882,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003ELYQHK,sound quality,nli,NLI: contradiction (model score),contradiction,0.9981,False,0.519,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM2WAW,comfort,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.308,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM2WAW,sound quality,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.4567,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM2WAW,sound quality,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.4224,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM2WAW,sound quality,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.4029,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM2WAW,sound quality,nli,NLI: contradiction (model score),contradiction,0.9986,False,0.4029,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM6AOG,comfort,nli,NLI: contradiction (model score),contradiction,0.9838,False,0.4578,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM6AOG,sound quality,nli,NLI: contradiction (model score),contradiction,0.9838,False,0.4578,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM6AQE,comfort,nli,NLI: contradiction (model score),contradiction,0.9892,False,0.3537,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM8008,comfort,nli,NLI: contradiction (model score),contradiction,0.9893,False,0.65,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM8008,sound quality,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.7226,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM8008,sound quality,nli,NLI: contradiction (model score),contradiction,0.9301,False,0.7209,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM800S,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.4116,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM800S,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.4074,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM800S,sound quality,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.3961,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM800S,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.3802,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM800S,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.3552,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM800S,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.35,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM800S,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.3492,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM800S,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.3373,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM800S,sound quality,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.3312,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM800S,sound quality,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.3312,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM800S,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.322,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM800S,sound quality,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.322,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM800S,sound quality,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.322,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM800S,sound quality,nli,NLI: contradiction (model score),contradiction,0.9971,False,0.238,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM800S,sound quality,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.238,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003EM800S,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.1898,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003WGRUQQ,display quality,nli,NLI: contradiction (model score),contradiction,0.9906,False,0.429,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003WGRUQQ,display quality,nli,NLI: contradiction (model score),contradiction,0.9893,False,0.3549,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003WGRUQQ,display quality,nli,NLI: contradiction (model score),contradiction,0.9249,False,0.1738,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003WGRUQQ,sound quality,nli,NLI: contradiction (model score),contradiction,0.9793,False,0.4523,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B003XQLNMC,comfort,nli,NLI: contradiction (model score),contradiction,0.9906,False,0.5674,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B0041MHZQK,sound quality,nli,NLI: contradiction (model score),contradiction,0.9989,False,0.456,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B0046H8ZHS,comfort,nli,NLI: contradiction (model score),contradiction,0.9805,False,0.3823,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B004RE3YNA,sound quality,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.4761,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B004RE3YNA,sound quality,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.4761,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B004RE3YNA,sound quality,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.4553,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B004RE3YNA,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.3694,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B004RKQM8I,sound quality,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.2764,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B004RKQM8I,sound quality,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.1951,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B005D91G38,charging,nli,NLI: contradiction (model score),contradiction,0.9816,False,0.4163,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B005K2TXMO,sound quality,nli,NLI: contradiction (model score),contradiction,0.9993,False,0.42,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B005K2TXMO,sound quality,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.42,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B005K2TXMO,sound quality,nli,NLI: contradiction (model score),contradiction,0.9993,False,0.3424,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B005K2TXMO,sound quality,nli,NLI: contradiction (model score),contradiction,0.9993,False,0.3424,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B006SUWZH2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.5549,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B007BY3POQ,comfort,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.5447,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00857PZ96,sound quality,nli,NLI: contradiction (model score),contradiction,0.9873,False,0.5022,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00857PZ96,sound quality,nli,NLI: contradiction (model score),contradiction,0.9974,False,0.5022,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00870ZHCQ,sound quality,nli,NLI: contradiction (model score),contradiction,0.9987,False,0.3568,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B008D5TYEW,battery life,nli,NLI: contradiction (model score),contradiction,0.9857,False,0.4722,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B008OUL1OC,comfort,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.5977,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B008OUL1OC,sound quality,nli,NLI: contradiction (model score),contradiction,0.9979,False,0.6909,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B008OUL1OC,sound quality,nli,NLI: contradiction (model score),contradiction,0.9976,False,0.686,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B008OUL1OC,sound quality,nli,NLI: contradiction (model score),contradiction,0.999,False,0.6011,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B008OUL1OC,sound quality,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.5785,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B008OUL1OC,sound quality,nli,NLI: contradiction (model score),contradiction,0.9248,False,0.4701,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B008OUL1OC,sound quality,nli,NLI: contradiction (model score),contradiction,0.9992,False,0.4701,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B008QZTJH6,charging,nli,NLI: contradiction (model score),contradiction,0.9972,False,0.7885,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B008QZTJH6,charging,nli,NLI: contradiction (model score),contradiction,0.9971,False,0.6957,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B009AXVM6E,connectivity,nli,NLI: contradiction (model score),contradiction,0.999,False,0.6565,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B009OBCAW2,connectivity,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.6005,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B009OBCAW2,connectivity,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.5768,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B009OBCAW2,connectivity,nli,NLI: contradiction (model score),contradiction,0.9965,False,0.5768,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00AXVWNGA,camera quality,nli,NLI: contradiction (model score),contradiction,0.9921,False,0.4283,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00BCA40S0,sound quality,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.6977,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00BCA40S0,sound quality,nli,NLI: contradiction (model score),contradiction,0.9988,False,0.6613,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00BCA40S0,sound quality,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.6131,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00BCA4116,sound quality,nli,NLI: contradiction (model score),contradiction,0.981,False,0.7825,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00BCSYZQY,sound quality,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.2815,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00BI22U3O,sound quality,nli,NLI: contradiction (model score),contradiction,0.943,False,0.4368,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00BI22U3O,sound quality,nli,NLI: contradiction (model score),contradiction,0.9912,False,0.4368,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00C30FCUI,connectivity,nli,NLI: contradiction (model score),contradiction,0.9937,False,0.5855,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00C30FCUI,sound quality,nli,NLI: contradiction (model score),contradiction,0.9854,False,0.4473,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00C30FCUI,sound quality,nli,NLI: contradiction (model score),contradiction,0.9942,False,0.4012,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00C30FCUI,sound quality,nli,NLI: contradiction (model score),contradiction,0.9777,False,0.4012,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00C30FCUI,sound quality,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.4012,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00C30FCUI,sound quality,nli,NLI: contradiction (model score),contradiction,0.9771,False,0.3961,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00C30FCUI,sound quality,nli,NLI: contradiction (model score),contradiction,0.9968,False,0.3895,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00C30FCUI,sound quality,nli,NLI: contradiction (model score),contradiction,0.998,False,0.3789,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00C30FCUI,sound quality,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.3695,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00C30FCUI,sound quality,nli,NLI: contradiction (model score),contradiction,0.9869,False,0.3487,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00C30HUQ2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9928,False,0.6298,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00C30HUQ2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9917,False,0.6298,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00C30HUQ2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9879,False,0.5939,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00C30HUQ2,sound quality,nli,NLI: contradiction (model score),contradiction,0.993,False,0.5939,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00C30HUQ2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9976,False,0.5207,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00C30HUQ2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9788,False,0.43,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00C404VC2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9936,False,0.5638,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00CKYVYI6,sound quality,nli,NLI: contradiction (model score),contradiction,0.9931,False,0.5019,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00CKYVYI6,sound quality,nli,NLI: contradiction (model score),contradiction,0.9813,False,0.5019,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00D429Y12,sound quality,nli,NLI: contradiction (model score),contradiction,0.992,False,0.2867,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00D5Q75RC,connectivity,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.3314,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00D5Q75RC,sound quality,nli,NLI: contradiction (model score),contradiction,0.9845,False,0.29,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00D5Q75RC,sound quality,nli,NLI: contradiction (model score),contradiction,0.9845,False,0.29,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00D5Q75RC,sound quality,nli,NLI: contradiction (model score),contradiction,0.9593,False,0.2867,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00D5Q75RC,sound quality,nli,NLI: contradiction (model score),contradiction,0.9845,False,0.2827,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00D5Q75RC,sound quality,nli,NLI: contradiction (model score),contradiction,0.9966,False,0.2278,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00D5Q75RC,sound quality,nli,NLI: contradiction (model score),contradiction,0.9813,False,0.2278,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00DDPZ4FA,comfort,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.3874,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00DDPZ4FA,comfort,nli,NLI: contradiction (model score),contradiction,0.9993,False,0.3426,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00DDPZ4FA,comfort,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.3426,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00DDPZ4FA,sound quality,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.3874,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00DDPZ4FA,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.3306,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00DDPZ4I2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.3375,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00DDPZ4I2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.3375,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00DOP3NPW,comfort,nli,NLI: contradiction (model score),contradiction,0.9799,False,0.5645,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00DOP3NPW,connectivity,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.5645,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00DOP3NPW,sound quality,nli,NLI: contradiction (model score),contradiction,0.999,False,0.5645,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00DOP3NPW,sound quality,nli,NLI: contradiction (model score),contradiction,0.9969,False,0.5645,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00DSTBMPC,sound quality,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.3914,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00E4LGVUO,sound quality,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.6597,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00E4LGVUO,sound quality,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.6597,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00E4LGVUO,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.5475,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00E4LGVUO,sound quality,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.5475,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00E4LGVUO,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.5369,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00E4LGVUO,sound quality,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.5369,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00E4LGVUO,sound quality,nli,NLI: contradiction (model score),contradiction,0.9801,False,0.5008,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00E4LGVUO,sound quality,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.4965,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00E4LGVUO,sound quality,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.4491,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00E4LGVUO,sound quality,nli,NLI: contradiction (model score),contradiction,0.998,False,0.3938,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00E4LGVUO,sound quality,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.3915,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00EWCUK1Q,connectivity,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.4475,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00EWCUK1Q,connectivity,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.4475,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00EWCUK1Q,sound quality,nli,NLI: contradiction (model score),contradiction,0.993,False,0.5244,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00EWCUK1Q,sound quality,nli,NLI: contradiction (model score),contradiction,0.9894,False,0.4475,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00EWCUK1Q,sound quality,nli,NLI: contradiction (model score),contradiction,0.9967,False,0.3072,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00EWCUK1Q,sound quality,nli,NLI: contradiction (model score),contradiction,0.9967,False,0.3072,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00EWCUK1Q,sound quality,nli,NLI: contradiction (model score),contradiction,0.9967,False,0.2312,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00EWCUK1Q,sound quality,nli,NLI: contradiction (model score),contradiction,0.9967,False,0.2312,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00EWCUK1Q,sound quality,nli,NLI: contradiction (model score),contradiction,0.9494,False,0.1042,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00F54Y6GU,connectivity,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.3417,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00F54Y6GU,sound quality,nli,NLI: contradiction (model score),contradiction,0.9987,False,0.3417,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00F5NE2KG,battery life,nli,NLI: contradiction (model score),contradiction,0.9982,False,0.592,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00F5NE2KG,battery life,nli,NLI: contradiction (model score),contradiction,0.9993,False,0.3924,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00F5NE2KG,battery life,nli,NLI: contradiction (model score),contradiction,0.9975,False,0.3866,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00F5NE2KG,battery life,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.3627,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00F5NE2KG,battery life,nli,NLI: contradiction (model score),contradiction,0.982,False,0.2736,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00F5NE2KG,connectivity,nli,NLI: contradiction (model score),contradiction,0.9734,False,0.4406,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00F5NE2KG,sound quality,nli,NLI: contradiction (model score),contradiction,0.9983,False,0.5873,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00F5NE2KG,sound quality,nli,NLI: contradiction (model score),contradiction,0.9981,False,0.5518,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00F5NE2KG,sound quality,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.5518,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00F5NE2KG,sound quality,nli,NLI: contradiction (model score),contradiction,0.9992,False,0.5352,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00F5NE2KG,sound quality,nli,NLI: contradiction (model score),contradiction,0.9974,False,0.5343,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00F5NE2KG,sound quality,nli,NLI: contradiction (model score),contradiction,0.9915,False,0.5343,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00F5NE2KG,sound quality,nli,NLI: contradiction (model score),contradiction,0.983,False,0.5238,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00F5NE2KG,sound quality,nli,NLI: contradiction (model score),contradiction,0.9746,False,0.5238,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00F5NE2KG,sound quality,nli,NLI: contradiction (model score),contradiction,0.9781,False,0.5237,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00F5NE2KG,sound quality,nli,NLI: contradiction (model score),contradiction,0.9957,False,0.5014,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00F6AVFK8,battery life,nli,NLI: contradiction (model score),contradiction,0.9587,False,0.5544,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00F6AVFK8,sound quality,nli,NLI: contradiction (model score),contradiction,0.9764,False,0.6139,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00F6AVFK8,sound quality,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.3732,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00F6AVFK8,sound quality,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.3732,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00F6AVFK8,sound quality,nli,NLI: contradiction (model score),contradiction,0.9964,False,0.2394,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00F6AVFK8,sound quality,nli,NLI: contradiction (model score),contradiction,0.9961,False,0.2394,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00FZWZYWM,connectivity,nli,NLI: contradiction (model score),contradiction,0.9864,False,0.4596,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00FZWZYWM,connectivity,nli,NLI: contradiction (model score),contradiction,0.9651,False,0.4596,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00GKOZ5DC,sound quality,nli,NLI: contradiction (model score),contradiction,0.995,False,0.2616,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00GKOZ5DC,sound quality,nli,NLI: contradiction (model score),contradiction,0.9898,False,0.2616,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00GKOZ5DC,sound quality,nli,NLI: contradiction (model score),contradiction,0.9908,False,0.2162,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00GKOZ5DC,sound quality,nli,NLI: contradiction (model score),contradiction,0.9985,False,0.2046,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00GKOZ5DC,sound quality,nli,NLI: contradiction (model score),contradiction,0.9282,False,0.1971,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00GKOZ5DC,sound quality,nli,NLI: contradiction (model score),contradiction,0.9979,False,0.128,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00GKOZ5DC,sound quality,nli,NLI: contradiction (model score),contradiction,0.9978,False,0.128,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00GZC35YK,sound quality,nli,NLI: contradiction (model score),contradiction,0.9584,False,0.461,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00GZC35YK,sound quality,nli,NLI: contradiction (model score),contradiction,0.9984,False,0.4422,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00GZC35YK,sound quality,nli,NLI: contradiction (model score),contradiction,0.9629,False,0.4142,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00H2QUD9S,comfort,nli,NLI: contradiction (model score),contradiction,0.9989,False,0.3308,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00H2QUD9S,comfort,nli,NLI: contradiction (model score),contradiction,0.9988,False,0.3308,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00HTPHK5W,sound quality,nli,NLI: contradiction (model score),contradiction,0.9944,False,0.6446,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00HTPHK5W,sound quality,nli,NLI: contradiction (model score),contradiction,0.9699,False,0.6446,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00HTPHK5W,sound quality,nli,NLI: contradiction (model score),contradiction,0.9975,False,0.5985,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00HTPHK5W,sound quality,nli,NLI: contradiction (model score),contradiction,0.9936,False,0.5659,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00HTPHK5W,sound quality,nli,NLI: contradiction (model score),contradiction,0.9736,False,0.4488,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00HTPHK5W,sound quality,nli,NLI: contradiction (model score),contradiction,0.9971,False,0.4488,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00HZN1WXE,sound quality,nli,NLI: contradiction (model score),contradiction,0.9971,False,0.2883,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00I9ICWBA,sound quality,nli,NLI: contradiction (model score),contradiction,0.9879,False,0.4308,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ICNXESC,battery life,nli,NLI: contradiction (model score),contradiction,0.9621,False,0.4558,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ICNXESC,battery life,nli,NLI: contradiction (model score),contradiction,0.9991,False,0.4558,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ICNXESC,battery life,nli,NLI: contradiction (model score),contradiction,0.9526,False,0.3503,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IDYV2IO,connectivity,nli,NLI: contradiction (model score),contradiction,0.9904,False,0.0997,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00INEG8W4,sound quality,nli,NLI: contradiction (model score),contradiction,0.9992,False,0.4752,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00INEG8W4,sound quality,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.3556,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00INEG8W4,sound quality,nli,NLI: contradiction (model score),contradiction,0.9991,False,0.3556,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00INEG8W4,sound quality,nli,NLI: contradiction (model score),contradiction,0.9992,False,0.1855,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00INEG8W4,sound quality,nli,NLI: contradiction (model score),contradiction,0.9991,False,0.1855,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ISIG690,comfort,nli,NLI: contradiction (model score),contradiction,0.9937,False,0.5773,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ISIG690,comfort,nli,NLI: contradiction (model score),contradiction,0.9865,False,0.5197,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ISIG690,sound quality,nli,NLI: contradiction (model score),contradiction,0.9602,False,0.5773,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ISIG690,sound quality,nli,NLI: contradiction (model score),contradiction,0.9838,False,0.5724,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ISIG690,sound quality,nli,NLI: contradiction (model score),contradiction,0.9945,False,0.5197,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,comfort,nli,NLI: contradiction (model score),contradiction,0.9811,False,0.7391,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,comfort,nli,NLI: contradiction (model score),contradiction,0.9927,False,0.6976,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,comfort,nli,NLI: contradiction (model score),contradiction,0.992,False,0.6976,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,comfort,nli,NLI: contradiction (model score),contradiction,0.9621,False,0.612,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,comfort,nli,NLI: contradiction (model score),contradiction,0.9572,False,0.6046,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,comfort,nli,NLI: contradiction (model score),contradiction,0.9872,False,0.6043,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,comfort,nli,NLI: contradiction (model score),contradiction,0.9886,False,0.5061,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,sound quality,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.7368,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,sound quality,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.7368,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,sound quality,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.6751,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,sound quality,nli,NLI: contradiction (model score),contradiction,0.9973,False,0.6561,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,sound quality,nli,NLI: contradiction (model score),contradiction,0.9988,False,0.6561,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,sound quality,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.6557,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,sound quality,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.6557,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,sound quality,nli,NLI: contradiction (model score),contradiction,0.9989,False,0.636,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,sound quality,nli,NLI: contradiction (model score),contradiction,0.999,False,0.636,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,sound quality,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.6125,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,sound quality,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.6043,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,sound quality,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.4991,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,sound quality,nli,NLI: contradiction (model score),contradiction,0.998,False,0.4893,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,sound quality,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.4586,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,sound quality,nli,NLI: contradiction (model score),contradiction,0.9975,False,0.419,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,sound quality,nli,NLI: contradiction (model score),contradiction,0.9972,False,0.419,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,sound quality,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.4071,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,sound quality,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.3646,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IUICQ1U,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.3601,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IYA2SMQ,connectivity,nli,NLI: contradiction (model score),contradiction,0.9832,False,0.5015,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IYA2SMQ,durability,nli,NLI: contradiction (model score),contradiction,0.9866,False,0.3677,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IYA2SMQ,sound quality,nli,NLI: contradiction (model score),contradiction,0.9983,False,0.1646,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IYA2SMQ,sound quality,nli,NLI: contradiction (model score),contradiction,0.9982,False,0.1646,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IYA2YRK,comfort,nli,NLI: contradiction (model score),contradiction,0.9921,False,0.51,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IYA2ZJW,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.4787,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00IYA31AY,sound quality,nli,NLI: contradiction (model score),contradiction,0.9059,False,0.7132,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00JAAJ1F6,comfort,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.6272,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00JAAJ1F6,comfort,nli,NLI: contradiction (model score),contradiction,0.9982,False,0.5512,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00JAAJ1F6,comfort,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.5057,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00JAAJ1F6,comfort,nli,NLI: contradiction (model score),contradiction,0.995,False,0.3872,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00JAAJ1F6,comfort,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.3872,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00JAAJ1F6,comfort,nli,NLI: contradiction (model score),contradiction,0.9985,False,0.3872,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00JAAJ1F6,durability,nli,NLI: contradiction (model score),contradiction,0.995,False,0.3872,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00JAAJ1F6,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.5784,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00JAAJ1F6,sound quality,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.5361,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00JAAJ1F6,sound quality,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.5057,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00JAAJ1F6,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.4305,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00JAAJ1F6,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.421,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00JAAJ1F6,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.3797,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00JK6MQEI,sound quality,nli,NLI: contradiction (model score),contradiction,0.9871,False,0.7319,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00JK6MQEI,sound quality,nli,NLI: contradiction (model score),contradiction,0.9992,False,0.4324,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00JK6MQEI,sound quality,nli,NLI: contradiction (model score),contradiction,0.9982,False,0.4058,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00JRD13T8,connectivity,nli,NLI: contradiction (model score),contradiction,0.9993,False,0.3322,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00JRD13T8,connectivity,nli,NLI: contradiction (model score),contradiction,0.9982,False,0.3322,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00JZVPGD6,sound quality,nli,NLI: contradiction (model score),contradiction,0.9127,False,0.5034,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00K35MU0K,sound quality,nli,NLI: contradiction (model score),contradiction,0.9882,False,0.6231,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00K35MU0K,sound quality,nli,NLI: contradiction (model score),contradiction,0.9635,False,0.4444,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00K35MU0K,sound quality,nli,NLI: contradiction (model score),contradiction,0.9888,False,0.4008,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00K589F8A,charging,nli,NLI: contradiction (model score),contradiction,0.9982,False,0.5125,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00K589F8A,charging,nli,NLI: contradiction (model score),contradiction,0.9978,False,0.5058,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00K589F8A,sound quality,nli,NLI: contradiction (model score),contradiction,0.9977,False,0.6301,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00K589F8A,sound quality,nli,NLI: contradiction (model score),contradiction,0.9922,False,0.5329,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00K589F8A,sound quality,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.5308,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00K589F8A,sound quality,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.5308,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00K589F8A,sound quality,nli,NLI: contradiction (model score),contradiction,0.9978,False,0.5058,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00K589F8A,sound quality,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.4751,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00K589F8A,sound quality,nli,NLI: contradiction (model score),contradiction,0.9963,False,0.4702,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00K589F8A,sound quality,nli,NLI: contradiction (model score),contradiction,0.9883,False,0.4702,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00K589F8A,sound quality,nli,NLI: contradiction (model score),contradiction,0.998,False,0.4429,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00KBFZDI8,charging,nli,NLI: contradiction (model score),contradiction,0.9931,False,0.545,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00KXYXXK2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.3138,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00KXYXXK2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.3138,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00L108SAW,charging,nli,NLI: contradiction (model score),contradiction,0.9847,False,0.3329,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00L108SAW,charging,nli,NLI: contradiction (model score),contradiction,0.9991,False,0.3329,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00L3KSRTW,sound quality,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.3407,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00LA58P0Q,sound quality,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.4289,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00LA58P0Q,sound quality,nli,NLI: contradiction (model score),contradiction,0.9725,False,0.4289,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00LA58P0Q,sound quality,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.2601,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00M1NEUKK,comfort,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.5643,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00M5A7L14,sound quality,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.6184,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00M5A7L14,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.5627,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00M5A7L14,sound quality,nli,NLI: contradiction (model score),contradiction,0.9977,False,0.3751,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00M5A7L14,sound quality,nli,NLI: contradiction (model score),contradiction,0.9975,False,0.3333,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00M5A7L14,sound quality,nli,NLI: contradiction (model score),contradiction,0.9933,False,0.3276,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00M5A7L14,sound quality,nli,NLI: contradiction (model score),contradiction,0.939,False,0.1978,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00M8T5YHU,comfort,nli,NLI: contradiction (model score),contradiction,0.9825,False,0.453,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00MITLPX2,connectivity,nli,NLI: contradiction (model score),contradiction,0.9993,False,0.5791,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00MITLPX2,connectivity,nli,NLI: contradiction (model score),contradiction,0.9993,False,0.5732,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00MITLPX2,connectivity,nli,NLI: contradiction (model score),contradiction,0.9976,False,0.4884,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00MITLPX2,connectivity,nli,NLI: contradiction (model score),contradiction,0.9985,False,0.4708,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00MITLPX2,connectivity,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.4122,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00MITLPX2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9977,False,0.627,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00MITLPX2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9941,False,0.627,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00MITLPX2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9826,False,0.5732,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00MITLPX2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9988,False,0.559,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00MO66IJU,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.5364,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00MO66IJU,sound quality,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.5364,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00MO66IJU,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.5364,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00N1SSX6Q,sound quality,nli,NLI: contradiction (model score),contradiction,0.9989,False,0.3259,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00N1SSX6Q,sound quality,nli,NLI: contradiction (model score),contradiction,0.9912,False,0.3259,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00N32I2Q6,charging,nli,NLI: contradiction (model score),contradiction,0.9986,False,0.5848,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00N32I2Q6,sound quality,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.6925,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00N32I2Q6,sound quality,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.6925,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00N32I2Q6,sound quality,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.5623,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00N32I2Q6,sound quality,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.4732,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00N32I2Q6,sound quality,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.4732,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00N32I2Q6,sound quality,nli,NLI: contradiction (model score),contradiction,0.9991,False,0.4541,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00N32I2Q6,sound quality,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.4337,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00N3RFFZ2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9857,False,0.3594,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00N3RFFZ2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9953,False,0.2367,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NBEWB4U,comfort,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.3923,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NBEWB4U,comfort,nli,NLI: contradiction (model score),contradiction,0.9985,False,0.3529,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NBEWB4U,sound quality,nli,NLI: contradiction (model score),contradiction,0.9918,False,0.6811,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NBEWB4U,sound quality,nli,NLI: contradiction (model score),contradiction,0.9671,False,0.6691,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NC3SU6I,battery life,nli,NLI: contradiction (model score),contradiction,0.9967,False,0.6405,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NC3SU6I,charging,nli,NLI: contradiction (model score),contradiction,0.9967,False,0.6405,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NC3SU6I,charging,nli,NLI: contradiction (model score),contradiction,0.9989,False,0.5891,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NC3SU6I,sound quality,nli,NLI: contradiction (model score),contradiction,0.9931,False,0.6064,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NCSIN4W,battery life,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.7625,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NCSIN4W,battery life,nli,NLI: contradiction (model score),contradiction,0.9987,False,0.4665,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NCSIN4W,comfort,nli,NLI: contradiction (model score),contradiction,0.9965,False,0.4835,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NCSIN4W,sound quality,nli,NLI: contradiction (model score),contradiction,0.9969,False,0.7625,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NCSIN4W,sound quality,nli,NLI: contradiction (model score),contradiction,0.9682,False,0.75,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NCSIN4W,sound quality,nli,NLI: contradiction (model score),contradiction,0.9208,False,0.6717,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NCSIN4W,sound quality,nli,NLI: contradiction (model score),contradiction,0.9882,False,0.668,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NCSIN4W,sound quality,nli,NLI: contradiction (model score),contradiction,0.975,False,0.612,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NCSIN4W,sound quality,nli,NLI: contradiction (model score),contradiction,0.9938,False,0.5624,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NG57H4S,sound quality,nli,NLI: contradiction (model score),contradiction,0.9989,False,0.7071,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NIBK47W,sound quality,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.4809,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NJ2M33I,sound quality,nli,NLI: contradiction (model score),contradiction,0.9772,False,0.4331,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NM4LKJG,connectivity,nli,NLI: contradiction (model score),contradiction,0.9801,False,0.6659,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NM4LKJG,connectivity,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.5307,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NM4LKJG,sound quality,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.6659,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NM4LKJG,sound quality,nli,NLI: contradiction (model score),contradiction,0.9967,False,0.6659,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NM4LKJG,sound quality,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.6341,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NM4LKJG,sound quality,nli,NLI: contradiction (model score),contradiction,0.9985,False,0.6341,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NM4LKJG,sound quality,nli,NLI: contradiction (model score),contradiction,0.9913,False,0.6341,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NM4LKJG,sound quality,nli,NLI: contradiction (model score),contradiction,0.9966,False,0.6341,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NM4LKJG,sound quality,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.5307,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NM4LKJG,sound quality,nli,NLI: contradiction (model score),contradiction,0.9993,False,0.5307,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NQL8Z16,sound quality,nli,NLI: contradiction (model score),contradiction,0.9647,False,0.6063,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NQL8Z16,sound quality,nli,NLI: contradiction (model score),contradiction,0.9976,False,0.5754,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NQL8Z16,sound quality,nli,NLI: contradiction (model score),contradiction,0.994,False,0.4684,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NQL8Z16,sound quality,nli,NLI: contradiction (model score),contradiction,0.9992,False,0.4684,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NT2X4XG,battery life,nli,NLI: contradiction (model score),contradiction,0.9496,False,0.3179,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NT2X4XG,battery life,nli,NLI: contradiction (model score),contradiction,0.9496,False,0.3179,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NT2X4XG,battery life,nli,NLI: contradiction (model score),contradiction,0.9982,False,0.2836,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NUI45AU,charging,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.5556,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NUI45AU,charging,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.5556,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NUI45AU,charging,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.5231,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NUI45AU,charging,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.5231,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NXET2MM,battery life,nli,NLI: contradiction (model score),contradiction,0.998,False,0.7685,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NXET2MM,battery life,nli,NLI: contradiction (model score),contradiction,0.9967,False,0.6233,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NXET2MM,battery life,nli,NLI: contradiction (model score),contradiction,0.9802,False,0.6233,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NXET2MM,battery life,nli,NLI: contradiction (model score),contradiction,0.9984,False,0.5238,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00NXET2MM,battery life,nli,NLI: contradiction (model score),contradiction,0.9966,False,0.5238,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ODC9C6Y,sound quality,nli,NLI: contradiction (model score),contradiction,0.999,False,0.5677,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ODC9C6Y,sound quality,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.5064,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ODC9C6Y,sound quality,nli,NLI: contradiction (model score),contradiction,0.9677,False,0.5064,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ODC9C6Y,sound quality,nli,NLI: contradiction (model score),contradiction,0.9986,False,0.5064,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ODC9C6Y,sound quality,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.5064,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ODC9C6Y,sound quality,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.4992,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ODC9C6Y,sound quality,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.4893,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ODC9C6Y,sound quality,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.4623,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ODC9C6Y,sound quality,nli,NLI: contradiction (model score),contradiction,0.9973,False,0.4623,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ODC9GOW,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.6479,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ODC9GOW,sound quality,nli,NLI: contradiction (model score),contradiction,0.9982,False,0.4822,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ODC9GOW,sound quality,nli,NLI: contradiction (model score),contradiction,0.9988,False,0.3016,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00OEPCHL2,connectivity,nli,NLI: contradiction (model score),contradiction,0.9987,False,0.4645,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00OEPCHL2,connectivity,nli,NLI: contradiction (model score),contradiction,0.9946,False,0.2596,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00OEPCHL2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9985,False,0.6082,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00OEPCHL2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9991,False,0.6082,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00OEPCHL2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.5916,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00OEPCHL2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9971,False,0.5319,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00OEPCHL2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9881,False,0.5319,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00OEPCHL2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.5271,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00OEPCHL2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9993,False,0.5271,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00OEPCHL2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9282,False,0.5271,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00OEPCHL2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9973,False,0.5095,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00OHDODF4,sound quality,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.4163,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00OHDODF4,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.4163,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00OP8RYY8,battery life,nli,NLI: contradiction (model score),contradiction,0.9942,False,0.5823,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00OVX7M3U,comfort,nli,NLI: contradiction (model score),contradiction,0.985,False,0.565,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00OVX7M3U,sound quality,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.6627,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00OVX7M3U,sound quality,nli,NLI: contradiction (model score),contradiction,0.9992,False,0.5192,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00OVX7M3U,sound quality,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.4935,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00OVX7M3U,sound quality,nli,NLI: contradiction (model score),contradiction,0.9978,False,0.394,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00OVX7M3U,sound quality,nli,NLI: contradiction (model score),contradiction,0.9948,False,0.2471,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00PVRI0OK,comfort,nli,NLI: contradiction (model score),contradiction,0.9935,False,0.4704,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00PVRI0OK,connectivity,nli,NLI: contradiction (model score),contradiction,0.9993,False,0.5509,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00PVRI0OK,sound quality,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.6393,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00PVRI0OK,sound quality,nli,NLI: contradiction (model score),contradiction,0.9988,False,0.6393,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00PVRI0OK,sound quality,nli,NLI: contradiction (model score),contradiction,0.9935,False,0.4704,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00PVRI0OK,sound quality,nli,NLI: contradiction (model score),contradiction,0.9933,False,0.3847,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00Q2VIW9M,comfort,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.7008,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00Q2VIW9M,comfort,nli,NLI: contradiction (model score),contradiction,0.9769,False,0.7008,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00Q5E88VS,sound quality,nli,NLI: contradiction (model score),contradiction,0.994,False,0.4887,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00Q8I0ELS,sound quality,nli,NLI: contradiction (model score),contradiction,0.9992,False,0.6726,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00Q8I0ELS,sound quality,nli,NLI: contradiction (model score),contradiction,0.9967,False,0.3765,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00Q8I0ELS,sound quality,nli,NLI: contradiction (model score),contradiction,0.932,False,0.3765,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00Q8I0ELS,sound quality,nli,NLI: contradiction (model score),contradiction,0.9991,False,0.3659,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00QAYEGCS,battery life,nli,NLI: contradiction (model score),contradiction,0.9964,False,0.3918,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00QAYEGCS,battery life,nli,NLI: contradiction (model score),contradiction,0.9899,False,0.3899,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00QHOCTG6,comfort,nli,NLI: contradiction (model score),contradiction,0.9992,False,0.6242,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00QHOCTG6,connectivity,nli,NLI: contradiction (model score),contradiction,0.9942,False,0.4751,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00QM8V576,camera quality,nli,NLI: contradiction (model score),contradiction,0.9361,False,0.3946,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00RBIC1IS,battery life,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.5021,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00RBIC1IS,battery life,nli,NLI: contradiction (model score),contradiction,0.9594,False,0.5021,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00RBIC1IS,battery life,nli,NLI: contradiction (model score),contradiction,0.9992,False,0.485,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00RBIC1IS,battery life,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.4629,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00RBIC1IS,battery life,nli,NLI: contradiction (model score),contradiction,0.999,False,0.4158,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00RBIC1IS,battery life,nli,NLI: contradiction (model score),contradiction,0.9956,False,0.2623,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00RBIC1IS,charging,nli,NLI: contradiction (model score),contradiction,0.999,False,0.4158,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00RSUFT5G,comfort,nli,NLI: contradiction (model score),contradiction,0.9982,False,0.6878,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00RSUFT5G,comfort,nli,NLI: contradiction (model score),contradiction,0.9734,False,0.4654,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00RSUFT5G,sound quality,nli,NLI: contradiction (model score),contradiction,0.9998,False,0.6429,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00RSUFT5G,sound quality,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.5492,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00RSUFT5G,sound quality,nli,NLI: contradiction (model score),contradiction,0.9993,False,0.5404,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00RSUFT5G,sound quality,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.5403,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00RSUFT5G,sound quality,nli,NLI: contradiction (model score),contradiction,0.9988,False,0.5403,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00RSUFT5G,sound quality,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.4675,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00RSUFT5G,sound quality,nli,NLI: contradiction (model score),contradiction,0.9999,False,0.4675,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00S82HDG6,connectivity,nli,NLI: contradiction (model score),contradiction,0.9942,False,0.5985,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00S82HDG6,sound quality,nli,NLI: contradiction (model score),contradiction,0.9963,False,0.5985,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00SLVB71Q,comfort,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.4598,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00SLVB71Q,comfort,nli,NLI: contradiction (model score),contradiction,0.9888,False,0.4598,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00SMAOW9A,sound quality,nli,NLI: contradiction (model score),contradiction,0.9992,False,0.4997,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00SMAOW9A,sound quality,nli,NLI: contradiction (model score),contradiction,0.9992,False,0.4997,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00SMAOW9A,sound quality,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.4876,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00SMAOW9A,sound quality,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.4876,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00SMAOW9A,sound quality,nli,NLI: contradiction (model score),contradiction,0.9979,False,0.4876,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00SMAOW9A,sound quality,nli,NLI: contradiction (model score),contradiction,0.9915,False,0.4876,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00SMAOW9A,sound quality,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.4506,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00SMAOW9A,sound quality,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.4506,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00SMAOW9A,sound quality,nli,NLI: contradiction (model score),contradiction,0.9939,False,0.4506,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00SNA9NN4,sound quality,nli,NLI: contradiction (model score),contradiction,0.9931,False,0.2798,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00TDN7HYM,comfort,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.4856,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00TDNWQN4,connectivity,nli,NLI: contradiction (model score),contradiction,0.956,False,0.7607,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00TDNWQN4,connectivity,nli,NLI: contradiction (model score),contradiction,0.9944,False,0.715,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00TDNWQN4,connectivity,nli,NLI: contradiction (model score),contradiction,0.9981,False,0.5759,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00TDNWQN4,connectivity,nli,NLI: contradiction (model score),contradiction,0.9916,False,0.5431,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00TDNWQN4,connectivity,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.5053,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00TDNWQN4,connectivity,nli,NLI: contradiction (model score),contradiction,0.9843,False,0.4781,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00TDNWQN4,connectivity,nli,NLI: contradiction (model score),contradiction,0.9941,False,0.4781,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00TDNWQN4,connectivity,nli,NLI: contradiction (model score),contradiction,0.9984,False,0.4772,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00TDNWQN4,connectivity,nli,NLI: contradiction (model score),contradiction,0.9938,False,0.4772,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00TDNWQN4,connectivity,nli,NLI: contradiction (model score),contradiction,0.9739,False,0.4655,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00TDNWQN4,sound quality,nli,NLI: contradiction (model score),contradiction,0.9609,False,0.4772,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00TIAYQEY,sound quality,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.6378,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00TMRUKQG,sound quality,nli,NLI: contradiction (model score),contradiction,0.9357,False,0.5543,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00TMRUKQG,sound quality,nli,NLI: contradiction (model score),contradiction,0.9992,False,0.4721,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00TMRUKQG,sound quality,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.453,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00U0A9ZJ2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9987,False,0.4527,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00U0A9ZJ2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9985,False,0.4272,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00U7W838M,sound quality,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.4073,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00V45K5YQ,comfort,nli,NLI: contradiction (model score),contradiction,0.9191,False,0.3758,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00V45K5YQ,connectivity,nli,NLI: contradiction (model score),contradiction,0.9826,False,0.5537,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00V45K5YQ,connectivity,nli,NLI: contradiction (model score),contradiction,0.9666,False,0.5163,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00V45K5YQ,connectivity,nli,NLI: contradiction (model score),contradiction,0.9993,False,0.5163,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00V45K5YQ,connectivity,nli,NLI: contradiction (model score),contradiction,0.9933,False,0.4441,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00V45K5YQ,connectivity,nli,NLI: contradiction (model score),contradiction,0.9529,False,0.3792,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00V45K5YQ,connectivity,nli,NLI: contradiction (model score),contradiction,0.9891,False,0.3792,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00V45K5YQ,sound quality,nli,NLI: contradiction (model score),contradiction,0.9831,False,0.5537,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00V45K5YQ,sound quality,nli,NLI: contradiction (model score),contradiction,0.9993,False,0.5163,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00VARCG7W,sound quality,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.4475,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00WBS32K4,sound quality,nli,NLI: contradiction (model score),contradiction,0.9911,False,0.224,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00WBS32K4,sound quality,nli,NLI: contradiction (model score),contradiction,0.9937,False,0.224,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00WBS32K4,sound quality,nli,NLI: contradiction (model score),contradiction,0.9983,False,0.1448,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00WBS32K4,sound quality,nli,NLI: contradiction (model score),contradiction,0.9966,False,0.1448,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00WBS32K4,sound quality,nli,NLI: contradiction (model score),contradiction,0.996,False,0.1448,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00WBS32K4,sound quality,nli,NLI: contradiction (model score),contradiction,0.9959,False,0.1448,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00WK47VEW,battery life,nli,NLI: contradiction (model score),contradiction,0.9932,False,0.4945,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00WK47VEW,sound quality,nli,NLI: contradiction (model score),contradiction,0.9983,False,0.6967,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00WK47VEW,sound quality,nli,NLI: contradiction (model score),contradiction,0.9982,False,0.6537,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00WK47VEW,sound quality,nli,NLI: contradiction (model score),contradiction,0.9984,False,0.6537,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00WK47VEW,sound quality,nli,NLI: contradiction (model score),contradiction,0.9844,False,0.6537,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00WK47VEW,sound quality,nli,NLI: contradiction (model score),contradiction,0.9814,False,0.6537,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00WK47VEW,sound quality,nli,NLI: contradiction (model score),contradiction,0.9978,False,0.6386,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00WK47VEW,sound quality,nli,NLI: contradiction (model score),contradiction,0.9967,False,0.6386,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00WK47VEW,sound quality,nli,NLI: contradiction (model score),contradiction,0.9864,False,0.6381,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00WK47VEW,sound quality,nli,NLI: contradiction (model score),contradiction,0.9978,False,0.5503,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00WK47VEW,sound quality,nli,NLI: contradiction (model score),contradiction,0.9991,False,0.5407,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00WK47VEW,sound quality,nli,NLI: contradiction (model score),contradiction,0.9945,False,0.5103,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00WK47VEW,sound quality,nli,NLI: contradiction (model score),contradiction,0.9962,False,0.5103,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00XLSS79Y,connectivity,nli,NLI: contradiction (model score),contradiction,0.9822,False,0.3641,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00XLSS79Y,connectivity,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.3641,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00XLSS79Y,sound quality,nli,NLI: contradiction (model score),contradiction,0.9984,False,0.3641,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00XLSS79Y,sound quality,nli,NLI: contradiction (model score),contradiction,0.9867,False,0.3641,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00XQ48F2M,comfort,nli,NLI: contradiction (model score),contradiction,0.9816,False,0.4034,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00XQ48F2M,comfort,nli,NLI: contradiction (model score),contradiction,0.987,False,0.4034,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00XVQ0PCS,sound quality,nli,NLI: contradiction (model score),contradiction,0.9987,False,0.5285,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00XVQ0PCS,sound quality,nli,NLI: contradiction (model score),contradiction,0.9898,False,0.5099,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00XVQ0PCS,sound quality,nli,NLI: contradiction (model score),contradiction,0.9335,False,0.4271,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00XVQ0PCS,sound quality,nli,NLI: contradiction (model score),contradiction,0.9974,False,0.382,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00XVQ0PCS,sound quality,nli,NLI: contradiction (model score),contradiction,0.9993,False,0.2368,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00XZHQAMC,comfort,nli,NLI: contradiction (model score),contradiction,0.997,False,0.6037,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00XZHQAMC,comfort,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.6037,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00XZHQAMC,comfort,nli,NLI: contradiction (model score),contradiction,0.9935,False,0.5577,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00XZHQAMC,sound quality,nli,NLI: contradiction (model score),contradiction,0.9992,False,0.74,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00XZHQAMC,sound quality,nli,NLI: contradiction (model score),contradiction,0.9982,False,0.7319,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00XZHQAMC,sound quality,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.7082,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00XZHQAMC,sound quality,nli,NLI: contradiction (model score),contradiction,0.988,False,0.6753,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00XZHQAMC,sound quality,nli,NLI: contradiction (model score),contradiction,0.9992,False,0.6173,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00XZHQAMC,sound quality,nli,NLI: contradiction (model score),contradiction,0.9984,False,0.6091,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00XZW6PR2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9992,False,0.3546,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00XZW6PR2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.316,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00XZW6PR2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9993,False,0.316,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00XZW6PR2,sound quality,nli,NLI: contradiction (model score),contradiction,0.9989,False,0.2392,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00YDVY34Q,sound quality,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.5062,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00YTXPY6Y,sound quality,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.6614,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00YTXPY6Y,sound quality,nli,NLI: contradiction (model score),contradiction,0.9881,False,0.6162,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00YTXPY6Y,sound quality,nli,NLI: contradiction (model score),contradiction,0.9997,False,0.5393,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00YTXPY6Y,sound quality,nli,NLI: contradiction (model score),contradiction,0.9993,False,0.5393,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00YTXPY6Y,sound quality,nli,NLI: contradiction (model score),contradiction,0.9992,False,0.491,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00YTXPY6Y,sound quality,nli,NLI: contradiction (model score),contradiction,0.9996,False,0.4726,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00YTXPY6Y,sound quality,nli,NLI: contradiction (model score),contradiction,0.9845,False,0.4726,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00YTXPY6Y,sound quality,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.4645,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ZJ6T50G,charging,nli,NLI: contradiction (model score),contradiction,0.9721,False,0.6329,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ZJ6T50G,charging,nli,NLI: contradiction (model score),contradiction,0.9889,False,0.6146,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ZPI9XDC,connectivity,nli,NLI: contradiction (model score),contradiction,0.9876,False,0.5115,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ZPI9XDC,sound quality,nli,NLI: contradiction (model score),contradiction,0.9841,False,0.5425,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ZPI9XDC,sound quality,nli,NLI: contradiction (model score),contradiction,0.926,False,0.5212,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B00ZZO1B4A,sound quality,nli,NLI: contradiction (model score),contradiction,0.9994,False,0.4589,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B0111ASH0M,charging,nli,NLI: contradiction (model score),contradiction,0.997,False,0.5027,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B0117RGG8E,connectivity,nli,NLI: contradiction (model score),contradiction,0.984,False,0.715,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B0117RGG8E,sound quality,nli,NLI: contradiction (model score),contradiction,0.9955,False,0.6811,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B011NT0CQI,sound quality,nli,NLI: contradiction (model score),contradiction,0.9995,False,0.6031,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B012EECKB6,connectivity,nli,NLI: contradiction (model score),contradiction,0.9978,False,0.521,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B012EECKB6,connectivity,nli,NLI: contradiction (model score),contradiction,0.9675,False,0.521,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B012EECKB6,connectivity,nli,NLI: contradiction (model score),contradiction,0.9987,False,0.4901,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B012EECKB6,sound quality,nli,NLI: contradiction (model score),contradiction,0.9909,False,0.8007,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B012EECKB6,sound quality,nli,NLI: contradiction (model score),contradiction,0.9979,False,0.577,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B012P77ZJE,comfort,nli,NLI: contradiction (model score),contradiction,0.999,False,0.6733,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B012P77ZJE,comfort,nli,NLI: contradiction (model score),contradiction,0.9991,False,0.6213,Conflicting experiences found; the reason cannot be determined from the available reviews.
+B012P77ZJE,comfort,nli,NLI: contradiction (model score),contradiction,0.9632,False,0.5408,Conflicting experiences found; the reason cannot be determined from the available reviews.

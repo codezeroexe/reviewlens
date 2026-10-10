@@ -1,0 +1,74 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Model Card - Review Usefulness</title>
+<style>
+@page { size: A4; margin: 9mm; }
+body { font-family: Georgia, serif; font-size: 8.6pt; color: #111; margin: 0; line-height: 1.2; }
+h1 { font-size: 14pt; margin: 0 0 2px; }
+h2 { font-size: 10pt; margin: 6px 0 2px; }
+table { border-collapse: collapse; width: 100%; margin: 3px 0; }
+td, th { border: 1px solid #333; padding: 1px 4px; text-align: left; vertical-align: top; font-size: 8.2pt; }
+th { background: #eee; }
+ul { margin: 2px 0 2px 16px; padding: 0; }
+li { margin: 0; }
+p { margin: 2px 0; }
+.note { font-style: italic; color: #444; font-size: 8pt; }
+</style></head><body>
+<h1>Model Card: Review Usefulness Classifier</h1>
+<p class="note">Built from the ReviewLens experiment on Amazon Electronics reviews. Labels are derived from votes, not human-labelled. Numbers are from the test split only.</p>
+
+<h2>1. Model details</h2>
+<table>
+<tr><th style="width:24%">Field</th><th>Description</th></tr>
+<tr><td>Model name</td><td>Review usefulness classifier (ReviewLens experiment, unigram config)</td></tr>
+<tr><td>Task</td><td>Binary: useful (1) vs not useful (0), derived label</td></tr>
+<tr><td>Model</td><td>TF-IDF (unigrams, min_df=2) + Logistic Regression (C=10)</td></tr>
+<tr><td>Training data</td><td>Electronics reviews, first 500,000 rows, 17,241 labelled after dedupe (total_votes &gt;= 5)</td></tr>
+<tr><td>Test data</td><td>70/15/15 stratified, seed 42. Train 12,068, validation 2,586, test 2,587</td></tr>
+<tr><td>Labels</td><td>helpful_votes / total_votes &gt;= 0.6 (not human-labelled; votes are noisy)</td></tr>
+<tr><td>Developed by</td><td>ReviewLens project; script <code>evaluation/one_page_card.py</code></td></tr>
+</table>
+
+<h2>2. Intended use</h2>
+<ul>
+<li><b>Intended:</b> ranking English product reviews by how useful other shoppers may find them; research and classroom demonstration.</li>
+<li><b>Out of scope:</b> judging individual reviewers; any decision about sellers, products, or customers; other languages; reviews of other categories; fake-review detection.</li>
+</ul>
+
+<h2>3. Overall performance</h2>
+<p>The model reaches 81.8% accuracy and 0.686 macro-F1 on the 2,587 test reviews, against 78.5% accuracy and 0.440 macro-F1 for the majority class baseline.</p>
+<table>
+<tr><th>Model</th><th>Accuracy</th><th>Class</th><th>Precision</th><th>Recall</th><th>F1</th></tr>
+<tr><td rowspan="2">Logistic regression (unigram)</td><td rowspan="2">81.8%</td>
+<td>not useful (0)</td><td>0.618</td><td>0.396</td><td>0.483</td></tr>
+<tr><td>useful (1)</td><td>0.850</td><td>0.933</td><td>0.890</td></tr>
+<tr><td>Majority baseline</td><td>78.5%</td><td colspan="3">macro-F1 0.440</td></tr>
+</table>
+
+<h2>4. Performance across text subgroups</h2>
+<p><b>Key audit finding:</b> the model is weakest on reviews that begin with a rating title (&quot;Five Stars ...&quot;). It is also weak on the not-useful class (recall 0.40). The negation subgroup does not show the drop expected from a negation-blind model (see table).</p>
+<table>
+<tr><th>Subgroup</th><th>Definition</th><th>Test n</th><th>Accuracy</th><th>Macro-F1</th></tr>
+<tr><td>Short reviews</td><td>fewer than 20 words</td><td>321</td><td>67.3%</td><td>0.669</td></tr><tr><td>Long reviews</td><td>20 words or more</td><td>2,266</td><td>83.9%</td><td>0.624</td></tr><tr><td>Rating-title reviews</td><td>start with &#x27;One..Five Star(s)&#x27;</td><td>215</td><td>69.8%</td><td>0.682</td></tr><tr><td>Other reviews</td><td>no rating title</td><td>2,372</td><td>82.9%</td><td>0.637</td></tr><tr><td>Negation words</td><td>contains not / never / no / n&#x27;t</td><td>1,664</td><td>83.2%</td><td>0.668</td></tr><tr><td>No negation</td><td>none of the above</td><td>923</td><td>79.3%</td><td>0.703</td></tr>
+</table>
+
+<h2>5. Explainability check</h2>
+<p><b>Method 1: top coefficients (logistic regression).</b> The strongest words are rare terms such as <i>intone</i>, <i>itunes</i>, <i>upon</i>, <i>pairs</i>. They do not describe usefulness. The model fits rare words, so these weights are not evidence of real signal.</p>
+<table><tr><th>Pushes toward useful</th><th>Pushes toward not useful</th></tr>
+<tr><td><ul><li>pictures (+5.21)</li><li>upon (+5.13)</li><li>original (+4.74)</li><li>pairs (+4.74)</li><li>previous (+4.61)</li></ul></td><td><ul><li>intone (-4.80)</li><li>itunes (-4.36)</li><li>uncomfortable (-4.31)</li><li>not (-4.24)</li><li>causing (-4.24)</li></ul></td></tr></table>
+<p><b>Method 2: LIME.</b> NOT RUN (lime not installed). No LIME explanation is reported.</p>
+
+<h2>6. Limitations and ethical considerations</h2>
+<ul>
+<li><b>Main limitation:</b> bag-of-words model. It does not model word order, so &quot;not great&quot; and &quot;great&quot; share features. Use only as a ranking aid.</li>
+<li><b>Label noise:</b> usefulness comes from helpful votes. Votes depend on visibility and popularity, and new reviews have few votes. The 0.6 threshold was chosen by hand, not tuned.</li>
+<li><b>Sample:</b> one category, English only, one week of review dates. The experiment used the first 500,000 rows of the file, not a random sample.</li>
+<li><b>Class balance:</b> the majority baseline reaches 78.5% accuracy, so use macro-F1 for comparison.</li>
+<li><b>Data use:</b> the source data is licensed for academic research only.</li>
+</ul>
+
+<h2>7. Recommendations</h2>
+<ul>
+<li>Replace the vote-based label with human annotation on a random sample before any claim about usefulness.</li>
+<li>Re-run the subgroup audit on a random sample of the full file and on other categories.</li>
+<li>Try a contextual model (e.g., a fine-tuned DistilBERT) and compare on the same test split and subgroups.</li>
+</ul>
+</body></html>

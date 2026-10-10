@@ -1,0 +1,80 @@
+{
+  "results": [
+    {
+      "n": 10,
+      "check": "Original usefulness prediction works (one example)",
+      "status": "NOT VERIFIED",
+      "evidence": "No usefulness model in the project. batch/predict returns cluster patterns only (phase 2 checked, see phase1-findings)."
+    },
+    {
+      "n": 11,
+      "check": "Original suspicious/fake detection works (one example)",
+      "status": "NOT VERIFIED",
+      "evidence": "No existing fake-review detector in the project (reports/suspicion_audit.md). New heuristic example runs: see check 4."
+    },
+    {
+      "n": 1,
+      "check": "Batch pipeline completes (phases 3-6 steps + phase 2 predict on 2,000 rows)",
+      "status": "PASS",
+      "evidence": "job status=ready, steps=['Complaint clusters', 'Contradictions', 'Suspicious signals', 'Insights'], total runtime 79.2s, predict rows=2000, failed=0"
+    },
+    {
+      "n": 2,
+      "check": "Cluster links: 5 random clustered reviews match raw ID and text",
+      "status": "PASS",
+      "evidence": "checked ['R3IZUC3GFQGGUD', 'R2OH0OL4IRVAFA', 'RIZ7XB1HPV3C7', 'R1H00C0S8Z7CQ8', 'RYXA2WLC50U2U']; mismatches: none"
+    },
+    {
+      "n": 3,
+      "check": "Contradiction quotes: 3 pairs are real substrings of cited reviews",
+      "status": "PASS",
+      "evidence": "checked 3 pairs (6 quotes); not substring: none"
+    },
+    {
+      "n": 4,
+      "check": "Suspicious explanations: 3 flagged reviews, listed signals reproduced from raw",
+      "status": "PASS",
+      "evidence": "R3KU7RE4F9WR5E: signals [semantic similarity; promotional/repetitive wording] -> promo phrases=['five stars'] | R20D506TK57P7T: signals [promotional/repetitive wording] -> promo phrases=['five stars'] | RQRGLK0F30669: signals [promotional/repetitive wording] -> promo phrases=['five stars']"
+    },
+    {
+      "n": 5,
+      "check": "Dashboard vs backend: 4 numbers (UI reads these endpoints)",
+      "status": "PASS",
+      "evidence": "reviews: dashboard=20000, report=20000; complaint_clusters: dashboard=2, report=2; flagged: dashboard=5880, report=5880; top_discovery_numerator: dashboard=49, report=49. Note: 'reviews' dashboard=20,000 sample; report=retained rows."
+    },
+    {
+      "n": 6,
+      "check": "Empty file -> clear error",
+      "status": "PASS",
+      "evidence": "message: 'The file is empty.'"
+    },
+    {
+      "n": 7,
+      "check": "Malformed file (bad dates, text in numeric, wrong range) -> counted, no crash",
+      "status": "PASS",
+      "evidence": "report: rating_set_null=2, date_set_null=2, kept=3"
+    },
+    {
+      "n": 7,
+      "check": "Wrong columns -> clear error",
+      "status": "PASS",
+      "evidence": "message: 'Missing a text column. Add 'review_body' or 'review_text'.'"
+    },
+    {
+      "n": 8,
+      "check": "Tiny dataset (10 rows): no crash, no fake clusters",
+      "status": "PASS",
+      "evidence": "clusters=0, clustered=0, statuses={'not_complaint': 9, 'skipped_small_group': 1}"
+    },
+    {
+      "n": 9,
+      "check": "Second upload: old clusters, insights, flags hidden (no mixing)",
+      "status": "PASS",
+      "evidence": "after upload, status=Loaded, analysis_on=demo sample only, overview available=False, demo clusters shown=0. Analysis is not re-run for uploads; phase-3 cache key is hashed on review IDs, so a new file gets a new cache key."
+    }
+  ],
+  "counts": {
+    "PASS": 10,
+    "NOT VERIFIED": 2
+  }
+}

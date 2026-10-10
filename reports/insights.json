@@ -1,0 +1,1351 @@
+{
+  "overview": [
+    {
+      "id": "gap_B003EM8008_sound_quality",
+      "type": "experience_gap",
+      "headline": "Mixed experiences on sound quality for product B003EM8008",
+      "interpretation": "Both positive and negative sentences about this aspect. The reason is not stated in these sentences.",
+      "numbers": [
+        {
+          "label": "positive sentences",
+          "numerator": 49,
+          "denominator": 56,
+          "pct": 87.5
+        },
+        {
+          "label": "negative sentences",
+          "numerator": 7,
+          "denominator": 56,
+          "pct": 12.5
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R1MAFI270KJ1I5",
+          "text": "Perfect except for one thing PROS -Crisp sound -Super comfortable and secure fit -Great price  CONS -*edit* actually the bass issue was an issue with my computer rather than the ear phones, my bad"
+        },
+        {
+          "review_id": "R2D4V7F4JDOSQ5",
+          "text": "Holy Cats For years I have stayed away from In-Ear headphones, thinking they were always prone to crappy, tinny sound quality."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "contradictions",
+        "filters": {
+          "product_id": "B003EM8008",
+          "aspect": "sound quality"
+        }
+      },
+      "score": 1.635
+    },
+    {
+      "id": "gap_B00F5NE2KG_sound_quality",
+      "type": "experience_gap",
+      "headline": "Mixed experiences on sound quality for product B00F5NE2KG",
+      "interpretation": "Both positive and negative sentences about this aspect. The reason is not stated in these sentences.",
+      "numbers": [
+        {
+          "label": "positive sentences",
+          "numerator": 45,
+          "denominator": 51,
+          "pct": 88.2
+        },
+        {
+          "label": "negative sentences",
+          "numerator": 6,
+          "denominator": 51,
+          "pct": 11.8
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R13I45DVPTZ4RD",
+          "text": "Nice sound."
+        },
+        {
+          "review_id": "R369CM2WHGBMH8",
+          "text": "No volume controls (the new version has them), difficult to use."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "contradictions",
+        "filters": {
+          "product_id": "B00F5NE2KG",
+          "aspect": "sound quality"
+        }
+      },
+      "score": 1.592
+    },
+    {
+      "id": "common_problem_1",
+      "type": "common_problem",
+      "headline": "Recurring complaint: \"sound, good, quality\"",
+      "interpretation": "Reviews with similar wording in the complaint group (rating 1-3). Preliminary cluster, quality not evaluated.",
+      "numbers": [
+        {
+          "label": "cluster reviews of complaint reviews",
+          "numerator": 85,
+          "denominator": 4784,
+          "pct": 1.8
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "RWPLIV1H4BK1C",
+          "text": "Piece of junk. Don't buy them. They worked nice for about a month and one earbud stopped working completely. I cannot return it now."
+        },
+        {
+          "review_id": "R35BMC1G8K01C",
+          "text": "Waste of Do not buy. This is my 3rd day of using and one of the ear buds is already not working. Waste of money"
+        },
+        {
+          "review_id": "R10E0EHWLXOK6U",
+          "text": "Not Good These earbuds are low quality. They break easily. Mine broke in two days. I recommend that you do not get these earbuds."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "complaints",
+        "filters": {
+          "cluster_id": 1
+        }
+      },
+      "score": 1.218
+    },
+    {
+      "id": "comparison_B00IF70T4M_B003L1ZYYM",
+      "type": "comparison",
+      "headline": "Complaint rate differs between products: B00IF70T4M vs B003L1ZYYM",
+      "interpretation": "Share of reviews rated 1-3 stars. Shows the gap only; the reason is not stated.",
+      "numbers": [
+        {
+          "label": "B00IF70T4M complaint reviews",
+          "numerator": 20,
+          "denominator": 44,
+          "pct": 45.5
+        },
+        {
+          "label": "B003L1ZYYM complaint reviews",
+          "numerator": 2,
+          "denominator": 111,
+          "pct": 1.8
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "RWNALCAC5TUZL",
+          "text": "You get what you pay for. Doesn't seem to matter where I am at, I can only get one channel. I would look for another product!"
+        },
+        {
+          "review_id": "R9XIRRPMX4Q64",
+          "text": "Five Stars Does the job."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "overview",
+        "filters": {
+          "products": [
+            "B00IF70T4M",
+            "B003L1ZYYM"
+          ]
+        }
+      },
+      "score": 1.095
+    }
+  ],
+  "all": [
+    {
+      "id": "gap_B003EM8008_sound_quality",
+      "type": "experience_gap",
+      "headline": "Mixed experiences on sound quality for product B003EM8008",
+      "interpretation": "Both positive and negative sentences about this aspect. The reason is not stated in these sentences.",
+      "numbers": [
+        {
+          "label": "positive sentences",
+          "numerator": 49,
+          "denominator": 56,
+          "pct": 87.5
+        },
+        {
+          "label": "negative sentences",
+          "numerator": 7,
+          "denominator": 56,
+          "pct": 12.5
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R1MAFI270KJ1I5",
+          "text": "Perfect except for one thing PROS -Crisp sound -Super comfortable and secure fit -Great price  CONS -*edit* actually the bass issue was an issue with my computer rather than the ear phones, my bad"
+        },
+        {
+          "review_id": "R2D4V7F4JDOSQ5",
+          "text": "Holy Cats For years I have stayed away from In-Ear headphones, thinking they were always prone to crappy, tinny sound quality."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "contradictions",
+        "filters": {
+          "product_id": "B003EM8008",
+          "aspect": "sound quality"
+        }
+      },
+      "score": 1.635
+    },
+    {
+      "id": "gap_B00F5NE2KG_sound_quality",
+      "type": "experience_gap",
+      "headline": "Mixed experiences on sound quality for product B00F5NE2KG",
+      "interpretation": "Both positive and negative sentences about this aspect. The reason is not stated in these sentences.",
+      "numbers": [
+        {
+          "label": "positive sentences",
+          "numerator": 45,
+          "denominator": 51,
+          "pct": 88.2
+        },
+        {
+          "label": "negative sentences",
+          "numerator": 6,
+          "denominator": 51,
+          "pct": 11.8
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R13I45DVPTZ4RD",
+          "text": "Nice sound."
+        },
+        {
+          "review_id": "R369CM2WHGBMH8",
+          "text": "No volume controls (the new version has them), difficult to use."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "contradictions",
+        "filters": {
+          "product_id": "B00F5NE2KG",
+          "aspect": "sound quality"
+        }
+      },
+      "score": 1.592
+    },
+    {
+      "id": "gap_B00MITLPX2_sound_quality",
+      "type": "experience_gap",
+      "headline": "Mixed experiences on sound quality for product B00MITLPX2",
+      "interpretation": "Both positive and negative sentences about this aspect. The reason is not stated in these sentences.",
+      "numbers": [
+        {
+          "label": "positive sentences",
+          "numerator": 21,
+          "denominator": 27,
+          "pct": 77.8
+        },
+        {
+          "label": "negative sentences",
+          "numerator": 6,
+          "denominator": 27,
+          "pct": 22.2
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "RYYX5L8HG7MOK",
+          "text": "Battery longevity This is my first bluetooth speaker.<br />Sound Quality: Definitely loud and clear."
+        },
+        {
+          "review_id": "R2HRXZEYPOEPAQ",
+          "text": "STOLEN PURCHASE I was asked to purchase this by coworker and loved its sound quality till it was stolen from her car in a garage."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "contradictions",
+        "filters": {
+          "product_id": "B00MITLPX2",
+          "aspect": "sound quality"
+        }
+      },
+      "score": 1.248
+    },
+    {
+      "id": "common_problem_1",
+      "type": "common_problem",
+      "headline": "Recurring complaint: \"sound, good, quality\"",
+      "interpretation": "Reviews with similar wording in the complaint group (rating 1-3). Preliminary cluster, quality not evaluated.",
+      "numbers": [
+        {
+          "label": "cluster reviews of complaint reviews",
+          "numerator": 85,
+          "denominator": 4784,
+          "pct": 1.8
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "RWPLIV1H4BK1C",
+          "text": "Piece of junk. Don't buy them. They worked nice for about a month and one earbud stopped working completely. I cannot return it now."
+        },
+        {
+          "review_id": "R35BMC1G8K01C",
+          "text": "Waste of Do not buy. This is my 3rd day of using and one of the ear buds is already not working. Waste of money"
+        },
+        {
+          "review_id": "R10E0EHWLXOK6U",
+          "text": "Not Good These earbuds are low quality. They break easily. Mine broke in two days. I recommend that you do not get these earbuds."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "complaints",
+        "filters": {
+          "cluster_id": 1
+        }
+      },
+      "score": 1.218
+    },
+    {
+      "id": "gap_B008QZTJH6_charging",
+      "type": "experience_gap",
+      "headline": "Mixed experiences on charging for product B008QZTJH6",
+      "interpretation": "Both positive and negative sentences about this aspect. The reason is not stated in these sentences.",
+      "numbers": [
+        {
+          "label": "positive sentences",
+          "numerator": 16,
+          "denominator": 21,
+          "pct": 76.2
+        },
+        {
+          "label": "negative sentences",
+          "numerator": 5,
+          "denominator": 21,
+          "pct": 23.8
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R1XC0SKR9GEPBL",
+          "text": "A super fast charger for my multi-Kindle HD household."
+        },
+        {
+          "review_id": "R1XC0SKR9GEPBL",
+          "text": "One older Kindle was having charging problems which were not helped using two of the chargers I already had, so I thought for sure that that the Kindle battery was at fault, and that would be the end of that."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "contradictions",
+        "filters": {
+          "product_id": "B008QZTJH6",
+          "aspect": "charging"
+        }
+      },
+      "score": 1.172
+    },
+    {
+      "id": "gap_B00I4WRVVC_display_quality",
+      "type": "experience_gap",
+      "headline": "Mixed experiences on display quality for product B00I4WRVVC",
+      "interpretation": "Both positive and negative sentences about this aspect. The reason is not stated in these sentences.",
+      "numbers": [
+        {
+          "label": "positive sentences",
+          "numerator": 16,
+          "denominator": 21,
+          "pct": 76.2
+        },
+        {
+          "label": "negative sentences",
+          "numerator": 5,
+          "denominator": 21,
+          "pct": 23.8
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "RBT97LSHP3EY9",
+          "text": "Great Screen that needs a couple little refinements."
+        },
+        {
+          "review_id": "RBT97LSHP3EY9",
+          "text": "But the problem was that during the stretching as the screen expands the long two piece rods slid out of the connector tube that holds them together."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "contradictions",
+        "filters": {
+          "product_id": "B00I4WRVVC",
+          "aspect": "display quality"
+        }
+      },
+      "score": 1.172
+    },
+    {
+      "id": "comparison_B00IF70T4M_B003L1ZYYM",
+      "type": "comparison",
+      "headline": "Complaint rate differs between products: B00IF70T4M vs B003L1ZYYM",
+      "interpretation": "Share of reviews rated 1-3 stars. Shows the gap only; the reason is not stated.",
+      "numbers": [
+        {
+          "label": "B00IF70T4M complaint reviews",
+          "numerator": 20,
+          "denominator": 44,
+          "pct": 45.5
+        },
+        {
+          "label": "B003L1ZYYM complaint reviews",
+          "numerator": 2,
+          "denominator": 111,
+          "pct": 1.8
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "RWNALCAC5TUZL",
+          "text": "You get what you pay for. Doesn't seem to matter where I am at, I can only get one channel. I would look for another product!"
+        },
+        {
+          "review_id": "R9XIRRPMX4Q64",
+          "text": "Five Stars Does the job."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "overview",
+        "filters": {
+          "products": [
+            "B00IF70T4M",
+            "B003L1ZYYM"
+          ]
+        }
+      },
+      "score": 1.095
+    },
+    {
+      "id": "gap_B00XZHQAMC_sound_quality",
+      "type": "experience_gap",
+      "headline": "Mixed experiences on sound quality for product B00XZHQAMC",
+      "interpretation": "Both positive and negative sentences about this aspect. The reason is not stated in these sentences.",
+      "numbers": [
+        {
+          "label": "positive sentences",
+          "numerator": 13,
+          "denominator": 19,
+          "pct": 68.4
+        },
+        {
+          "label": "negative sentences",
+          "numerator": 6,
+          "denominator": 19,
+          "pct": 31.6
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R2LO042MNWK9D8",
+          "text": "these have good bass, but at the same time these have good bass, but at the same time, even as a basshead I found these to be a bit boomy, they almost have nothing but bass."
+        },
+        {
+          "review_id": "R13Z7OQIORZL1C",
+          "text": "Two Stars Device connected quickly but sound quality was poor."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "contradictions",
+        "filters": {
+          "product_id": "B00XZHQAMC",
+          "aspect": "sound quality"
+        }
+      },
+      "score": 1.074
+    },
+    {
+      "id": "gap_B00ZJ6T50G_charging",
+      "type": "experience_gap",
+      "headline": "Mixed experiences on charging for product B00ZJ6T50G",
+      "interpretation": "Both positive and negative sentences about this aspect. The reason is not stated in these sentences.",
+      "numbers": [
+        {
+          "label": "positive sentences",
+          "numerator": 14,
+          "denominator": 22,
+          "pct": 63.6
+        },
+        {
+          "label": "negative sentences",
+          "numerator": 8,
+          "denominator": 22,
+          "pct": 36.4
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R3CMY924EQEGIU",
+          "text": "Handy must have in this Smart Phone Age This is a very handy small device for those of us ( ahemmm) who don't always remember to charge our phones."
+        },
+        {
+          "review_id": "R3CMY924EQEGIU",
+          "text": "You can charge a phone while it is charging itself from a wall socket....handy.<br />My phone was dead but when I plugged it in, I got instant power."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "contradictions",
+        "filters": {
+          "product_id": "B00ZJ6T50G",
+          "aspect": "charging"
+        }
+      },
+      "score": 1.056
+    },
+    {
+      "id": "gap_B00ODC9C6Y_sound_quality",
+      "type": "experience_gap",
+      "headline": "Mixed experiences on sound quality for product B00ODC9C6Y",
+      "interpretation": "Both positive and negative sentences about this aspect. The reason is not stated in these sentences.",
+      "numbers": [
+        {
+          "label": "positive sentences",
+          "numerator": 11,
+          "denominator": 16,
+          "pct": 68.8
+        },
+        {
+          "label": "negative sentences",
+          "numerator": 5,
+          "denominator": 16,
+          "pct": 31.2
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "RFCDW2NO1NFS6",
+          "text": "Ok for the price The sound is great, but I think the flat wire is a bit too fragile."
+        },
+        {
+          "review_id": "R2Q1GHQ9XUWC2R",
+          "text": "Poor Quality, Decent Sound Product is poorly made."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "contradictions",
+        "filters": {
+          "product_id": "B00ODC9C6Y",
+          "aspect": "sound quality"
+        }
+      },
+      "score": 1.048
+    },
+    {
+      "id": "gap_B0117RGG8E_connectivity",
+      "type": "experience_gap",
+      "headline": "Mixed experiences on connectivity for product B0117RGG8E",
+      "interpretation": "Both positive and negative sentences about this aspect. The reason is not stated in these sentences.",
+      "numbers": [
+        {
+          "label": "positive sentences",
+          "numerator": 11,
+          "denominator": 16,
+          "pct": 68.8
+        },
+        {
+          "label": "negative sentences",
+          "numerator": 5,
+          "denominator": 16,
+          "pct": 31.2
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R2NBSQHSFN9PK7",
+          "text": "As a bluetooth headset, it can do calls or media sound wirelessly from your bluetooth-enabled device (smart phone, etc.)."
+        },
+        {
+          "review_id": "R82QWN2X2OCHB",
+          "text": "I spent several hours listening to a mix of music that included vocals, bass leads, intricate guitar, and a new age album that reliably trips up poor speakers and headphones alike \u2013 a test that every other Bluetooth headphone in my collection had failed miserably."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "contradictions",
+        "filters": {
+          "product_id": "B0117RGG8E",
+          "aspect": "connectivity"
+        }
+      },
+      "score": 1.048
+    },
+    {
+      "id": "gap_B00HTPHK5W_sound_quality",
+      "type": "experience_gap",
+      "headline": "Mixed experiences on sound quality for product B00HTPHK5W",
+      "interpretation": "Both positive and negative sentences about this aspect. The reason is not stated in these sentences.",
+      "numbers": [
+        {
+          "label": "positive sentences",
+          "numerator": 9,
+          "denominator": 15,
+          "pct": 60.0
+        },
+        {
+          "label": "negative sentences",
+          "numerator": 6,
+          "denominator": 15,
+          "pct": 40.0
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "RIYO7ROR9CNUC",
+          "text": "They stay put pretty well although I don't try and use them while doing weigh training.<br />The volume is great, once you bypass the phones safety settings."
+        },
+        {
+          "review_id": "R24WK54OJHA4YV",
+          "text": "They appear to pair with my laptop also, as evidenced by the bluetooh device manager, but will not play audio."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "contradictions",
+        "filters": {
+          "product_id": "B00HTPHK5W",
+          "aspect": "sound quality"
+        }
+      },
+      "score": 0.95
+    },
+    {
+      "id": "gap_B00LXLJPK6_connectivity",
+      "type": "experience_gap",
+      "headline": "Mixed experiences on connectivity for product B00LXLJPK6",
+      "interpretation": "Both positive and negative sentences about this aspect. The reason is not stated in these sentences.",
+      "numbers": [
+        {
+          "label": "positive sentences",
+          "numerator": 8,
+          "denominator": 16,
+          "pct": 50.0
+        },
+        {
+          "label": "negative sentences",
+          "numerator": 8,
+          "denominator": 16,
+          "pct": 50.0
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R2SP52AJMIERZ5",
+          "text": "The bluetooth function is nice and easy to use, very intuitive."
+        },
+        {
+          "review_id": "R2SP52AJMIERZ5",
+          "text": "The other downside to the speakers is that they are pre wired, making it difficult to fix if wires ever are accidentally pulled out/separated, and the side of the wires that connect to the DVD player are clamped into one insert cable instead of the wire being abled to placed into each slot."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "contradictions",
+        "filters": {
+          "product_id": "B00LXLJPK6",
+          "aspect": "connectivity"
+        }
+      },
+      "score": 0.86
+    },
+    {
+      "id": "warning_B000IJY8DS",
+      "type": "quality_warning",
+      "headline": "Warning signal: many similar-text reviews for product B000IJY8DS",
+      "interpretation": "Warning signal, not proof of manipulation. Reviews share near-identical or similar wording.",
+      "numbers": [
+        {
+          "label": "reviews with near-duplicate or similar-text signal",
+          "numerator": 5,
+          "denominator": 12,
+          "pct": 41.7
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R1PJS8TX58J3WC",
+          "text": "Five Stars Good for the price."
+        },
+        {
+          "review_id": "R2VGUP8CH1FMB0",
+          "text": "Five Stars Just what I needed at a great price!"
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "suspicion",
+        "filters": {
+          "product_id": "B000IJY8DS"
+        }
+      },
+      "score": 0.737
+    },
+    {
+      "id": "warning_B003L1ZYYW",
+      "type": "quality_warning",
+      "headline": "Warning signal: many similar-text reviews for product B003L1ZYYW",
+      "interpretation": "Warning signal, not proof of manipulation. Reviews share near-identical or similar wording.",
+      "numbers": [
+        {
+          "label": "reviews with near-duplicate or similar-text signal",
+          "numerator": 7,
+          "denominator": 27,
+          "pct": 25.9
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R3GU6DOE1G8UYS",
+          "text": "fast delivery works as expected; well made cable."
+        },
+        {
+          "review_id": "R3GM7RHUN58E4D",
+          "text": "Five Stars great price and product arrived on time thank you"
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "suspicion",
+        "filters": {
+          "product_id": "B003L1ZYYW"
+        }
+      },
+      "score": 0.729
+    },
+    {
+      "id": "warning_B002TZBW74",
+      "type": "quality_warning",
+      "headline": "Warning signal: many similar-text reviews for product B002TZBW74",
+      "interpretation": "Warning signal, not proof of manipulation. Reviews share near-identical or similar wording.",
+      "numbers": [
+        {
+          "label": "reviews with near-duplicate or similar-text signal",
+          "numerator": 4,
+          "denominator": 10,
+          "pct": 40.0
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R36ZXMTMXM73OB",
+          "text": "Five Stars Very good product, price and service."
+        },
+        {
+          "review_id": "R15O1389R0RXFO",
+          "text": "Five Stars Just great thanks!"
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "suspicion",
+        "filters": {
+          "product_id": "B002TZBW74"
+        }
+      },
+      "score": 0.7
+    },
+    {
+      "id": "warning_B004NQU4YY",
+      "type": "quality_warning",
+      "headline": "Warning signal: many similar-text reviews for product B004NQU4YY",
+      "interpretation": "Warning signal, not proof of manipulation. Reviews share near-identical or similar wording.",
+      "numbers": [
+        {
+          "label": "reviews with near-duplicate or similar-text signal",
+          "numerator": 4,
+          "denominator": 10,
+          "pct": 40.0
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R3ETBTVGZKV1S6",
+          "text": "Four Stars very satisfied with purchase"
+        },
+        {
+          "review_id": "R2YS5XZX2S0S6F",
+          "text": "Five Stars works great and was easy to install."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "suspicion",
+        "filters": {
+          "product_id": "B004NQU4YY"
+        }
+      },
+      "score": 0.7
+    },
+    {
+      "id": "warning_B006LW0W5Y",
+      "type": "quality_warning",
+      "headline": "Warning signal: many similar-text reviews for product B006LW0W5Y",
+      "interpretation": "Warning signal, not proof of manipulation. Reviews share near-identical or similar wording.",
+      "numbers": [
+        {
+          "label": "reviews with near-duplicate or similar-text signal",
+          "numerator": 4,
+          "denominator": 10,
+          "pct": 40.0
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R2ZS7UTQRO8IQJ",
+          "text": "Good quality Very good quality cable"
+        },
+        {
+          "review_id": "R2DKZQ4THJZO0T",
+          "text": "Four Stars Did the job"
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "suspicion",
+        "filters": {
+          "product_id": "B006LW0W5Y"
+        }
+      },
+      "score": 0.7
+    },
+    {
+      "id": "warning_B00BEWF4R2",
+      "type": "quality_warning",
+      "headline": "Warning signal: many similar-text reviews for product B00BEWF4R2",
+      "interpretation": "Warning signal, not proof of manipulation. Reviews share near-identical or similar wording.",
+      "numbers": [
+        {
+          "label": "reviews with near-duplicate or similar-text signal",
+          "numerator": 6,
+          "denominator": 21,
+          "pct": 28.6
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R37PVDKYNMGWJZ",
+          "text": "Twisted Veins Twisted Veins cables very good quality these are the only cables I buy now"
+        },
+        {
+          "review_id": "R6KO4OW84F65L",
+          "text": "Five Stars So far so good!"
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "suspicion",
+        "filters": {
+          "product_id": "B00BEWF4R2"
+        }
+      },
+      "score": 0.696
+    },
+    {
+      "id": "warning_B00L3KNWBU",
+      "type": "quality_warning",
+      "headline": "Warning signal: many similar-text reviews for product B00L3KNWBU",
+      "interpretation": "Warning signal, not proof of manipulation. Reviews share near-identical or similar wording.",
+      "numbers": [
+        {
+          "label": "reviews with near-duplicate or similar-text signal",
+          "numerator": 4,
+          "denominator": 15,
+          "pct": 26.7
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "RMEHWWPJ7T2RB",
+          "text": "Five Stars Nice quality product"
+        },
+        {
+          "review_id": "R3KDQUPXXVGBI4",
+          "text": "Five Stars Cables shipped fast and work as expected."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "suspicion",
+        "filters": {
+          "product_id": "B00L3KNWBU"
+        }
+      },
+      "score": 0.617
+    },
+    {
+      "id": "warning_B0031TRZX2",
+      "type": "quality_warning",
+      "headline": "Warning signal: many similar-text reviews for product B0031TRZX2",
+      "interpretation": "Warning signal, not proof of manipulation. Reviews share near-identical or similar wording.",
+      "numbers": [
+        {
+          "label": "reviews with near-duplicate or similar-text signal",
+          "numerator": 4,
+          "denominator": 19,
+          "pct": 21.1
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R2M81BH78GLMLK",
+          "text": "Five Stars Very high quality cable."
+        },
+        {
+          "review_id": "R69QMN1ZWNJTR",
+          "text": "One Star NO, broke within 6 months"
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "suspicion",
+        "filters": {
+          "product_id": "B0031TRZX2"
+        }
+      },
+      "score": 0.601
+    },
+    {
+      "id": "warning_B00XJ2R5XG",
+      "type": "quality_warning",
+      "headline": "Warning signal: many similar-text reviews for product B00XJ2R5XG",
+      "interpretation": "Warning signal, not proof of manipulation. Reviews share near-identical or similar wording.",
+      "numbers": [
+        {
+          "label": "reviews with near-duplicate or similar-text signal",
+          "numerator": 3,
+          "denominator": 10,
+          "pct": 30.0
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R2EE32KQLI4RHL",
+          "text": "Five Stars Great for the price. Recommended"
+        },
+        {
+          "review_id": "R1G0FHIFLB3I2T",
+          "text": "Five Stars Excellent sound! Very happy with workmanship of the speaker! Great price! Just a great buy!"
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "suspicion",
+        "filters": {
+          "product_id": "B00XJ2R5XG"
+        }
+      },
+      "score": 0.6
+    },
+    {
+      "id": "warning_B0002L5R78",
+      "type": "quality_warning",
+      "headline": "Warning signal: many similar-text reviews for product B0002L5R78",
+      "interpretation": "Warning signal, not proof of manipulation. Reviews share near-identical or similar wording.",
+      "numbers": [
+        {
+          "label": "reviews with near-duplicate or similar-text signal",
+          "numerator": 3,
+          "denominator": 11,
+          "pct": 27.3
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R3Q1QQMYN9IHOQ",
+          "text": "Five Stars Perfect for what we needed. Exactly  as described."
+        },
+        {
+          "review_id": "R2JD4NH5Y8Z1LW",
+          "text": "Digital is digital. It works! Why buy Monster? Digital either works or doesn't. This cable moves the 1s and 0s from my receiver to my projector with no distortion or any issue. Great cable and price."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "suspicion",
+        "filters": {
+          "product_id": "B0002L5R78"
+        }
+      },
+      "score": 0.583
+    },
+    {
+      "id": "warning_B004S4R5CK",
+      "type": "quality_warning",
+      "headline": "Warning signal: many similar-text reviews for product B004S4R5CK",
+      "interpretation": "Warning signal, not proof of manipulation. Reviews share near-identical or similar wording.",
+      "numbers": [
+        {
+          "label": "reviews with near-duplicate or similar-text signal",
+          "numerator": 3,
+          "denominator": 11,
+          "pct": 27.3
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R8T4P0D3UOSK7",
+          "text": "Five Stars Couldn't beat the price"
+        },
+        {
+          "review_id": "R1EMM8AAVOQWPP",
+          "text": "Five Stars Nice product. Thanks!"
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "suspicion",
+        "filters": {
+          "product_id": "B004S4R5CK"
+        }
+      },
+      "score": 0.583
+    },
+    {
+      "id": "warning_B00DDULUIA",
+      "type": "quality_warning",
+      "headline": "Warning signal: many similar-text reviews for product B00DDULUIA",
+      "interpretation": "Warning signal, not proof of manipulation. Reviews share near-identical or similar wording.",
+      "numbers": [
+        {
+          "label": "reviews with near-duplicate or similar-text signal",
+          "numerator": 3,
+          "denominator": 12,
+          "pct": 25.0
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R3NMIM9D8VNGI7",
+          "text": "Five Stars great products! good buy! works great!"
+        },
+        {
+          "review_id": "R1DN21MHHZ64FY",
+          "text": "Four Stars More than satisfied with my order."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "suspicion",
+        "filters": {
+          "product_id": "B00DDULUIA"
+        }
+      },
+      "score": 0.57
+    },
+    {
+      "id": "warning_B00BCA4116",
+      "type": "quality_warning",
+      "headline": "Warning signal: many similar-text reviews for product B00BCA4116",
+      "interpretation": "Warning signal, not proof of manipulation. Reviews share near-identical or similar wording.",
+      "numbers": [
+        {
+          "label": "reviews with near-duplicate or similar-text signal",
+          "numerator": 3,
+          "denominator": 13,
+          "pct": 23.1
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R3FVBOC9AYWGXZ",
+          "text": "Five Stars Excelent product, works as expected"
+        },
+        {
+          "review_id": "R3BSSS3GZSIIA0",
+          "text": "Four Stars Good value for the money."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "suspicion",
+        "filters": {
+          "product_id": "B00BCA4116"
+        }
+      },
+      "score": 0.561
+    },
+    {
+      "id": "warning_B008D6YZXG",
+      "type": "quality_warning",
+      "headline": "Warning signal: many similar-text reviews for product B008D6YZXG",
+      "interpretation": "Warning signal, not proof of manipulation. Reviews share near-identical or similar wording.",
+      "numbers": [
+        {
+          "label": "reviews with near-duplicate or similar-text signal",
+          "numerator": 3,
+          "denominator": 14,
+          "pct": 21.4
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R3DA0F0B3RUM6C",
+          "text": "One Star Used once right after I received it, now doesn't work."
+        },
+        {
+          "review_id": "RX5CKIKESO6KK",
+          "text": "Five Stars work very well."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "suspicion",
+        "filters": {
+          "product_id": "B008D6YZXG"
+        }
+      },
+      "score": 0.554
+    },
+    {
+      "id": "warning_B009CL8NH0",
+      "type": "quality_warning",
+      "headline": "Warning signal: many similar-text reviews for product B009CL8NH0",
+      "interpretation": "Warning signal, not proof of manipulation. Reviews share near-identical or similar wording.",
+      "numbers": [
+        {
+          "label": "reviews with near-duplicate or similar-text signal",
+          "numerator": 3,
+          "denominator": 14,
+          "pct": 21.4
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R2XDVH993QD1Z3",
+          "text": "Four Stars does the job"
+        },
+        {
+          "review_id": "R2UZD05HFRSC3G",
+          "text": "Four Stars works as promised"
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "suspicion",
+        "filters": {
+          "product_id": "B009CL8NH0"
+        }
+      },
+      "score": 0.554
+    },
+    {
+      "id": "warning_B000067RC4",
+      "type": "quality_warning",
+      "headline": "Warning signal: many similar-text reviews for product B000067RC4",
+      "interpretation": "Warning signal, not proof of manipulation. Reviews share near-identical or similar wording.",
+      "numbers": [
+        {
+          "label": "reviews with near-duplicate or similar-text signal",
+          "numerator": 3,
+          "denominator": 15,
+          "pct": 20.0
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R38SVW1PBCOA5I",
+          "text": "Five Stars just what I needed"
+        },
+        {
+          "review_id": "R1PYNNXAM3W82Q",
+          "text": "Five Stars They work perfectly!!"
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "suspicion",
+        "filters": {
+          "product_id": "B000067RC4"
+        }
+      },
+      "score": 0.55
+    },
+    {
+      "id": "warning_B00EWCUK1Q",
+      "type": "quality_warning",
+      "headline": "Warning signal: many similar-text reviews for product B00EWCUK1Q",
+      "interpretation": "Warning signal, not proof of manipulation. Reviews share near-identical or similar wording.",
+      "numbers": [
+        {
+          "label": "reviews with near-duplicate or similar-text signal",
+          "numerator": 3,
+          "denominator": 15,
+          "pct": 20.0
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "RNZEJ0VYUT3YS",
+          "text": "WHen it works, it works well. But it doesn't always... WHen it works, it works well. But when it doesn't, which is about 60% of the time, it's frustrating. I have to reset the music library tooooooo often. I can't just play music, as I often want.<br /><br />I wish I could sell all my SONOS componen"
+        },
+        {
+          "review_id": "R38E1WZV8W4VS8",
+          "text": "Great sound. Great sound. Easy to set up and use."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "suspicion",
+        "filters": {
+          "product_id": "B00EWCUK1Q"
+        }
+      },
+      "score": 0.55
+    },
+    {
+      "id": "warning_B005K2TXMO",
+      "type": "quality_warning",
+      "headline": "Warning signal: many similar-text reviews for product B005K2TXMO",
+      "interpretation": "Warning signal, not proof of manipulation. Reviews share near-identical or similar wording.",
+      "numbers": [
+        {
+          "label": "reviews with near-duplicate or similar-text signal",
+          "numerator": 2,
+          "denominator": 10,
+          "pct": 20.0
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R1XFD0F0O1L3QU",
+          "text": "Five Stars exactly what I wanted, came right on time"
+        },
+        {
+          "review_id": "R1DD54H54S47WU",
+          "text": "Five Stars Excellent!!! It work perfect......."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "suspicion",
+        "filters": {
+          "product_id": "B005K2TXMO"
+        }
+      },
+      "score": 0.5
+    },
+    {
+      "id": "warning_B00L3KNY22",
+      "type": "quality_warning",
+      "headline": "Warning signal: many similar-text reviews for product B00L3KNY22",
+      "interpretation": "Warning signal, not proof of manipulation. Reviews share near-identical or similar wording.",
+      "numbers": [
+        {
+          "label": "reviews with near-duplicate or similar-text signal",
+          "numerator": 2,
+          "denominator": 10,
+          "pct": 20.0
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R1VNK34U06R98E",
+          "text": "Three Stars Works as expected."
+        },
+        {
+          "review_id": "R2E9ESXDZ2NJTU",
+          "text": "Five Stars Great price for a good product."
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "suspicion",
+        "filters": {
+          "product_id": "B00L3KNY22"
+        }
+      },
+      "score": 0.5
+    },
+    {
+      "id": "warning_B00N32ICIE",
+      "type": "quality_warning",
+      "headline": "Warning signal: many similar-text reviews for product B00N32ICIE",
+      "interpretation": "Warning signal, not proof of manipulation. Reviews share near-identical or similar wording.",
+      "numbers": [
+        {
+          "label": "reviews with near-duplicate or similar-text signal",
+          "numerator": 2,
+          "denominator": 10,
+          "pct": 20.0
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R3D9COIDLUA3U1",
+          "text": "Five Stars Very nice sound"
+        },
+        {
+          "review_id": "R291D6ULFRP3H9",
+          "text": "Five Stars great sound. great battery life.  easy to use.  easy to carry around! love it"
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "suspicion",
+        "filters": {
+          "product_id": "B00N32ICIE"
+        }
+      },
+      "score": 0.5
+    },
+    {
+      "id": "warning_B00WK47UZC",
+      "type": "quality_warning",
+      "headline": "Warning signal: many similar-text reviews for product B00WK47UZC",
+      "interpretation": "Warning signal, not proof of manipulation. Reviews share near-identical or similar wording.",
+      "numbers": [
+        {
+          "label": "reviews with near-duplicate or similar-text signal",
+          "numerator": 2,
+          "denominator": 10,
+          "pct": 20.0
+        }
+      ],
+      "excerpts": [
+        {
+          "review_id": "R2XG18VP87PDW4",
+          "text": "Five Stars Great sound!!  Love it!!"
+        },
+        {
+          "review_id": "R24UPKM170CUMG",
+          "text": "Five Stars This speaker has truly amazing sound!"
+        }
+      ],
+      "warning": null,
+      "evidence_ref": {
+        "page": "suspicion",
+        "filters": {
+          "product_id": "B00WK47UZC"
+        }
+      },
+      "score": 0.5
+    }
+  ],
+  "omitted": {
+    "informative_evidence": "no usefulness model output exists (phase 2 experiment saved no model; batch/predict has no usefulness column)",
+    "emerging": "all reviews fall in 7 day(s); no two periods can each reach 60 reviews per product"
+  },
+  "note": null,
+  "inputs": {
+    "reports/complaint_clusters.json": 1791572660.5759437,
+    "reports/complaint_assignments.csv": 1791572661.0719512,
+    "reports/suspicion_results.csv": 1791572773.8743887,
+    "reports/contradictions.json": 1791572767.4510543
+  },
+  "built_seconds": 7.1
+}
