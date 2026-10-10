@@ -1,0 +1,418 @@
+{
+  "source": "experiments/tfidf_ngram.py data path (same split as reports/ngram_results.json)",
+  "train_count": 12068,
+  "val_count": 2586,
+  "test_count": 2587,
+  "test_used_for_fit_or_tuning": false,
+  "fit_policy": "vectorizer+classifier fit on TRAIN; C tuned on VALIDATION macro-F1; TEST predicted once per config",
+  "text_cleaning": "none beyond TfidfVectorizer defaults (lowercase, token pattern \\b\\w\\w+\\b); stopwords NOT removed; min_df=2",
+  "top_terms": {
+    "unigram": {
+      "top20": [
+        {
+          "term": "the",
+          "corpus_count": 110818
+        },
+        {
+          "term": "and",
+          "corpus_count": 54451
+        },
+        {
+          "term": "to",
+          "corpus_count": 53964
+        },
+        {
+          "term": "it",
+          "corpus_count": 41536
+        },
+        {
+          "term": "br",
+          "corpus_count": 36588
+        },
+        {
+          "term": "is",
+          "corpus_count": 31541
+        },
+        {
+          "term": "of",
+          "corpus_count": 30077
+        },
+        {
+          "term": "for",
+          "corpus_count": 25508
+        },
+        {
+          "term": "this",
+          "corpus_count": 23512
+        },
+        {
+          "term": "in",
+          "corpus_count": 23044
+        },
+        {
+          "term": "that",
+          "corpus_count": 22331
+        },
+        {
+          "term": "with",
+          "corpus_count": 20157
+        },
+        {
+          "term": "you",
+          "corpus_count": 20023
+        },
+        {
+          "term": "my",
+          "corpus_count": 19706
+        },
+        {
+          "term": "on",
+          "corpus_count": 18527
+        },
+        {
+          "term": "not",
+          "corpus_count": 16045
+        },
+        {
+          "term": "but",
+          "corpus_count": 15792
+        },
+        {
+          "term": "have",
+          "corpus_count": 14451
+        },
+        {
+          "term": "are",
+          "corpus_count": 12663
+        },
+        {
+          "term": "was",
+          "corpus_count": 12646
+        }
+      ],
+      "vocab_from_train_counts": 16688
+    },
+    "bigram": {
+      "top20": [
+        {
+          "term": "br br",
+          "corpus_count": 14049
+        },
+        {
+          "term": "of the",
+          "corpus_count": 7884
+        },
+        {
+          "term": "on the",
+          "corpus_count": 5841
+        },
+        {
+          "term": "in the",
+          "corpus_count": 5528
+        },
+        {
+          "term": "to the",
+          "corpus_count": 4454
+        },
+        {
+          "term": "and the",
+          "corpus_count": 4204
+        },
+        {
+          "term": "if you",
+          "corpus_count": 4187
+        },
+        {
+          "term": "with the",
+          "corpus_count": 4185
+        },
+        {
+          "term": "for the",
+          "corpus_count": 3764
+        },
+        {
+          "term": "it is",
+          "corpus_count": 3457
+        },
+        {
+          "term": "the sound",
+          "corpus_count": 3372
+        },
+        {
+          "term": "this is",
+          "corpus_count": 3222
+        },
+        {
+          "term": "you can",
+          "corpus_count": 2797
+        },
+        {
+          "term": "to be",
+          "corpus_count": 2763
+        },
+        {
+          "term": "br the",
+          "corpus_count": 2636
+        },
+        {
+          "term": "and it",
+          "corpus_count": 2310
+        },
+        {
+          "term": "they are",
+          "corpus_count": 2121
+        },
+        {
+          "term": "it was",
+          "corpus_count": 2087
+        },
+        {
+          "term": "from the",
+          "corpus_count": 2066
+        },
+        {
+          "term": "sound quality",
+          "corpus_count": 2034
+        }
+      ],
+      "vocab_from_train_counts": 146417
+    },
+    "uni_bigram": {
+      "top20": [
+        {
+          "term": "the",
+          "corpus_count": 110818
+        },
+        {
+          "term": "and",
+          "corpus_count": 54451
+        },
+        {
+          "term": "to",
+          "corpus_count": 53964
+        },
+        {
+          "term": "it",
+          "corpus_count": 41536
+        },
+        {
+          "term": "br",
+          "corpus_count": 36588
+        },
+        {
+          "term": "is",
+          "corpus_count": 31541
+        },
+        {
+          "term": "of",
+          "corpus_count": 30077
+        },
+        {
+          "term": "for",
+          "corpus_count": 25508
+        },
+        {
+          "term": "this",
+          "corpus_count": 23512
+        },
+        {
+          "term": "in",
+          "corpus_count": 23044
+        },
+        {
+          "term": "that",
+          "corpus_count": 22331
+        },
+        {
+          "term": "with",
+          "corpus_count": 20157
+        },
+        {
+          "term": "you",
+          "corpus_count": 20023
+        },
+        {
+          "term": "my",
+          "corpus_count": 19706
+        },
+        {
+          "term": "on",
+          "corpus_count": 18527
+        },
+        {
+          "term": "not",
+          "corpus_count": 16045
+        },
+        {
+          "term": "but",
+          "corpus_count": 15792
+        },
+        {
+          "term": "have",
+          "corpus_count": 14451
+        },
+        {
+          "term": "br br",
+          "corpus_count": 14049
+        },
+        {
+          "term": "are",
+          "corpus_count": 12663
+        }
+      ],
+      "vocab_from_train_counts": 163105
+    }
+  },
+  "configs": {
+    "unigram": {
+      "ngram_range": [
+        1,
+        1
+      ],
+      "C": 10.0,
+      "train_seconds": 0.58,
+      "vocab_size": 16688,
+      "macro_f1": 0.6863,
+      "weighted_f1": 0.8023,
+      "accuracy": 0.8179
+    },
+    "bigram": {
+      "ngram_range": [
+        2,
+        2
+      ],
+      "C": 10.0,
+      "train_seconds": 1.37,
+      "vocab_size": 146417,
+      "macro_f1": 0.618,
+      "weighted_f1": 0.7718,
+      "accuracy": 0.8079
+    },
+    "uni_bigram": {
+      "ngram_range": [
+        1,
+        2
+      ],
+      "C": 10.0,
+      "train_seconds": 1.95,
+      "vocab_size": 163105,
+      "macro_f1": 0.6566,
+      "weighted_f1": 0.7897,
+      "accuracy": 0.8148
+    }
+  },
+  "errors": {
+    "best_config": "unigram",
+    "misclassified_test_rows": 471,
+    "test_rows": 2587,
+    "false_positive_pred_useful_true_not": 335,
+    "false_negative_pred_not_true_useful": 136,
+    "median_words_misclassified": 58.0,
+    "median_words_all_test": 94.0,
+    "examples": [
+      {
+        "review_id": "R13D7EUBRHM7HG",
+        "label": 0,
+        "pred": 1,
+        "text": "help please So based on all the reviews I was drawn to purchase this device for a family function. Got it fast..my problem is that I've had this Damn thing charged since I received it today. The instructions said charge it for 6 hours or until the red light disappears. It's been well over 6 hours. S"
+      },
+      {
+        "review_id": "RC5ED5BMPSES5",
+        "label": 0,
+        "pred": 1,
+        "text": "this unit is said to be a hundred eighty five ... this unit is said to be a hundred eighty five watts per channel it is not it is 90 watts per channel severely lower power than what I already had which was an Onkyo 110 watt RMS per channel"
+      },
+      {
+        "review_id": "R10IVMJBTDE80F",
+        "label": 0,
+        "pred": 1,
+        "text": "One Star didnt need it, old one worked just fine"
+      },
+      {
+        "review_id": "R1Z3GWOBGSJ53D",
+        "label": 1,
+        "pred": 0,
+        "text": "piece of crap Dont waste your money, there are better speaker like the mpow armor that's 20 times better and is inthe same range of price"
+      },
+      {
+        "review_id": "RSTMLL7TCBSWZ",
+        "label": 0,
+        "pred": 1,
+        "text": "Five Stars Awesome AVR. Exceeds expectations with all bells and whisltes and upgrading potential for hone theater use."
+      },
+      {
+        "review_id": "R38039Z87AJZJP",
+        "label": 0,
+        "pred": 1,
+        "text": "One Star the sound is not clear when i plug it into my toshiba laptop :-("
+      },
+      {
+        "review_id": "R16GEJTZSF2HES",
+        "label": 1,
+        "pred": 0,
+        "text": "NOT durable. Coating over wires peel away. Loved these headphones when I initially bought them. They were comfortable and had decent sound quality (for my needs anyway). However, a few months after I got them, the coating over the headphone wires started to peel away/disintegrate. They still work, b"
+      },
+      {
+        "review_id": "R315NY20HAOIUJ",
+        "label": 0,
+        "pred": 1,
+        "text": "Five Stars very stable seems to be  just what i wanted"
+      },
+      {
+        "review_id": "R3UB1Q7KXPRM2R",
+        "label": 0,
+        "pred": 1,
+        "text": "Good Product; No Replacement Parts Plusses: Good sound quality (I am not an audiophile, and use it with an iPhone, so factor that in). Easy to use,. Easy to set up w/o instructions. Good battery life. Great price (under $100 at Costco).  Minuses (and this is a big one):  NO REPLACEMENT PARTS AVAILAB"
+      },
+      {
+        "review_id": "R1LPW330498YYF",
+        "label": 1,
+        "pred": 0,
+        "text": "Complete waste of time and money POS. It did not come with a code list. Couldn't get it to work on my DVR. Could not access the guide or list of programs I had saved on the DVR. Complete waste of time and money. Need to read more reviews before I try to buy another universal remote."
+      }
+    ],
+    "title_star_pattern": {
+      "share_of_test_rows": 0.0831,
+      "accuracy_rows_with_title_star": 0.6977,
+      "accuracy_rows_without": 0.8288,
+      "share_of_errors_with_title_star": 0.138,
+      "errors_false_positive_useful": 335,
+      "errors_false_negative": 136
+    }
+  },
+  "baseline": {
+    "accuracy": 0.7855,
+    "per_class": {
+      "0": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 555.0
+      },
+      "1": {
+        "precision": 0.7855,
+        "recall": 1.0,
+        "f1-score": 0.8798,
+        "support": 2032.0
+      }
+    },
+    "macro_f1": 0.4399,
+    "weighted_f1": 0.6911,
+    "confusion_matrix": [
+      [
+        0,
+        555
+      ],
+      [
+        0,
+        2032
+      ]
+    ]
+  },
+  "production_model": "N/A: ReviewLens is unsupervised (5 clusters). No usefulness output to score.",
+  "test_class_distribution": {
+    "0": 555,
+    "1": 2032
+  },
+  "best_config": "unigram"
+}

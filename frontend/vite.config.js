@@ -5,6 +5,13 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   server: {
-    proxy: { "/analyze": "http://127.0.0.1:8001" },
+    proxy: {
+      "/analyze": "http://127.0.0.1:8001",
+      "/complaints": "http://127.0.0.1:8001",
+      "/contradictions": "http://127.0.0.1:8001",
+      "/suspicion": "http://127.0.0.1:8001",
+      "/insights": "http://127.0.0.1:8001",
+      "/app": "http://127.0.0.1:8001",
+    },
   },
 });

@@ -16,22 +16,33 @@ ReviewLens is an unsupervised NLP prototype. It learns recurring review-writing 
 | Long-Term Usage Experience | Evidence from real use over time, specific performance details | High |
 | Personal Experience and Recommendation | First-person experience and recommendation language | Moderate |
 
+## What the app does
+
+ReviewLens has two layers:
+
+1. **Pattern model (core, unchanged):** assigns any review to one of five learned writing patterns (below).
+2. **Review analysis suite (added):** loads a review file, runs a batch pipeline, and shows what customers complain about, where opinions conflict, which reviews carry warning signals, and a few evidence-backed insights.
+
+Everything in layer 2 is measured on the local sample and labelled **preliminary**. See Evaluation and the model card.
+
 ## Quick start
 
-You need Python 3 and Node.js. The trained model artifacts are included in `models/`, so no training or raw data is needed to run the app.
+You need Python 3.11 and Node.js. The trained pattern model is in `models/`, so the app runs without raw data. The analysis suite needs a local review file (see Data below).
 
 ```bash
 # 1. Backend (from the repo root)
 pip install -r requirements.txt
 python3 -m src.server            # http://127.0.0.1:8001
 
-# 2. Dashboard (in a second terminal)
+# 2. Dashboard (second terminal)
 cd frontend
 npm install
-npm run dev                      # http://localhost:5173 (proxies /analyze to :8001)
+npm run dev                      # http://localhost:5173 (proxies /analyze, /app, /complaints, ... to :8001)
 ```
 
 Run the backend from the repo root: the inference module loads `models/` relative to the working directory.
+
+To see the analysis suite, open the dashboard, click **Load demo dataset**, then **Run analysis** (about 1-2 minutes). The first run downloads two small models (sentence embeddings and an NLI model) from Hugging Face.
 
 ### Use the model from Python
 
@@ -57,13 +68,50 @@ The response contains `review_pattern`, `description`, `informational_value`, `a
 
 ## The dashboard
 
-- KPI cards: reviews analysed, top pattern, share of high-informational-value reviews, top alternative pattern
-- Pattern mix per product (stacked bars) and informational-value distribution
-- Review table with expandable rows (full text, description, disclaimer) and product filter chips
-- "Analyze your own review" box
-- 35 preset reviews across 5 sample products (headphones, laptop, smartphone, novel, cookbook) for quick demos
+- **Overview:** metric tiles, key discoveries, complaint clusters, contradiction examples, suspicious-review counts. Filters for product, rating, and date range update the tiles.
+- **Complaints:** cluster list with top terms, review counts, sentiment mix, and the original reviews per cluster.
+- **Contradictions:** side-by-side opposing sentences on the same product and aspect, with a three-part explanation (evidence, possible interpretation, missing context).
+- **Suspicious Reviews:** heuristic warning signals (duplicates, similar text, promotional wording, reviewer activity, bursts). Dismiss a flag without deleting it.
+- **Insights:** short evidence-backed findings with numerators and denominators.
+- **Analyze:** paste your own review and get its pattern, shown directly under the input. Also the original 35 preset reviews across five sample products.
+- **Upload:** CSV, TSV, TXT, or XLSX. Uploaded files are cleaned and browsed; the analysis suite runs on the demo sample only.
 
-Built with React 18 and Vite 5. The frontend only talks to `POST /analyze`; it never loads raw data or triggers training.
+Built with React 18 and Vite 5. The frontend only calls the local API; it never reads raw files directly.
+
+## Analysis modules
+
+| Module | Folder | What it does | Type |
+| --- | --- | --- | --- |
+| Batch loading and cleaning | `batch/` | Chunked reading, schema mapping, counted drops (empty text, bad ratings, bad dates, duplicate IDs) | Deterministic |
+| N-gram experiment | `experiments/` | TF-IDF unigram / bigram logistic regression on a vote-derived usefulness label, compared with a majority baseline | Supervised (weak label) |
+| Complaint discovery | `complaints/` | Groups reviews rated 1-3 stars by meaning (sentence embeddings, HDBSCAN or KMeans fallback) and labels groups with top terms | Unsupervised, preliminary |
+| Contradiction investigator | `contradictions/` | Finds opposing sentences on the same product and aspect; verifies with an NLI model; keeps strong, same-keyword pairs | Heuristic + NLI model |
+| Suspicious review investigator | `suspicion/` | Duplicate, similarity, promotional-wording, reviewer-activity, and burst signals. Warnings only | Heuristic, not validated |
+| Insight engine | `insights/` | Turns the outputs above into 4-5 cards with real numbers and excerpts; hides low-evidence types | Rule-based |
+| Dashboard API | `dashboard/` | Run-analysis job, demo loading, uploads, filters, overview data | Glue |
+| Evaluation | `evaluation/` | Dataset report, n-gram report, quality checks, model card | Measurement |
+
+Every analysis output is labelled preliminary. Nothing here is a validated fake-review classifier, and no complaint cluster has been evaluated against ground truth.
+
+### Run the analysis from the command line
+
+```bash
+# needs the TSV in data/ (see Data)
+python -m complaints.run          # writes reports/complaint_*
+python -m contradictions.run      # writes reports/contradictions.*
+python -m suspicion.run           # writes reports/suspicion_*
+python -m insights.run            # writes reports/insights.json
+python -m evaluation.quality_checks
+python -m evaluation.model_card   # writes MODEL_CARD_RESULTS.md and model_card_metrics.json
+```
+
+Reports go to `reports/`. The model card (`MODEL_CARD_RESULTS.md`) and its metrics file (`model_card_metrics.json`) are at the repo root.
+
+## Data
+
+- The pattern model was trained on the Amazon US Customer Reviews files (Books and Electronics).
+- The analysis suite reads a local TSV from `data/`, by default `data/amazon_reviews_us_Electronics_v1_00.tsv`. Raw data is gitignored and not included.
+- The Amazon data licence allows **academic research only**. Do not redistribute the raw files.
 
 ## Project objective
 
@@ -122,7 +170,7 @@ Review text -> cleaning -> filtered TF-IDF + writing-style features
 
 One review is processed instead of millions of rows, so the UI stays responsive.
 
-## Evaluation
+## Evaluation of the pattern model
 
 ### Internal clustering metrics
 
@@ -142,18 +190,38 @@ Helpful votes are **not** a model target, feature, or label; they are only exami
 
 Those metrics need known correct labels. This dataset has no reliable ground-truth "usefulness" class, and the project deliberately avoids creating a false label from helpful votes. A future evaluation can use a separately collected, manually annotated holdout set.
 
+## Evaluation of the analysis suite (preliminary)
+
+Measured on the local Electronics sample (first 20,000 rows for the pipeline, first 500,000 rows for the n-gram experiment). Source: `model_card_metrics.json`.
+
+| Measure | Value | Note |
+| --- | ---: | --- |
+| Usefulness experiment (best config, unigram) | accuracy 0.8179, macro-F1 0.6863 | Vote-derived label; majority baseline macro-F1 0.4399 |
+| Complaint clusters | 2 clusters, 819 clustered, 3965 unclustered | HDBSCAN; cluster quality not evaluated |
+| Contradictions shown | 567 | NLI contradiction, score >= 0.9, same keyword in both sentences |
+| Quality checks | 10 pass, 2 not verified | See `reports/quality_check.md` |
+
+Full details, error analysis, limitations, and reproduction commands: `MODEL_CARD_RESULTS.md`. A one-page card is in `MODEL_CARD_ONE_PAGE.pdf`.
+
 ## Repository structure
 
 ```text
 ReviewLens/
-├── frontend/                     # React + Vite dashboard
-│   └── src/                      #   App.jsx, presets.js, styles.css
-├── models/                       # Trained artifacts (about 11 MB) and profile JSON
-├── notebooks/
-│   └── ReviewLens_Training.ipynb # Colab training notebook
+├── batch/              # loading, schema, batch prediction
+├── complaints/         # complaint discovery
+├── contradictions/     # contradiction investigator
+├── suspicion/          # suspicious-review signals
+├── insights/           # insight engine
+├── experiments/        # TF-IDF n-gram experiment
+├── evaluation/         # dataset report, quality checks, model card
+├── dashboard/          # run/upload/filter state for the app
+├── frontend/           # React + Vite dashboard
+├── models/             # trained pattern-model artifacts and profile JSON
+├── reports/            # generated analysis outputs
+├── notebooks/          # Colab training notebook
 ├── src/
-│   ├── reviewlens_inference.py   # ReviewLens class: the integration boundary
-│   └── server.py                 # stdlib HTTP server: POST /analyze
+│   ├── reviewlens_inference.py   # ReviewLens class: pattern-model boundary
+│   └── server.py                 # stdlib HTTP server (API routes)
 └── requirements.txt
 ```
 
@@ -165,18 +233,21 @@ ReviewLens/
 
 ## Limitations and future work
 
-- Trained on Books and Electronics only; more categories need balanced chunked sampling and full retraining.
-- Some clusters still show category skew. The model reduces topic dominance but does not claim to be perfectly category-neutral.
+- The pattern model was trained on Books and Electronics only.
+- Usefulness labels come from helpful votes, which are noisy and popularity-dependent. A manually annotated set is needed for any usefulness claim.
+- Complaint clusters and insight quality are not evaluated. Treat them as exploration.
+- Contradiction and suspicion outputs are heuristic. Flags are warnings, not proof.
+- The analysis suite runs on a 20,000-row head sample; uploads are browsable but not analysed.
+- The backend is a single-process server with no authentication or CORS, intended for local use.
 - The five profile names are human interpretations of unsupervised clusters.
-- No supervised accuracy is claimed without an independently labelled evaluation set.
-- The backend is a single-process stdlib server with no authentication or CORS, intended for local use.
-- **Planned:** a sentiment layer trained from star ratings, with sentiment analysed by writing pattern; a comparison of logistic regression, BiLSTM, and a small transformer; more categories; CSV upload in the dashboard.
+- **Planned:** analysis on uploaded files; a sentiment layer; comparison of supervised models on a labelled set; more categories.
 
 ## Technology stack
 
-- **NLP / ML:** Python, pandas, NumPy, SciPy, scikit-learn (`TfidfVectorizer`, `TruncatedSVD`, `MiniBatchKMeans`, `StandardScaler`, `Normalizer`), joblib
-- **Training:** Google Colab and Google Drive
+- **NLP / ML:** Python 3.11, pandas, NumPy, SciPy, scikit-learn 1.6.1, joblib, sentence-transformers (all-MiniLM-L6-v2), HDBSCAN, VADER, transformers (cross-encoder/nli-deberta-v3-small)
 - **Backend:** Python standard-library HTTP server
 - **Frontend:** React 18, Vite 5
+- **Reports:** Markdown and JSON, generated by the scripts above
 
-No deep-learning model is used. The classical NLP approach is computationally practical, explainable, and fast at inference time.
+The pattern model uses no deep learning. The analysis suite uses small pre-trained models for embeddings and NLI; both run on CPU.
+
