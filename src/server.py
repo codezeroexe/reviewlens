@@ -98,7 +98,7 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/app/status":
             return self._send(200, get_status())
         if path == "/app/view":
-            return self._send(200, filtered_view(self.query))
+            return self._send(200, filtered_view(self.query, model))
         if path == "/app/overview":
             return self._send(200, app_overview())
         if path == "/insights":

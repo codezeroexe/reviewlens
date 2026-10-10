@@ -258,3 +258,6 @@ th { text-align: left; }
 .step.done { background: var(--success); color: var(--text); }
 .step.current { background: var(--accent); color: var(--text); }
 .step.failed { background: var(--danger); color: var(--text); }
+
+.nav { max-width: 100%; overflow-x: auto; }
+.nav-item { white-space: nowrap; }

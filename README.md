@@ -75,7 +75,7 @@ The response contains `review_pattern`, `description`, `informational_value`, `a
 - **Contradictions:** side-by-side opposing sentences on the same product and aspect, with a three-part explanation (evidence, possible interpretation, missing context).
 - **Suspicious Reviews:** heuristic warning signals (duplicates, similar text, promotional wording, reviewer activity, bursts). Dismiss a flag without deleting it.
 - **Insights:** short evidence-backed findings with numerators and denominators.
-- **Analyze:** paste your own review and get its pattern, shown directly under the input. Also the original 35 preset reviews across five sample products.
+- **Check a review:** paste a review (or pick an example) and get its closest writing pattern, plus how common that pattern is in the loaded dataset. The Overview also shows the writing-pattern mix of the loaded dataset (and of the filtered reviews), for demo and uploaded files.
 - **Upload:** CSV, TSV, TXT, or XLSX. Uploaded files are cleaned and browsed; the analysis suite runs on the demo sample only.
 
 Built with React 18 and Vite 5. The frontend only calls the local API; it never reads raw files directly.

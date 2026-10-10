@@ -11,6 +11,7 @@ from pathlib import Path
 import pandas as pd
 
 from batch.loader import DEMO_FILE, load_reviews
+from batch.predict import predict_batch
 from dashboard.data import FRAME, metrics as frame_metrics, set_demo
 
 REPORTS = Path("reports")
@@ -213,9 +214,30 @@ def get_overview() -> dict:
 
 
 REVIEW_ROWS = 25
+_patterns = {"key": None, "labels": None}
+_pattern_lock = threading.Lock()
 
 
-def filtered_view(params: dict) -> dict:
+def _pattern_labels(df: pd.DataFrame, model) -> pd.Series:
+    """Writing pattern per review for the active dataset. Computed once per dataset (about 2 s per 20,000 reviews)."""
+    key = (FRAME["kind"], FRAME["name"], len(df))
+    with _pattern_lock:
+        if _patterns["key"] != key:
+            out, _ = predict_batch(df.reset_index(drop=True), model, batch_size=2000, verbose=False)
+            _patterns.update(key=key, labels=pd.Series(out["review_pattern"].to_numpy(), index=df.index))
+        return _patterns["labels"]
+
+
+def pattern_mix(df: pd.DataFrame, sub: pd.DataFrame, model) -> dict:
+    """Share of the (filtered) reviews in each learned writing pattern. Reviews the model could not score are counted apart."""
+    labels = _pattern_labels(df, model).loc[sub.index]
+    counts = labels.dropna().value_counts()
+    scored = int(counts.sum())
+    return {"scored": scored, "unscored": int(len(sub) - scored),
+            "mix": [{"pattern": p, "count": int(n), "pct": round(100 * n / scored, 1)} for p, n in counts.items()]}
+
+
+def filtered_view(params: dict, model=None) -> dict:
     """Dataset summary after filters, plus the first matching reviews so the filters visibly filter something."""
     from dashboard.data import apply_filters, filter_options
     df = FRAME["df"]
@@ -236,4 +258,5 @@ def filtered_view(params: dict) -> dict:
                 "text": str(r.review_text)[:240]} for r in shown.itertuples()]
     return {"available": True, "metrics": m, "reviews": reviews, "matching": int(len(sub)),
             "filtered": any(params.get(k) for k in ("product", "rating", "date_from", "date_to")),
+            "patterns": pattern_mix(df, sub, model) if model is not None and len(sub) else None,
             "options": filter_options(df), "kind": FRAME["kind"], "source": FRAME["name"]}

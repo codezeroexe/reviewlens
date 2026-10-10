@@ -43,3 +43,5 @@ Browser pane, dev server 5174, API 8001. Viewports 1366x900 and 375x812.
 - Unclustered list: 200 rows load (previously failed on NaN in the JSON). PASS
 - Mobile width: bar wraps, steps and nav scroll sideways, tiles stack in two columns. PASS
 - Not checked: keyboard-only walk-through, screen reader, Safari/Firefox.
+
+- Check a review (replaces the old Analyze page): example chip fills the box; result shows pattern, value, next closest pattern and "17.6% of 20,000 reviews ... fall in this pattern". Overview shows the writing-pattern mix. PASS

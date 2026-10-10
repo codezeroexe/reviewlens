@@ -5,7 +5,7 @@ import pandas as pd
 from src.reviewlens_inference import ReviewLens
 
 
-def predict_batch(df: pd.DataFrame, model: ReviewLens, batch_size: int = 500) -> tuple[pd.DataFrame, dict]:
+def predict_batch(df: pd.DataFrame, model: ReviewLens, batch_size: int = 500, verbose: bool = True) -> tuple[pd.DataFrame, dict]:
     texts = df["review_text"].tolist()
     rows, failed = [], 0
     for start in range(0, len(texts), batch_size):
@@ -27,7 +27,8 @@ def predict_batch(df: pd.DataFrame, model: ReviewLens, batch_size: int = 500) ->
                 "closest_cluster": nearest,
                 "distance_to_closest_cluster": round(float(row[nearest]), 4),
             })
-        print(f"processed {start + len(chunk)}/{len(texts)}")
+        if verbose:
+            print(f"processed {start + len(chunk)}/{len(texts)}")
     out = pd.concat([df.reset_index(drop=True), pd.DataFrame(rows)], axis=1)
     return out, {"rows": len(texts), "failed_in_batches": failed}
 

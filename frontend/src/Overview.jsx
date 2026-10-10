@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useApp } from "./AppState.jsx";
 import { fmt, plain, useApi } from "./api.js";
+import { colorOf, PATTERNS } from "./patterns.js";
 import { Fetching, Gated, PageHead, displayLabel } from "./ui.jsx";
 
 const TYPE_TO_VIEW = { common_problem: "complaints", experience_gap: "contradictions", quality_warning: "suspicion", comparison: "insights" };
@@ -41,6 +42,29 @@ function FilterBar({ options, filters, setFilters }) {
   );
 }
 
+/** Share of reviews in each learned writing pattern, for the reviews matching the filters. */
+function PatternMix({ patterns }) {
+  const rank = (p) => PATTERNS.findIndex((x) => x.name === p.pattern);
+  const mix = [...patterns.mix].sort((a, b) => rank(a) - rank(b));
+  return (
+    <div className="card">
+      <div className="row-between">
+        <h3 className="card-title">Writing patterns</h3>
+        <span className="badge badge-warning">Model prediction</span>
+      </div>
+      <div className="stack" role="img" aria-label="Writing pattern mix">
+        {mix.map((m) => <div key={m.pattern} className="seg" style={{ width: `${m.pct}%`, background: colorOf(m.pattern) }} title={`${m.pattern}: ${m.pct}%`} />)}
+      </div>
+      <div className="legend">
+        {mix.map((m) => <span key={m.pattern}><i style={{ background: colorOf(m.pattern) }} />{m.pattern} {m.pct}% <span className="muted">({fmt(m.count)})</span></span>)}
+      </div>
+      <p className="muted small">
+        Closest of five learned writing patterns for {fmt(patterns.scored)} reviews{patterns.unscored ? `; ${fmt(patterns.unscored)} could not be scored` : ""}. Describes how a review is written, not whether it is useful.
+      </p>
+    </div>
+  );
+}
+
 /** The dataset itself: filters, counts, and the matching reviews. Works for demo and uploads. */
 function DatasetSection() {
   const { dataset, resultsVersion } = useApp();
@@ -76,6 +100,7 @@ function DatasetSection() {
           </div>
         ))}
       </div>
+      {data.patterns && <PatternMix patterns={data.patterns} />}
       <div className="card">
         <div className="label">Matching reviews: showing {data.reviews.length} of {fmt(data.matching)}{data.reviews.length > 1 ? ", newest first" : ""}</div>
         {data.reviews.length === 0 ? <p className="muted">No review matches these filters.</p> : (

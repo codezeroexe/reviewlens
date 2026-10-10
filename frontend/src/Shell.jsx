@@ -7,7 +7,7 @@ const NAV = [
   { key: "contradictions", label: "Contradictions" },
   { key: "suspicion", label: "Suspicious Reviews" },
   { key: "insights", label: "Insights" },
-  { key: "analyze", label: "Analyze" },
+  { key: "check", label: "Check a review" },
 ];
 
 const closeMenu = (event) => { const menu = event.currentTarget.closest("details"); if (menu) menu.open = false; };
