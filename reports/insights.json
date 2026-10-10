@@ -1310,10 +1310,10 @@
   },
   "note": null,
   "inputs": {
-    "reports/complaint_clusters.json": 1791613564.0715623,
-    "reports/complaint_assignments.csv": 1791613564.188841,
-    "reports/suspicion_results.csv": 1791613670.6486876,
-    "reports/contradictions.json": 1791613664.053558
+    "reports/complaint_clusters.json": 1791613777.1560082,
+    "reports/complaint_assignments.csv": 1791613777.2745378,
+    "reports/suspicion_results.csv": 1791613923.1346624,
+    "reports/contradictions.json": 1791613887.2325652
   },
-  "built_seconds": 6.8
+  "built_seconds": 18.9
 }

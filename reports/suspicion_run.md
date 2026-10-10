@@ -4,7 +4,7 @@
 
 - Rows processed: 20000 (first 20000 rows of Electronics TSV, same subset as phase 3)
 - Load report: {'rows_in': 20000, 'dropped_empty_text': 0, 'rating_set_null': 0, 'date_set_null': 0, 'votes_set_null': 0, 'verified_set_null': 0, 'dropped_duplicate_review_id': 0, 'bad_lines_skipped': 0, 'rows_kept': 20000}
-- Runtime: 6.6 s
+- Runtime: 35.9 s
 - Embedding for semantic signal: sentence-transformers all-MiniLM-L6-v2
 - Category counts: {'No signals': 14136, 'Low': 4444, 'Medium': 1354, 'High': 66}
 - Reviews with each signal: {'exact_duplicate': 533, 'near_duplicate': 2, 'semantic_similar': 1756, 'promo_repetition': 5065, 'reviewer_activity': 519, 'review_burst': 0}

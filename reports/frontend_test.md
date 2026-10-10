@@ -30,3 +30,16 @@ Other checks:
 - Analysis type filter: not built (no analysis type exists to filter by).
 - Upload is browsable, not analysed. Run analysis is refused for uploads (API 409, button disabled). Uploaded data shows a note that discoveries are demo-sample results.
 - Upload test files removed from data/uploads after testing.
+
+## Re-test after dashboard integration (branch fix/integrate-dashboard)
+
+Browser pane, dev server 5174, API 8001. Viewports 1366x900 and 375x812.
+
+- Dataset bar: shows dataset name, row count and kind; primary action changes with state (Load demo / Run / Re-run). PASS
+- Run analysis: stepper moved Complaint clusters -> Contradictions -> Suspicious signals -> Insights, then "Done in 172.9 s"; Findings refetched without a reload. PASS
+- Upload (3-row CSV, file name with a space): dataset chip switched to "uploaded file"; Overview shows tiles, filters and matching reviews; Run is disabled with a reason; Complaints shows one "Not analysed" message. PASS
+- Load demo after upload: demo results returned on every tab. PASS
+- Deep link: Overview "Investigate" on the complaint insight opened Complaints with cluster 1 selected. PASS
+- Unclustered list: 200 rows load (previously failed on NaN in the JSON). PASS
+- Mobile width: bar wraps, steps and nav scroll sideways, tiles stack in two columns. PASS
+- Not checked: keyboard-only walk-through, screen reader, Safari/Firefox.

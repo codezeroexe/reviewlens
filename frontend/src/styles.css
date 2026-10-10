@@ -237,7 +237,7 @@ th { text-align: left; }
   --pattern-1: var(--success); --pattern-2: var(--info); --pattern-3: var(--pink); --pattern-4: var(--warning); --pattern-5: #8f7ae0;
   --sent-pos: var(--success); --sent-mix: #b5b5b5; --sent-neg: var(--danger);
 }
-.shell > .page { padding: 0; max-width: none; }
+.shell > .page { padding: 0; max-width: none; width: 100%; margin: 0; }
 .page-head { display: flex; flex-direction: column; gap: 10px; }
 .page-title { margin: 0; font-size: 28px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em; }
 .banner { border: 3px solid var(--border); border-left-width: 12px; border-left-color: var(--warning); background: var(--surface); padding: 10px 14px; font-weight: 700; font-size: 14px; }
