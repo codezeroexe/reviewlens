@@ -11,7 +11,7 @@ from pathlib import Path
 import pandas as pd
 
 from batch.loader import DEMO_FILE, load_reviews
-from dashboard.data import FRAME, set_demo
+from dashboard.data import FRAME, metrics as frame_metrics, set_demo
 
 REPORTS = Path("reports")
 SAMPLE_ROWS = 20_000
@@ -80,46 +80,74 @@ def start_run() -> dict:
     return get_status()
 
 
-def _status_for_upload() -> dict:
-    from dashboard.data import metrics as frame_metrics
-    m = frame_metrics(FRAME["df"])
-    base = get_status_core()
-    base["stats"] = {"source": FRAME["name"], "review_count": m["reviews"], "products": m["products"],
-                     "date_min": m["date_span"][0], "date_max": m["date_span"][1],
-                     "categories": sorted(FRAME["df"]["product_category"].dropna().unique().tolist())
-                     if "product_category" in FRAME["df"] else []}
-    base["analysis_on"] = "demo sample only"
-    return base
-
-
-def get_status_core() -> dict:
-    if JOB["status"] == "running":
-        data_state = "Analyzing"
-    elif JOB["status"] == "error":
-        data_state = "Error"
-    else:
-        data_state = "Loaded"
-    return {"data_state": data_state, "stats": {}, "job": dict(JOB), "reports_present": _reports_present()}
+REPORT_FILES = ["complaint_clusters.json", "contradictions.json", "suspicion_results.csv", "insights.json"]
 
 
 def _reports_present() -> bool:
-    return (REPORTS / "complaint_clusters.json").exists() and (REPORTS / "insights.json").exists()
+    return all((REPORTS / f).exists() for f in REPORT_FILES)
+
+
+def _results_version() -> int:
+    """Changes whenever any analysis output is rewritten. The UI refetches when it changes."""
+    times = [(REPORTS / f).stat().st_mtime for f in REPORT_FILES if (REPORTS / f).exists()]
+    return int(max(times)) if times else 0
+
+
+def require_demo() -> None:
+    """Analysis outputs describe the demo sample only. Refuse them while an uploaded file is active."""
+    if FRAME["kind"] == "upload":
+        raise RuntimeError("Analysis runs on the demo sample only. Load the demo dataset to see this.")
+
+
+def reset_job() -> None:
+    """Forget a finished or failed run when the dataset changes, so old banners do not follow a new file."""
+    with _lock:
+        if JOB["status"] in ("ready", "error"):
+            JOB.update(status="idle", step=None, step_index=0, done=[], error=None, error_step=None, runtime_s=None)
+
+
+def restore_demo() -> None:
+    """After a restart, reload the demo dataset if the user had loaded it before (stats were saved)."""
+    if _stats and FRAME["df"] is None and Path(DEMO_FILE).exists():
+        load_demo()
+
+
+def _dataset() -> dict:
+    kind = FRAME["kind"]
+    if kind == "upload":
+        m = frame_metrics(FRAME["df"])
+        return {"kind": "upload", "name": FRAME["name"], "rows": m["reviews"], "products": m["products"],
+                "date_min": m["date_span"][0], "date_max": m["date_span"][1],
+                "categories": sorted(FRAME["df"]["product_category"].dropna().unique().tolist())
+                if "product_category" in FRAME["df"] else []}
+    if kind == "demo" or _stats:
+        return {"kind": "demo", "name": str(_stats.get("source", FRAME["name"] or "")).split("/")[-1],
+                "rows": _stats.get("review_count"), "products": _stats.get("products"),
+                "date_min": _stats.get("date_min"), "date_max": _stats.get("date_max"),
+                "categories": _stats.get("categories", []), "restoring": kind is None}
+    return {"kind": None, "name": None, "rows": None}
 
 
 def get_status() -> dict:
-    if FRAME["kind"] == "upload":
-        return _status_for_upload()
+    dataset = _dataset()
+    upload = dataset["kind"] == "upload"
     if JOB["status"] == "running":
-        data_state = "Analyzing"
+        state = "Analyzing"
     elif JOB["status"] == "error":
-        data_state = "Error"
+        state = "Error"
+    elif upload:
+        state = "Loaded"
     elif _reports_present():
-        data_state = "Ready"
-    elif _stats:
-        data_state = "Loaded"
+        state = "Ready"
+    elif dataset["kind"]:
+        state = "Loaded"
     else:
-        data_state = "Not loaded"
-    return {"data_state": data_state, "stats": _stats, "job": dict(JOB), "reports_present": _reports_present()}
+        state = "Not loaded"
+    return {
+        "data_state": state, "dataset": dataset, "job": dict(JOB), "steps": [label for label, _ in STEPS],
+        "reports_present": _reports_present(), "results_for": "demo" if (not upload and _reports_present()) else None,
+        "results_version": _results_version(),
+    }
 
 
 def _signal_counts(flagged: pd.DataFrame) -> dict:
@@ -183,9 +211,12 @@ def get_overview() -> dict:
     }
 
 
+REVIEW_ROWS = 25
+
+
 def filtered_view(params: dict) -> dict:
-    """Metrics for the active dataset after filters. Clusters/discoveries are not filterable (full-sample outputs)."""
-    from dashboard.data import apply_filters, metrics as frame_metrics, filter_options
+    """Dataset summary after filters, plus the first matching reviews so the filters visibly filter something."""
+    from dashboard.data import apply_filters, filter_options
     df = FRAME["df"]
     if df is None:
         return {"available": False, "message": "Load a dataset first."}
@@ -197,5 +228,11 @@ def filtered_view(params: dict) -> dict:
         m["flagged"] = int(sub["review_id"].astype(str).isin(flagged_ids).sum())
     else:
         m["flagged"] = None
-    return {"available": True, "metrics": m, "filtered": any(params.get(k) for k in ("product", "rating", "date_from", "date_to")),
+    shown = (sub.sort_values("date", ascending=False, na_position="last") if "date" in sub else sub).head(REVIEW_ROWS)
+    reviews = [{"review_id": str(r.review_id), "product_id": str(getattr(r, "product_id", "")) or None,
+                "rating": getattr(r, "rating", None),
+                "date": None if pd.isna(getattr(r, "date", pd.NaT)) else str(r.date.date()),
+                "text": str(r.review_text)[:240]} for r in shown.itertuples()]
+    return {"available": True, "metrics": m, "reviews": reviews, "matching": int(len(sub)),
+            "filtered": any(params.get(k) for k in ("product", "rating", "date_from", "date_to")),
             "options": filter_options(df), "kind": FRAME["kind"], "source": FRAME["name"]}

@@ -28,7 +28,7 @@ def common_problem(assign: pd.DataFrame, clusters: list[dict]):
             id=f"common_problem_{c['cluster_id']}", type="common_problem",
             headline=f"Recurring complaint: \"{c['label']}\"",
             interpretation="Reviews with similar wording in the complaint group (rating 1-3). Preliminary cluster, quality not evaluated.",
-            numbers=[{"label": "cluster reviews of complaint reviews", "numerator": c["size"], "denominator": complaints}],
+            numbers=[{"label": "complaint reviews fall in this cluster", "numerator": c["size"], "denominator": complaints}],
             excerpts=[{"review_id": r["review_id"], "text": r["text"]} for r in reps[:3]],
             warning=None, evidence_ref={"page": "complaints", "filters": {"cluster_id": c["cluster_id"]}},
             score=c["size"] / max(complaints, 1)))

@@ -87,38 +87,50 @@ def set_demo(df: pd.DataFrame, name: str) -> None:
 
 def apply_filters(df: pd.DataFrame, product=None, rating=None, date_from=None, date_to=None) -> pd.DataFrame:
     out = df
-    if product:
+    if product and "product_id" in out:
         out = out[out["product_id"].astype(str) == str(product)]
-    if rating:
-        out = out[out["rating"] == float(rating)]
-    if date_from:
-        out = out[out["date"] >= pd.Timestamp(date_from)]
-    if date_to:
-        out = out[out["date"] <= pd.Timestamp(date_to)]
+    if rating and "rating" in out:
+        try:
+            out = out[out["rating"] == float(rating)]
+        except ValueError:
+            raise ValueError("Rating filter must be a number from 1 to 5.") from None
+    for value, op in ((date_from, "ge"), (date_to, "le")):
+        if value and "date" in out:
+            try:
+                stamp = pd.Timestamp(value)
+            except ValueError:
+                raise ValueError("Date filter must look like YYYY-MM-DD.") from None
+            out = out[getattr(out["date"], op)(stamp)]
     return out
 
 
+def _date_span(df: pd.DataFrame) -> list:
+    if "date" not in df or not df["date"].notna().any():
+        return [None, None]
+    return [str(df["date"].min().date()), str(df["date"].max().date())]
+
+
 def metrics(df: pd.DataFrame) -> dict:
+    """Counts for the active data. Columns an upload does not have give null, never a crash."""
     if df is None or df.empty:
         return {"reviews": 0, "products": 0, "date_span": [None, None], "complaint_reviews": 0}
     return {
         "reviews": int(len(df)),
-        "products": int(df["product_id"].nunique()),
-        "date_span": [str(df["date"].min().date()) if df["date"].notna().any() else None,
-                      str(df["date"].max().date()) if df["date"].notna().any() else None],
-        "complaint_reviews": int((df["rating"] <= 3).sum()),
+        "products": int(df["product_id"].nunique()) if "product_id" in df else None,
+        "date_span": _date_span(df),
+        "complaint_reviews": int((df["rating"] <= 3).sum()) if "rating" in df else None,
     }
 
 
 def filter_options(df: pd.DataFrame) -> dict:
     if df is None or df.empty:
         return {"products": [], "date_min": None, "date_max": None, "categories": []}
-    counts = df["product_id"].value_counts()
-    products = sorted(counts[counts >= MIN_PRODUCT_REVIEWS].index.astype(str).tolist())
+    if "product_id" in df:
+        counts = df["product_id"].value_counts()
+        products = sorted(counts[counts >= MIN_PRODUCT_REVIEWS].index.astype(str).tolist())
+    else:
+        products = []
+    lo, hi = _date_span(df)
     cats = sorted(df["product_category"].dropna().unique().tolist()) if "product_category" in df else []
-    return {
-        "products": products,
-        "date_min": str(df["date"].min().date()) if df["date"].notna().any() else None,
-        "date_max": str(df["date"].max().date()) if df["date"].notna().any() else None,
-        "categories": cats,
-    }
+    return {"products": products, "date_min": lo, "date_max": hi, "categories": cats,
+            "has_rating": "rating" in df, "has_date": lo is not None}

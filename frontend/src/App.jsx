@@ -6,16 +6,19 @@ import SuspicionInvestigator from "./SuspicionInvestigator.jsx";
 import InsightsPage from "./InsightsPage.jsx";
 import Shell from "./Shell.jsx";
 import Overview from "./Overview.jsx";
+import { AppProvider } from "./AppState.jsx";
+import { postJson } from "./api.js";
+import { PageHead } from "./ui.jsx";
 
 // Order and colours for the five learned patterns.
 const PATTERNS = [
-  { name: "Balanced Evaluative Review", color: "#0F766E" },
-  { name: "Extended Analytical Review", color: "#1D4ED8" },
-  { name: "Concise General Opinion", color: "#FF4F9A" },
-  { name: "Long-Term Usage Experience", color: "#FF7A1A" },
-  { name: "Personal Experience and Recommendation", color: "#7C3AED" },
+  { name: "Balanced Evaluative Review", color: "var(--pattern-1)" },
+  { name: "Extended Analytical Review", color: "var(--pattern-2)" },
+  { name: "Concise General Opinion", color: "var(--pattern-3)" },
+  { name: "Long-Term Usage Experience", color: "var(--pattern-4)" },
+  { name: "Personal Experience and Recommendation", color: "var(--pattern-5)" },
 ];
-const colorOf = (pattern) => PATTERNS.find((p) => p.name === pattern)?.color ?? "#999";
+const colorOf = (pattern) => PATTERNS.find((p) => p.name === pattern)?.color ?? "var(--text-3)";
 
 // One row per preset review, using each product's first subject so results are stable.
 const BASE_ROWS = PRODUCTS.flatMap((product) =>
@@ -28,16 +31,7 @@ const BASE_ROWS = PRODUCTS.flatMap((product) =>
   }))
 );
 
-async function analyze(text) {
-  const response = await fetch("/analyze", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text }),
-  });
-  const data = await response.json();
-  if (!response.ok) throw new Error(data.error || "Analysis failed.");
-  return data;
-}
+const analyze = (text) => postJson("/analyze", { text });
 
 function countBy(items, key) {
   const counts = {};
@@ -51,8 +45,7 @@ function topKey(counts) {
   return entries.sort((a, b) => b[1] - a[1])[0][0];
 }
 
-export default function App() {
-  const [rows, setRows] = useState(() => BASE_ROWS.map((r) => ({ ...r, status: "pending" })));
+function AnalyzeTab({ rows, setRows }) {
   const [filter, setFilter] = useState("All");
   const [openKey, setOpenKey] = useState(null);
   const [draft, setDraft] = useState("");
@@ -70,17 +63,18 @@ export default function App() {
     }
   }
 
-  // Analyze every preset once, sequentially, filling rows as results arrive.
+  // Analyze the preset reviews when this tab is first opened (not at app start), sequentially, filling rows as results arrive.
   useEffect(() => {
     let cancelled = false;
+    const todo = rows.filter((r) => r.status === "pending" && !r.id.startsWith("custom-"));
     (async () => {
-      for (const row of BASE_ROWS) {
+      for (const row of todo) {
         if (cancelled) return;
         await runRow(row.id, row.text);
       }
     })();
     return () => { cancelled = true; };
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   function submitCustom(event) {
     event.preventDefault();
@@ -106,15 +100,9 @@ export default function App() {
     : 0;
   const pending = rows.length - analyzedAll.length - rows.filter((r) => r.status === "error").length;
 
-  const wrap = (node) => <Shell view={view} setView={setView}>{node}</Shell>;
-  if (view === "overview") return wrap(<Overview setView={setView} />);
-  if (view === "complaints") return wrap(<ComplaintDiscovery onBack={() => setView("overview")} />);
-  if (view === "contradictions") return wrap(<ContradictionInvestigator onBack={() => setView("overview")} />);
-  if (view === "suspicion") return wrap(<SuspicionInvestigator onBack={() => setView("overview")} />);
-  if (view === "insights") return wrap(<InsightsPage onBack={() => setView("overview")} />);
-
-  return wrap(
+  return (
     <div className="page">
+      <PageHead title="Analyze reviews" banner="Closest learned writing pattern per review. Not a usefulness judgement." />
       <div className="chips" role="tablist" aria-label="Product filter">
         {["All", ...PRODUCTS.map((p) => p.name), ...(hasCustom ? ["Custom"] : [])].map((name) => (
           <button
@@ -305,5 +293,25 @@ export default function App() {
         </div>
       </section>
     </div>
+  );
+}
+
+const PAGES = { complaints: ComplaintDiscovery, contradictions: ContradictionInvestigator, suspicion: SuspicionInvestigator, insights: InsightsPage };
+
+export default function App() {
+  const [nav, setNav] = useState({ view: "overview", focus: null });
+  const [rows, setRows] = useState(() => BASE_ROWS.map((r) => ({ ...r, status: "pending" })));
+  // go(view, focus): pages open already filtered to the thing a link points at.
+  const go = (view, focus = null) => setNav({ view, focus });
+  const Page = PAGES[nav.view];
+
+  return (
+    <AppProvider>
+      <Shell view={nav.view} setView={go}>
+        {nav.view === "overview" && <Overview go={go} />}
+        {Page && <Page key={JSON.stringify(nav.focus)} focus={nav.focus} clearFocus={() => go(nav.view)} />}
+        {nav.view === "analyze" && <AnalyzeTab rows={rows} setRows={setRows} />}
+      </Shell>
+    </AppProvider>
   );
 }

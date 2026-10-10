@@ -23,7 +23,7 @@ def _fresh() -> dict:
 def get_overview() -> dict:
     d = _fresh()
     return {"insights": d["overview"], "note": d["note"], "omitted": d["omitted"],
-            "footnotes": ["Usefulness = model prediction.", "Suspicion = warning signal, not proof."]}
+            "footnotes": ["Suspicion = warning signal, not proof.", "A usefulness prediction is not available in this app."]}
 
 
 def get_all(type: str | None = None) -> list[dict]:

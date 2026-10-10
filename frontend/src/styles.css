@@ -231,3 +231,30 @@ th { text-align: left; }
 .custom-result { border-top: 2px solid var(--border); padding-top: 12px; display: flex; flex-direction: column; gap: 8px; }
 .custom-pattern { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 16px; }
 .danger-text { color: var(--text); background: var(--danger); padding: 4px 8px; border: 2px solid var(--border); width: fit-content; font-weight: 700; }
+
+/* ---- One theme: charts and status colours live here, never in JS. ---- */
+:root {
+  --pattern-1: var(--success); --pattern-2: var(--info); --pattern-3: var(--pink); --pattern-4: var(--warning); --pattern-5: #8f7ae0;
+  --sent-pos: var(--success); --sent-mix: #b5b5b5; --sent-neg: var(--danger);
+}
+.shell > .page { padding: 0; max-width: none; }
+.page-head { display: flex; flex-direction: column; gap: 10px; }
+.page-title { margin: 0; font-size: 28px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em; }
+.banner { border: 3px solid var(--border); border-left-width: 12px; border-left-color: var(--warning); background: var(--surface); padding: 10px 14px; font-weight: 700; font-size: 14px; }
+
+/* Dataset bar: what is loaded, what you can do with it, how a run is going. */
+.databar { display: flex; flex-direction: column; gap: 10px; border-bottom: 3px solid var(--border); padding-bottom: 14px; }
+.databar-main { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.databar .brand-name { margin-right: 4px; }
+.dataset-chip { flex: 1 1 260px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; border: 2px solid var(--border); background: var(--surface); padding: 6px 12px; font-size: 14px; font-weight: 600; }
+.menu { position: relative; }
+.menu summary { list-style: none; cursor: pointer; display: inline-block; }
+.menu summary::-webkit-details-marker { display: none; }
+.menu-pop { position: absolute; z-index: 5; top: calc(100% + 6px); left: 0; display: flex; flex-direction: column; gap: 8px; min-width: 240px; padding: 12px; background: var(--surface); border: 3px solid var(--border); box-shadow: var(--shadow); }
+.run-line { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.steps { display: flex; gap: 0; list-style: none; margin: 0; padding: 0; border: 2px solid var(--border); width: fit-content; max-width: 100%; overflow-x: auto; }
+.step { padding: 4px 10px; font-size: 12px; font-weight: 700; text-transform: uppercase; border-right: 2px solid var(--border); background: var(--surface); color: var(--text-3); white-space: nowrap; }
+.step:last-child { border-right: none; }
+.step.done { background: var(--success); color: var(--text); }
+.step.current { background: var(--accent); color: var(--text); }
+.step.failed { background: var(--danger); color: var(--text); }

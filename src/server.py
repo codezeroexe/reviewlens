@@ -4,6 +4,7 @@ Every response is strict JSON (NaN becomes null). Unexpected errors return a JSO
 """
 
 import json
+import threading
 import traceback
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, unquote, urlparse
@@ -14,12 +15,14 @@ from complaints.service import get_cluster_reviews, get_clusters, get_unclustere
 from contradictions.service import find_contradictions, get_review, pair_count
 from suspicion.service import dismiss, get_results, get_similar, list_dismissed
 from insights.service import get_all, get_evidence, get_overview
-from dashboard.state import filtered_view, get_overview as app_overview, get_status, load_demo, start_run
+from dashboard.state import (filtered_view, get_overview as app_overview, get_status, load_demo, require_demo,
+                             reset_job, restore_demo, start_run)
 from dashboard.data import MAX_BYTES, load_upload
 from src.reviewlens_inference import ReviewLens
 
 model = ReviewLens("models")  # load once at startup
 
+ANALYSIS_ROUTES = ("/complaints", "/contradictions", "/suspicion", "/insights")
 ANALYZE_LIMIT = 100_000
 SMALL_LIMIT = 10_000
 
@@ -65,6 +68,8 @@ class Handler(BaseHTTPRequestHandler):
     # ---- GET ----
     def _get(self):
         path = self.route
+        if path.startswith(ANALYSIS_ROUTES):
+            require_demo()  # analysis outputs belong to the demo sample; one rule, enforced here
         if path == "/complaints":
             return self._send(200, get_clusters())
         if path == "/complaints/unclustered":
@@ -82,8 +87,10 @@ class Handler(BaseHTTPRequestHandler):
             return self._send(200, row) if row else self._send(404, {"error": "review not found"})
         if path == "/suspicion":
             rows = get_results()
-            rows = rows[rows["signal_count"] > 0].drop(columns=["details"], errors="ignore")
-            return self._send(200, {"rows": rows.fillna("").to_dict(orient="records"),
+            rows = rows[rows["signal_count"] > 0]
+            five_stars = int(rows["details"].fillna("").str.contains("'five stars'").sum())
+            rows = rows.drop(columns=["details"], errors="ignore")
+            return self._send(200, {"rows": rows.fillna("").to_dict(orient="records"), "five_stars_flagged": five_stars,
                                     "dismissed": list_dismissed(),
                                     "rule": "0 signals: No signals; 1: Low; 2: Medium; 3+: High (counts of different signals, not a probability)"})
         if path.startswith("/suspicion/similar/"):
@@ -107,7 +114,8 @@ class Handler(BaseHTTPRequestHandler):
         path = self.route
         if path == "/app/upload":
             data = self._body(MAX_BYTES)
-            info = load_upload(self.headers.get("X-Filename", "upload.csv"), data)
+            info = load_upload(unquote(self.headers.get("X-Filename", "upload.csv")), data)
+            reset_job()
             return self._send(200, {**info, "status": get_status()})
         if path == "/app/load-demo":
             return self._send(200, load_demo())
@@ -150,4 +158,5 @@ class Handler(BaseHTTPRequestHandler):
 
 if __name__ == "__main__":
     # ponytail: stdlib server, no auth/CORS. Move to FastAPI when the frontend needs CORS or real concurrency.
+    threading.Thread(target=restore_demo, daemon=True).start()  # reload the demo dataset if it was loaded before
     ThreadingHTTPServer(("127.0.0.1", 8001), Handler).serve_forever()
