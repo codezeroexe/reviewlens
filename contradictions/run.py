@@ -45,7 +45,8 @@ def main() -> None:
         conflicts = nli_contra[strict_mask]
         loose_count = len(nli_contra)
     else:
-        conflicts = verified
+        shared = verified.apply(lambda r: bool(_shared_keywords(r)), axis=1) if len(verified) else pd.Series(dtype=bool)
+        conflicts = verified[shared]  # same shared-keyword rule as the NLI path; sentiment only, not verified
         loose_count = len(verified)
     reports = [build(r) for r in conflicts.to_dict(orient="records")]
     pair_count = len({(r["observed_evidence"]["positive"]["review_id"], r["observed_evidence"]["negative"]["review_id"])

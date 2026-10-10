@@ -154,14 +154,14 @@
   },
   "quality_checks": {
     "counts": {
-      "PASS": 10,
+      "PASS": 15,
       "NOT VERIFIED": 2
     },
     "source": "reports/quality_check.md"
   },
   "runtime_seconds": {
     "complaints_run_s": "see reports/complaint_run.md",
-    "insights_built_s": 6.6
+    "insights_built_s": 6.7
   },
   "environment": {
     "python": "3.11.15",

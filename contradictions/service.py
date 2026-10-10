@@ -3,8 +3,6 @@
 import json
 from pathlib import Path
 
-import pandas as pd
-
 REPORTS = Path("reports")
 
 
@@ -21,10 +19,8 @@ def find_contradictions(product_id: str | None = None, aspect: str | None = None
 
 
 def get_review(review_id: str) -> dict | None:
-    path = REPORTS / "complaint_assignments.csv"
-    if not path.exists():
-        raise FileNotFoundError("Run complaints/run.py first (creates review table).")
-    df = pd.read_csv(path, dtype={"review_id": str, "product_id": str})
+    from complaints.service import assignments
+    df = assignments()
     rows = df[df["review_id"] == str(review_id)]
     return None if rows.empty else rows.iloc[0].to_dict()
 

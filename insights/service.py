@@ -1,22 +1,31 @@
 """Overview, drill-down, and evidence. Cache in reports/insights.json; rebuild only when an input file changed."""
 
 import json
+import threading
 
-import pandas as pd
-
+from complaints.service import assignments
 from insights.run import INPUTS, REPORTS, build
 
 CACHE = REPORTS / "insights.json"
 
 
+_build_lock = threading.Lock()
+
+
 def _fresh() -> dict:
-    if not CACHE.exists():
-        return build()
-    cached = json.loads(CACHE.read_text())
-    current = {str(p): p.stat().st_mtime for p in INPUTS if p.exists()}
-    if cached.get("inputs") != current:
-        return build()
-    return cached
+    """Cached insights, rebuilt when an input file changed. One rebuild at a time; others wait and reuse it."""
+    def stale():
+        if not CACHE.exists():
+            return None
+        cached = json.loads(CACHE.read_text())
+        current = {str(p): p.stat().st_mtime for p in INPUTS if p.exists()}
+        return cached if cached.get("inputs") == current else None
+
+    cached = stale()
+    if cached:
+        return cached
+    with _build_lock:
+        return stale() or build()
 
 
 def get_overview() -> dict:
@@ -35,7 +44,7 @@ def get_evidence(insight_id: str) -> list[dict]:
     ins = next((i for i in d["all"] if i["id"] == insight_id), None)
     if ins is None:
         raise KeyError(insight_id)
-    rows = pd.read_csv(REPORTS / "complaint_assignments.csv", dtype={"review_id": str, "product_id": str})
+    rows = assignments()
     f = ins["evidence_ref"]["filters"]
     if "cluster_id" in f:
         sel = rows[rows["cluster_id"] == f["cluster_id"]]

@@ -1,6 +1,6 @@
 # Insight engine run
 
-- Runtime: 18.9 s
+- Runtime: 6.7 s
 - Reviews in base: 20000 (first 20000 rows; same subset as phases 3-5)
 - Insights generated per type: {'quality_warning': 20, 'experience_gap': 11, 'common_problem': 1, 'comparison': 1}
 - Overview shown: 4

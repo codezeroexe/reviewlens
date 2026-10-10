@@ -16,7 +16,7 @@
       "n": 1,
       "check": "Batch pipeline completes (phases 3-6 steps + phase 2 predict on 2,000 rows)",
       "status": "PASS",
-      "evidence": "job status=ready, steps=['Complaint clusters', 'Contradictions', 'Suspicious signals', 'Insights'], total runtime 128.9s, predict rows=2000, failed=0"
+      "evidence": "job status=ready, steps=['Complaint clusters', 'Contradictions', 'Suspicious signals', 'Insights'], total runtime 200.7s, predict rows=2000, failed=0"
     },
     {
       "n": 2,

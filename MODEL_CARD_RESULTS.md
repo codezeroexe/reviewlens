@@ -72,7 +72,7 @@ Numbers below are read from `model_card_metrics.json`, which is built from files
 - Python 3.11.15, Darwin 27.0.0, arm64.
 - Packages: scikit-learn 1.6.1, numpy 2.4.6, pandas 3.0.6, scipy 1.17.1, joblib 1.6.0, sentence-transformers 6.1.0, hdbscan 0.8.44, transformers 5.19.0, torch 2.14.1, vaderSentiment 3.3.2, openpyxl 3.1.5.
 - Embedding model: all-MiniLM-L6-v2 (sentence-transformers). NLI model: cross-encoder/nli-deberta-v3-small. Random seed: 42.
-- Runtime: insights build 6.6 s. Full analysis run: see `reports/quality_check.md` (check 1).
+- Runtime: insights build 6.7 s. Full analysis run: see `reports/quality_check.md` (check 1).
 
 ## 13. Reproducibility (run from the project root, in order)
 ```bash
@@ -89,4 +89,4 @@ python -m evaluation.model_card
 ```
 
 ## Quality checks
-- Counts: {'PASS': 10, 'NOT VERIFIED': 2}. Full list with failures first: `reports/quality_check.md`.
+- Counts: {'PASS': 15, 'NOT VERIFIED': 2}. Full list with failures first: `reports/quality_check.md`.

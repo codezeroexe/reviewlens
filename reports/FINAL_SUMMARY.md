@@ -4,7 +4,7 @@ Built: dataset report, n-gram experiment, complaint discovery, contradiction inv
 
 ## Quality checks
 
-Counts: PASS 10, NOT VERIFIED 2
+Counts: PASS 15, NOT VERIFIED 2
 
 - 1. Batch pipeline completes (phases 3-6 steps + phase 2 predict on 2,000 rows): PASS
 - 2. Cluster links: 5 random clustered reviews match raw ID and text: PASS
@@ -18,6 +18,11 @@ Counts: PASS 10, NOT VERIFIED 2
 - 9. Second upload: old clusters, insights, flags hidden (no mixing): PASS
 - 10. Original usefulness prediction works (one example): NOT VERIFIED
 - 11. Original suspicious/fake detection works (one example): NOT VERIFIED
+- 12. Near-duplicate signal finds a duplicate pair that follows short reviews: PASS
+- 13. 11 GET endpoints return strict JSON (NaN becomes null): PASS
+- 14. Uploaded file active: analysis endpoints refuse (409), status says no results for it: PASS
+- 15. Malformed requests return JSON errors with the right status: PASS
+- 16. Contradiction review-pair count agrees: report, API, dashboard: PASS
 
 ## Values for the academic model card
 
@@ -29,7 +34,7 @@ Counts: PASS 10, NOT VERIFIED 2
 - Complaint clusters: 2 (819 clustered, 3965 unclustered)
 - Contradictions shown: 420 review pairs (567 aspect matches; NLI score >= 0.9, shared keyword)
 - Suspicion flags: 5864, of which 4799 match the phrase 'five stars' (often a rating headline)
-- Insight build time: 6.6 s
+- Insight build time: 6.7 s
 
 ## Not verified
 

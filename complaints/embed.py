@@ -31,7 +31,9 @@ def embed(df: pd.DataFrame) -> tuple[np.ndarray, str]:
     if not use_st:
         print("WARNING: sentence-transformers missing. Using TF-IDF+SVD fallback (weaker, word-overlap based).")
 
-    key = hashlib.sha256((method + "|" + "|".join(df["review_id"].astype(str))).encode()).hexdigest()[:16]
+    # Key covers method, ids AND texts, so changed cleaning or a different model never reuses old vectors.
+    ids_and_texts = "|".join(df["review_id"].astype(str)) + "||" + "|".join(df["review_text"].astype(str))
+    key = hashlib.sha256((method + "|" + ids_and_texts).encode()).hexdigest()[:16]
     path = CACHE_DIR / f"embeddings_{key}.npy"
     if path.exists():
         print(f"loaded cached embeddings: {path}")

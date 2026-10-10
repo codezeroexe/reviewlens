@@ -20,7 +20,7 @@ function FilterBar({ options, filters, setFilters }) {
     <div className="filter-bar" role="group" aria-label="Filters">
       {options.products.length > 0 && (
         <select value={filters.product} onChange={set("product")} aria-label="Product">
-          <option value="">All products (30+ reviews)</option>
+          <option value="">All products ({options.products_total > options.products.length ? `top ${options.products.length} of ${options.products_total}` : "30+ reviews"})</option>
           {options.products.map((p) => <option key={p} value={p}>{p}</option>)}
         </select>
       )}

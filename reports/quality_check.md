@@ -8,7 +8,7 @@ Counts: {'PASS': 15, 'NOT VERIFIED': 2}
 |---|---|---|---|
 | 10 | Original usefulness prediction works (one example) | NOT VERIFIED | No usefulness model in the project. batch/predict returns cluster patterns only (phase 2 checked, see phase1-findings). |
 | 11 | Original suspicious/fake detection works (one example) | NOT VERIFIED | No existing fake-review detector in the project (reports/suspicion_audit.md). New heuristic example runs: see check 4. |
-| 1 | Batch pipeline completes (phases 3-6 steps + phase 2 predict on 2,000 rows) | PASS | job status=ready, steps=['Complaint clusters', 'Contradictions', 'Suspicious signals', 'Insights'], total runtime 128.9s, predict rows=2000, failed=0 |
+| 1 | Batch pipeline completes (phases 3-6 steps + phase 2 predict on 2,000 rows) | PASS | job status=ready, steps=['Complaint clusters', 'Contradictions', 'Suspicious signals', 'Insights'], total runtime 200.7s, predict rows=2000, failed=0 |
 | 2 | Cluster links: 5 random clustered reviews match raw ID and text | PASS | checked ['R3IZUC3GFQGGUD', 'R2OH0OL4IRVAFA', 'RIZ7XB1HPV3C7', 'R1H00C0S8Z7CQ8', 'RYXA2WLC50U2U']; mismatches: none |
 | 3 | Contradiction quotes: 3 pairs are real substrings of cited reviews | PASS | checked 3 pairs (6 quotes); not substring: none |
 | 4 | Suspicious explanations: 3 flagged reviews, listed signals reproduced from raw | PASS | R4FV0QMBPM6FX: signals [promotional/repetitive wording] -> promo phrases=['five stars'] | R1IHWN5800R1O8: signals [semantic similarity] -> no signal re-derived | RQRGLK0F30669: signals [promotional/repetitive wording] -> promo phrases=['five stars'] |

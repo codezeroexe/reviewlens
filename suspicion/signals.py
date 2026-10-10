@@ -64,7 +64,8 @@ def near_duplicates(df: pd.DataFrame) -> dict:
     return out
 
 
-def semantic_similar(df: pd.DataFrame, emb: np.ndarray, chunk: int = 2000) -> dict:
+def semantic_similar(df: pd.DataFrame, emb: np.ndarray, max_block: int = 50_000_000) -> dict:
+    chunk = max(50, max_block // max(len(df), 1))  # rows per block: bounds the similarity block to ~max_block cells
     ids = df["review_id"].astype(str).to_numpy()
     tokens = df["review_text"].map(normalize).str.split().str.len().fillna(0).to_numpy()
     out = {}

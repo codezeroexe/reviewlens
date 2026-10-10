@@ -15,6 +15,7 @@ from batch.schema import clean_reviews, dedupe_reviews
 UPLOAD_DIR = Path("data/uploads")
 MAX_BYTES = 200 * 1024 * 1024
 ALLOWED = {".csv", ".tsv", ".txt", ".xlsx"}
+MAX_PRODUCT_OPTIONS = 500  # keeps /app/view small for large uploads
 MIN_PRODUCT_REVIEWS = 30  # product filter lists only products with at least this many reviews
 
 FRAME = {"df": None, "kind": None, "name": None}
@@ -131,10 +132,12 @@ def filter_options(df: pd.DataFrame) -> dict:
         return {"products": [], "date_min": None, "date_max": None, "categories": []}
     if "product_id" in df:
         counts = df["product_id"].value_counts()
-        products = sorted(counts[counts >= MIN_PRODUCT_REVIEWS].index.astype(str).tolist())
+        big = counts[counts >= MIN_PRODUCT_REVIEWS]
+        products = sorted(big.head(MAX_PRODUCT_OPTIONS).index.astype(str).tolist())  # biggest first, then sorted for display
     else:
         products = []
     lo, hi = _date_span(df)
     cats = sorted(df["product_category"].dropna().unique().tolist()) if "product_category" in df else []
     return {"products": products, "date_min": lo, "date_max": hi, "categories": cats,
+            "products_total": int((df["product_id"].value_counts() >= MIN_PRODUCT_REVIEWS).sum()) if "product_id" in df else 0,
             "has_rating": "rating" in df, "has_date": lo is not None}
