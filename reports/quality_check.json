@@ -16,7 +16,7 @@
       "n": 1,
       "check": "Batch pipeline completes (phases 3-6 steps + phase 2 predict on 2,000 rows)",
       "status": "PASS",
-      "evidence": "job status=ready, steps=['Complaint clusters', 'Contradictions', 'Suspicious signals', 'Insights'], total runtime 79.2s, predict rows=2000, failed=0"
+      "evidence": "job status=ready, steps=['Complaint clusters', 'Contradictions', 'Suspicious signals', 'Insights'], total runtime 128.9s, predict rows=2000, failed=0"
     },
     {
       "n": 2,
@@ -34,13 +34,13 @@
       "n": 4,
       "check": "Suspicious explanations: 3 flagged reviews, listed signals reproduced from raw",
       "status": "PASS",
-      "evidence": "R3KU7RE4F9WR5E: signals [semantic similarity; promotional/repetitive wording] -> promo phrases=['five stars'] | R20D506TK57P7T: signals [promotional/repetitive wording] -> promo phrases=['five stars'] | RQRGLK0F30669: signals [promotional/repetitive wording] -> promo phrases=['five stars']"
+      "evidence": "R4FV0QMBPM6FX: signals [promotional/repetitive wording] -> promo phrases=['five stars'] | R1IHWN5800R1O8: signals [semantic similarity] -> no signal re-derived | RQRGLK0F30669: signals [promotional/repetitive wording] -> promo phrases=['five stars']"
     },
     {
       "n": 5,
       "check": "Dashboard vs backend: 4 numbers (UI reads these endpoints)",
       "status": "PASS",
-      "evidence": "reviews: dashboard=20000, report=20000; complaint_clusters: dashboard=2, report=2; flagged: dashboard=5880, report=5880; top_discovery_numerator: dashboard=49, report=49. Note: 'reviews' dashboard=20,000 sample; report=retained rows."
+      "evidence": "reviews: dashboard=20000, report=20000; complaint_clusters: dashboard=2, report=2; flagged: dashboard=5864, report=5864; top_discovery_numerator: dashboard=49, report=49. Note: 'reviews' dashboard=20,000 sample; report=retained rows."
     },
     {
       "n": 6,
@@ -70,11 +70,41 @@
       "n": 9,
       "check": "Second upload: old clusters, insights, flags hidden (no mixing)",
       "status": "PASS",
-      "evidence": "after upload, status=Loaded, analysis_on=demo sample only, overview available=False, demo clusters shown=0. Analysis is not re-run for uploads; phase-3 cache key is hashed on review IDs, so a new file gets a new cache key."
+      "evidence": "after upload, status=Loaded, analysis_on=None, overview available=False, demo clusters shown=0. Analysis is not re-run for uploads; phase-3 cache key is hashed on review IDs, so a new file gets a new cache key."
+    },
+    {
+      "n": 12,
+      "check": "Near-duplicate signal finds a duplicate pair that follows short reviews",
+      "status": "PASS",
+      "evidence": "flagged=['a', 'b']"
+    },
+    {
+      "n": 13,
+      "check": "11 GET endpoints return strict JSON (NaN becomes null)",
+      "status": "PASS",
+      "evidence": "failures: none"
+    },
+    {
+      "n": 14,
+      "check": "Uploaded file active: analysis endpoints refuse (409), status says no results for it",
+      "status": "PASS",
+      "evidence": "codes={'/complaints': 409, '/contradictions': 409, '/suspicion': 409, '/insights': 409, '/insights/all': 409}, results_for=None, dataset.kind=upload"
+    },
+    {
+      "n": 15,
+      "check": "Malformed requests return JSON errors with the right status",
+      "status": "PASS",
+      "evidence": "unexpected statuses: none"
+    },
+    {
+      "n": 16,
+      "check": "Contradiction review-pair count agrees: report, API, dashboard",
+      "status": "PASS",
+      "evidence": "report=420, api=420, dashboard=420; aspect matches=567"
     }
   ],
   "counts": {
-    "PASS": 10,
+    "PASS": 15,
     "NOT VERIFIED": 2
   }
 }

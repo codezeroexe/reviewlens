@@ -13,7 +13,6 @@ Fit on TRAIN. C tuned on VALIDATION (macro-F1). TEST scored once per config.
 import json
 from pathlib import Path
 
-import numpy as np
 import pandas as pd
 from sklearn.dummy import DummyClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer

@@ -5,6 +5,7 @@ Analysis steps (phases 3-6) still read the demo file. Uploads are browsable (met
 
 import io
 import re
+import threading
 from pathlib import Path
 
 import pandas as pd
@@ -17,6 +18,7 @@ ALLOWED = {".csv", ".tsv", ".txt", ".xlsx"}
 MIN_PRODUCT_REVIEWS = 30  # product filter lists only products with at least this many reviews
 
 FRAME = {"df": None, "kind": None, "name": None}
+FRAME_LOCK = threading.Lock()  # FRAME is replaced as a whole; readers take a local reference
 
 
 class UploadError(ValueError):
@@ -77,12 +79,14 @@ def load_upload(name: str, data: bytes) -> dict:
     UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
     safe = re.sub(r"[^A-Za-z0-9._-]", "_", Path(name).name)
     (UPLOAD_DIR / safe).write_bytes(data)
-    FRAME.update(df=df, kind="upload", name=safe)
+    with FRAME_LOCK:
+        FRAME.update(df=df, kind="upload", name=safe)
     return {"name": safe, "report": report, "rows_kept": int(len(df))}
 
 
 def set_demo(df: pd.DataFrame, name: str) -> None:
-    FRAME.update(df=df, kind="demo", name=name)
+    with FRAME_LOCK:
+        FRAME.update(df=df, kind="demo", name=name)
 
 
 def apply_filters(df: pd.DataFrame, product=None, rating=None, date_from=None, date_to=None) -> pd.DataFrame:

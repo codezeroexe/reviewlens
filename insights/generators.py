@@ -30,8 +30,7 @@ def common_problem(assign: pd.DataFrame, clusters: list[dict]):
             interpretation="Reviews with similar wording in the complaint group (rating 1-3). Preliminary cluster, quality not evaluated.",
             numbers=[{"label": "complaint reviews fall in this cluster", "numerator": c["size"], "denominator": complaints}],
             excerpts=[{"review_id": r["review_id"], "text": r["text"]} for r in reps[:3]],
-            warning=None, evidence_ref={"page": "complaints", "filters": {"cluster_id": c["cluster_id"]}},
-            score=c["size"] / max(complaints, 1)))
+            warning=None, evidence_ref={"page": "complaints", "filters": {"cluster_id": c["cluster_id"]}}))
     return out, None if out else f"no cluster with size >= {MIN_CLUSTER} and a specific label"
 
 
@@ -53,8 +52,7 @@ def experience_gap(sentences: pd.DataFrame, texts: dict):
             excerpts=[{"review_id": p["review_id"], "text": p["sentence"]},
                       {"review_id": n["review_id"], "text": n["sentence"]}],
             warning=None, evidence_ref={"page": "contradictions",
-                                        "filters": {"product_id": product, "aspect": aspect}},
-            score=min(len(pos), len(neg)) / len(grp)))
+                                        "filters": {"product_id": product, "aspect": aspect}}))
     return out, None if out else f"no product+aspect with >= {MIN_POS_NEG} positive AND >= {MIN_POS_NEG} negative sentences"
 
 
@@ -78,8 +76,7 @@ def comparison(df: pd.DataFrame):
                  {"label": f"{bottom} complaint reviews", "numerator": int(grp.loc[bottom, "comp"]), "denominator": int(grp.loc[bottom, "n"])}],
         excerpts=[{"review_id": str(ex_hi["review_id"]), "text": str(ex_hi["review_text"])[:300]},
                   {"review_id": str(ex_lo["review_id"]), "text": str(ex_lo["review_text"])[:300]}],
-        warning=None, evidence_ref={"page": "overview", "filters": {"products": [top, bottom]}},
-        score=gap)], None
+        warning=None, evidence_ref={"page": "overview", "filters": {"products": [top, bottom]}})], None
 
 
 def quality_warning(df: pd.DataFrame, susp: pd.DataFrame):
@@ -99,8 +96,7 @@ def quality_warning(df: pd.DataFrame, susp: pd.DataFrame):
             interpretation="Warning signal, not proof of manipulation. Reviews share near-identical or similar wording.",
             numbers=[{"label": "reviews with near-duplicate or similar-text signal", "numerator": int(grp["flag"].sum()), "denominator": len(grp)}],
             excerpts=[{"review_id": r.review_id, "text": r.review_text[:300]} for r in hits.itertuples()],
-            warning=None, evidence_ref={"page": "suspicion", "filters": {"product_id": product}},
-            score=share))
+            warning=None, evidence_ref={"page": "suspicion", "filters": {"product_id": product}}))
     return out, None if out else f"no product with >= {MIN_WARN_REVIEWS} reviews and >= {int(WARN_SHARE*100)}% similar-text share"
 
 

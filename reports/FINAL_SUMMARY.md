@@ -27,8 +27,9 @@ Counts: PASS 10, NOT VERIFIED 2
 - Majority baseline macro-F1: 0.4399
 - Vocabulary sizes: unigram 16,688, bigram 146,417, uni+bigram 163,105
 - Complaint clusters: 2 (819 clustered, 3965 unclustered)
-- Contradictions shown: 567 (NLI score >= 0.9, shared keyword)
-- Insight build time: 3.5 s
+- Contradictions shown: 420 review pairs (567 aspect matches; NLI score >= 0.9, shared keyword)
+- Suspicion flags: 5864, of which 4799 match the phrase 'five stars' (often a rating headline)
+- Insight build time: 6.6 s
 
 ## Not verified
 

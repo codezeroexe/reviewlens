@@ -1,7 +1,6 @@
 """One-page model card (sample format). Every number is computed here from the phase-2 split and the best config."""
 
 import json
-import re
 from pathlib import Path
 
 import numpy as np

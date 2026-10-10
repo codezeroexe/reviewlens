@@ -1,6 +1,5 @@
 """Phase 8 C: application quality checks. Each check: PASS / FAIL / NOT VERIFIED + evidence. Writes reports/quality_check.{md,json}."""
 
-import hashlib
 import json
 import random
 import re
@@ -11,7 +10,6 @@ import pandas as pd
 
 from batch.loader import DEMO_FILE, load_demo, load_reviews
 from batch.predict import predict_batch
-from batch.schema import clean_reviews
 from complaints.service import discover
 from dashboard import data as D
 from dashboard import state as S
@@ -43,7 +41,6 @@ def main() -> None:
     try:
         S._run_steps()
         ok = S.JOB["status"] == "ready"
-        pt = time.time()
         sample = load_demo(nrows=2000)  # batch predict on a 2,000-row slice
         model = ReviewLens("models")
         out, rep = predict_batch(sample[0].head(2000), model)
@@ -109,7 +106,7 @@ def main() -> None:
               ("flagged", dash["flagged"], rep_fl), ("top_discovery_numerator", dash["top_discovery_numerator"], rep_ins)]
     mism = [p for p in pairs5 if p[1] != p[2]]
     rec(5, "Dashboard vs backend: 4 numbers (UI reads these endpoints)", "PASS" if not mism else "FAIL",
-        "; ".join(f"{k}: dashboard={a}, report={b}" for k, a, b in pairs5) + f". Note: 'reviews' dashboard=20,000 sample; report=retained rows.")
+        "; ".join(f"{k}: dashboard={a}, report={b}" for k, a, b in pairs5) + ". Note: 'reviews' dashboard=20,000 sample; report=retained rows.")
 
     # 6. Empty file.
     try:
@@ -154,6 +151,85 @@ def main() -> None:
     S.load_demo()
     rec(9, "Second upload: old clusters, insights, flags hidden (no mixing)", "PASS" if old_clusters == 0 and ov2["available"] is False else "FAIL",
         f"after upload, status={st['data_state']}, analysis_on={st.get('analysis_on')}, overview available={ov2['available']}, demo clusters shown={old_clusters}. Analysis is not re-run for uploads; phase-3 cache key is hashed on review IDs, so a new file gets a new cache key.")
+
+    # 12-15. API checks on a spare port: strict JSON, gating during an upload, malformed requests, pair counts.
+    import http.client
+    import threading
+    from http.server import ThreadingHTTPServer
+
+    import src.server as srv
+    from suspicion.signals import near_duplicates
+
+    def strict(data: bytes):
+        return json.loads(data, parse_constant=lambda c: (_ for _ in ()).throw(ValueError(f"non-JSON constant {c}")))
+
+    httpd = ThreadingHTTPServer(("127.0.0.1", 0), srv.Handler)
+    threading.Thread(target=httpd.serve_forever, daemon=True).start()
+    port = httpd.server_address[1]
+
+    def call(method, path, body=None):
+        c = http.client.HTTPConnection("127.0.0.1", port, timeout=60)
+        try:
+            c.request(method, path, body=body)
+            r = c.getresponse()
+            raw = r.read()
+            try:
+                return r.status, strict(raw), None
+            except ValueError as e:
+                return r.status, None, str(e)
+        except Exception as e:  # dropped connection etc.
+            return "ERR", None, f"{type(e).__name__}"
+        finally:
+            c.close()
+
+    try:
+        # 12. Near-duplicate rows stay aligned after short reviews.
+        demo = pd.DataFrame({"review_id": ["s1", "s2", "a", "b", "c"], "product_id": ["P"] * 5, "review_text": [
+            "ok", "great", "the battery lasts very long indeed", "the battery lasts very long indeed", "something different here today"]})
+        got = set(near_duplicates(demo))
+        rec(12, "Near-duplicate signal finds a duplicate pair that follows short reviews", "PASS" if got == {"a", "b"} else "FAIL", f"flagged={sorted(got)}")
+
+        # 13. Every GET endpoint returns strict JSON (no NaN) with the demo active.
+        S.load_demo()
+        cid = json.loads((REPORTS / "complaint_clusters.json").read_text())["clusters"][0]["cluster_id"]
+        rid = json.loads((REPORTS / "contradictions.json").read_text())["conflicts"][0]["observed_evidence"]["positive"]["review_id"]
+        paths = ["/complaints", "/complaints/unclustered", f"/complaints/cluster/{cid}/reviews", "/contradictions", f"/contradictions/review/{rid}",
+                 "/suspicion", "/insights", "/insights/all", "/app/status", "/app/overview", "/app/view"]
+        bad = []
+        for pth in paths:
+            status, _, err = call("GET", pth)
+            if status != 200 or err:
+                bad.append((pth, status, err))
+        rec(13, f"{len(paths)} GET endpoints return strict JSON (NaN becomes null)", "PASS" if not bad else "FAIL", f"failures: {bad or 'none'}")
+
+        # 14. Uploaded file active: every analysis endpoint answers 409 with the same rule.
+        D.load_upload("gate.csv", b"review_id,product_id,star_rating,review_date,review_body\nG1,P1,4,2020-01-02,works fine for me\n")
+        codes = {pth: call("GET", pth)[0] for pth in ["/complaints", "/contradictions", "/suspicion", "/insights", "/insights/all"]}
+        st = call("GET", "/app/status")[1]
+        ok = set(codes.values()) == {409} and st["results_for"] is None and st["dataset"]["kind"] == "upload"
+        rec(14, "Uploaded file active: analysis endpoints refuse (409), status says no results for it", "PASS" if ok else "FAIL",
+            f"codes={codes}, results_for={st['results_for']}, dataset.kind={st['dataset']['kind']}")
+        D.FRAME.update(df=None, kind=None, name=None)
+        S.load_demo()
+
+        # 15. Malformed requests get JSON errors, never a dropped connection.
+        cases = {"list body to /analyze": ("POST", "/analyze", b"[1]", 400), "bad JSON to dismiss": ("POST", "/suspicion/dismiss", b"x", 400),
+                 "unknown insight id": ("GET", "/insights/evidence/nope", None, 404), "query string on route": ("GET", "/complaints?x=1", None, 200),
+                 "bad rating filter": ("GET", "/app/view?rating=abc", None, 400), "non-numeric cluster id": ("GET", "/complaints/cluster/abc/reviews", None, 400)}
+        wrong = {k: call(m, p, b)[0] for k, (m, p, b, want) in cases.items() if call(m, p, b)[0] != want}
+        rec(15, "Malformed requests return JSON errors with the right status", "PASS" if not wrong else "FAIL", f"unexpected statuses: {wrong or 'none'}")
+
+        # 16. Contradiction count is the same in the report, the API and the dashboard overview.
+        conflicts = json.loads((REPORTS / "contradictions.json").read_text())["conflicts"]
+        pairs_calc = len({(x["observed_evidence"]["positive"]["review_id"], x["observed_evidence"]["negative"]["review_id"]) for x in conflicts})
+        api = call("GET", "/contradictions")[1]["unique_pairs"]
+        dash_pairs = call("GET", "/app/overview")[1]["contradiction_counts"]["pairs"]
+        rec(16, "Contradiction review-pair count agrees: report, API, dashboard", "PASS" if pairs_calc == api == dash_pairs else "FAIL",
+            f"report={pairs_calc}, api={api}, dashboard={dash_pairs}; aspect matches={len(conflicts)}")
+    finally:
+        httpd.shutdown()
+        for name in ("malformed.csv", "second.csv", "gate.csv"):  # test files this run created
+            (D.UPLOAD_DIR / name).unlink(missing_ok=True)
 
     # 10. Usefulness prediction: no model exists.
     rec(10, "Original usefulness prediction works (one example)", "NOT VERIFIED",

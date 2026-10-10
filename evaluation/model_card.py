@@ -8,6 +8,8 @@ import json
 import platform
 from pathlib import Path
 
+import pandas as pd
+
 R = Path("reports")
 ROOT = Path(".")
 
@@ -29,7 +31,9 @@ def main() -> None:
     qc = load("quality_check.json")
     cl = load("complaint_clusters.json")["meta"]
     cr = load("contradictions.json")
-    su = (R / "suspicion_run.md").read_text()
+    susp = pd.read_csv(R / "suspicion_results.csv", dtype=str, keep_default_na=False)
+    flagged = susp[susp["signal_count"].astype(int) > 0]
+    five_stars = int(flagged["details"].str.contains("'five stars'").sum())
     ins = load("insights.json")
     exp = load("ngram_results.json")["data"]  # experiment sample (500,000-row head, labelled, deduped)
     runs = {"complaints_run_s": "see reports/complaint_run.md", "insights_built_s": ins["built_seconds"]}
@@ -41,7 +45,7 @@ def main() -> None:
     ts = err["title_star_pattern"]
 
     metrics = {
-        "model_name": "Review Intelligence (ReviewLens prototype)",
+        "model_name": "ReviewLens",
         "version": "phase-8 snapshot",
         "dataset": {"file": ds["file"]["path"], "size_bytes": ds["file"]["size_bytes"], "sample_rows": ds["file"]["sample_rows"],
                     "rows_read": ds["rows"]["read"], "rows_retained": ds["rows"]["retained"], "rows_excluded": ds["rows"]["excluded"],
@@ -69,9 +73,10 @@ def main() -> None:
                                "clustered": cl["clustered"], "unclustered": cl["unclustered"], "not_complaint": cl["not_complaint"],
                                "rule": cl["complaint_rule"]},
         "contradictions": {"method": cr["method"], "all_pairs_checked": cr["all_pairs_checked"],
-                           "nli_label_counts": cr["nli_label_counts"], "shown_after_filter": len(cr["conflicts"]),
+                           "nli_label_counts": cr["nli_label_counts"], "shown_after_filter": len(cr["conflicts"]), "unique_review_pairs": cr["unique_review_pairs"],
                            "filter": cr["filter"]},
-        "suspicion": {"type": "heuristic / similarity-based (not validated)", "source": "reports/suspicion_run.md"},
+        "suspicion": {"type": "heuristic / similarity-based (not validated)", "source": "reports/suspicion_run.md",
+                      "flagged": len(flagged), "flagged_five_stars": five_stars},
         "quality_checks": {"counts": qc["counts"], "source": "reports/quality_check.md"},
         "runtime_seconds": runs,
         "environment": {"python": platform.python_version(), "os": f"{platform.system()} {platform.release()}",
@@ -86,7 +91,7 @@ def main() -> None:
     (ROOT / "model_card_metrics.json").write_text(json.dumps(metrics, indent=2, default=str))
 
     m = metrics
-    card = f"""# Model card: Review Intelligence (ReviewLens prototype)
+    card = f"""# Model card: ReviewLens
 
 Numbers below are read from `model_card_metrics.json`, which is built from files in `reports/`. Source file given per section.
 
@@ -144,7 +149,7 @@ Numbers below are read from `model_card_metrics.json`, which is built from files
 - Head samples of the file, not random: 20,000 rows for the pipeline, 500,000 rows for the experiment. Results may not hold for the full file or other categories.
 - Helpful-vote bias: products and reviewers with more visibility get more votes.
 - Complaint clusters: preliminary. HDBSCAN found {m['complaint_clusters']['clusters']} clusters; one is a generic catch-all.
-- Contradictions: {m['contradictions']['shown_after_filter']} shown after filter. Sample checks show many pairs are real opposing sentences, but not all. The NLI label is a model output.
+- Contradictions: {m['contradictions']['shown_after_filter']} aspect matches shown after filter, {m['contradictions']['unique_review_pairs']} unique review pairs. Sample checks show many pairs are real opposing sentences, but not all. The NLI label is a model output.
 - Suspicion: heuristic, no ground truth. Flags are warnings. Frequent flags come from common phrases such as "five stars" in review titles.
 - No demographic data. No fairness analysis was possible.
 
@@ -193,7 +198,8 @@ python -m evaluation.model_card
         f"- Majority baseline macro-F1: {m['baseline_majority']['macro_f1']}",
         f"- Vocabulary sizes: unigram {ng['configs']['unigram']['vocab_size']:,}, bigram {ng['configs']['bigram']['vocab_size']:,}, uni+bigram {ng['configs']['uni_bigram']['vocab_size']:,}",
         f"- Complaint clusters: {m['complaint_clusters']['clusters']} ({m['complaint_clusters']['clustered']} clustered, {m['complaint_clusters']['unclustered']} unclustered)",
-        f"- Contradictions shown: {m['contradictions']['shown_after_filter']} (NLI score >= 0.9, shared keyword)",
+        f"- Contradictions shown: {m['contradictions']['unique_review_pairs']} review pairs ({m['contradictions']['shown_after_filter']} aspect matches; NLI score >= 0.9, shared keyword)",
+        f"- Suspicion flags: {m['suspicion']['flagged']}, of which {m['suspicion']['flagged_five_stars']} match the phrase 'five stars' (often a rating headline)",
         f"- Insight build time: {runs['insights_built_s']} s", "",
         "## Not verified", "",
         "- Usefulness model prediction on the app: no model exists.",

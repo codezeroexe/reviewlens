@@ -3,14 +3,14 @@
 TYPES = {"common_problem", "experience_gap", "informative_evidence", "emerging", "comparison", "quality_warning"}
 
 
-def make(id, type, headline, interpretation, numbers, excerpts, warning, evidence_ref, score=0.0):
+def make(id, type, headline, interpretation, numbers, excerpts, warning, evidence_ref):
     assert type in TYPES, type
     return {
         "id": id, "type": type, "headline": headline, "interpretation": interpretation,
         "numbers": [{"label": n["label"], "numerator": int(n["numerator"]), "denominator": int(n["denominator"]),
                      "pct": round(100 * n["numerator"] / n["denominator"], 1) if n["denominator"] else 0.0}
                     for n in numbers],
-        "excerpts": excerpts, "warning": warning, "evidence_ref": evidence_ref, "score": round(float(score), 4),
+        "excerpts": excerpts, "warning": warning, "evidence_ref": evidence_ref, "score": 0.0,  # set by insights.rank
     }
 
 

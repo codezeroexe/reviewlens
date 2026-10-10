@@ -1,5 +1,5 @@
 {
-  "model_name": "Review Intelligence (ReviewLens prototype)",
+  "model_name": "ReviewLens",
   "version": "phase-8 snapshot",
   "dataset": {
     "file": "data/amazon_reviews_us_Electronics_v1_00.tsv",
@@ -143,11 +143,14 @@
       "entailment": 76
     },
     "shown_after_filter": 567,
+    "unique_review_pairs": 420,
     "filter": "NLI contradiction, score >= 0.9, both quotes contain the same aspect keyword"
   },
   "suspicion": {
     "type": "heuristic / similarity-based (not validated)",
-    "source": "reports/suspicion_run.md"
+    "source": "reports/suspicion_run.md",
+    "flagged": 5864,
+    "flagged_five_stars": 4799
   },
   "quality_checks": {
     "counts": {
@@ -158,7 +161,7 @@
   },
   "runtime_seconds": {
     "complaints_run_s": "see reports/complaint_run.md",
-    "insights_built_s": 3.5
+    "insights_built_s": 6.6
   },
   "environment": {
     "python": "3.11.15",

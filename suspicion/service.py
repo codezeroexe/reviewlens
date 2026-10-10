@@ -1,6 +1,8 @@
 """Service: investigate, get_similar, dismiss. Reads saved results; no frontend dependency."""
 
 import json
+import os
+import threading
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -8,6 +10,7 @@ import pandas as pd
 
 REPORTS = Path("reports")
 DISMISS_PATH = Path("data/dismissed_flags.json")
+_lock = threading.Lock()
 
 
 def get_results() -> pd.DataFrame:
@@ -34,8 +37,13 @@ def list_dismissed() -> dict:
 
 def dismiss(review_id: str, note: str = "") -> dict:
     """Mark a flag as dismissed. The flag row stays in the results; only the dismissed marker is added."""
-    data = list_dismissed()
-    data[str(review_id)] = {"note": note, "dismissed_at": datetime.now(timezone.utc).isoformat()}
-    DISMISS_PATH.parent.mkdir(parents=True, exist_ok=True)
-    DISMISS_PATH.write_text(json.dumps(data, indent=2))
+    if not str(review_id).strip():
+        raise ValueError("review_id is required.")
+    with _lock:  # read-modify-write, then atomic replace so a crash never leaves half a file
+        data = list_dismissed()
+        data[str(review_id)] = {"note": note, "dismissed_at": datetime.now(timezone.utc).isoformat()}
+        DISMISS_PATH.parent.mkdir(parents=True, exist_ok=True)
+        tmp = DISMISS_PATH.with_suffix(".tmp")
+        tmp.write_text(json.dumps(data, indent=2))
+        os.replace(tmp, DISMISS_PATH)
     return data[str(review_id)]

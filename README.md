@@ -44,6 +44,8 @@ Run the backend from the repo root: the inference module loads `models/` relativ
 
 To see the analysis suite, open the dashboard, click **Load demo dataset**, then **Run analysis** (about 1-2 minutes). The first run downloads two small models (sentence embeddings and an NLI model) from Hugging Face.
 
+The bar at the top shows the active dataset and what you can do with it. **Change dataset** uploads a CSV, TSV or XLSX file or reloads the demo. Uploaded files are browsable (counts, filters, matching reviews) but not analysed: the analysis pages show a "Not analysed" message until the demo dataset is active. Insight cards link to the page that holds their evidence, already filtered.
+
 ### Use the model from Python
 
 ```python
@@ -198,7 +200,8 @@ Measured on the local Electronics sample (first 20,000 rows for the pipeline, fi
 | --- | ---: | --- |
 | Usefulness experiment (best config, unigram) | accuracy 0.8179, macro-F1 0.6863 | Vote-derived label; majority baseline macro-F1 0.4399 |
 | Complaint clusters | 2 clusters, 819 clustered, 3965 unclustered | HDBSCAN; cluster quality not evaluated |
-| Contradictions shown | 567 | NLI contradiction, score >= 0.9, same keyword in both sentences |
+| Contradictions shown | 420 review pairs (567 aspect matches) | NLI contradiction, score >= 0.9, same keyword in both sentences |
+| Suspicion flags | 5,864 flagged (4,799 match the phrase "five stars") | Heuristic signals, not proof; the phrase is often a rating headline |
 | Quality checks | 10 pass, 2 not verified | See `reports/quality_check.md` |
 
 Full details, error analysis, limitations, and reproduction commands: `MODEL_CARD_RESULTS.md`. A one-page card is in `MODEL_CARD_ONE_PAGE.pdf`.

@@ -1,7 +1,6 @@
 """Overview, drill-down, and evidence. Cache in reports/insights.json; rebuild only when an input file changed."""
 
 import json
-from pathlib import Path
 
 import pandas as pd
 

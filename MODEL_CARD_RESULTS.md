@@ -1,9 +1,9 @@
-# Model card: Review Intelligence (ReviewLens prototype)
+# Model card: ReviewLens
 
 Numbers below are read from `model_card_metrics.json`, which is built from files in `reports/`. Source file given per section.
 
 ## 1. Model name, purpose, version, intended use
-- Name: Review Intelligence (ReviewLens prototype). Snapshot: phase-8 snapshot.
+- Name: ReviewLens. Snapshot: phase-8 snapshot.
 - Purpose: help a reader see what Amazon product reviews say. Parts: a supervised usefulness experiment (TF-IDF + logistic regression, research only), an unsupervised review-pattern model (5 clusters), and heuristic modules (complaint groups, contradictions, suspicion signals, insights).
 - Intended use: research and demonstration on the sample described below. Not for decisions about sellers, reviewers, or products.
 
@@ -56,7 +56,7 @@ Numbers below are read from `model_card_metrics.json`, which is built from files
 - Head samples of the file, not random: 20,000 rows for the pipeline, 500,000 rows for the experiment. Results may not hold for the full file or other categories.
 - Helpful-vote bias: products and reviewers with more visibility get more votes.
 - Complaint clusters: preliminary. HDBSCAN found 2 clusters; one is a generic catch-all.
-- Contradictions: 567 shown after filter. Sample checks show many pairs are real opposing sentences, but not all. The NLI label is a model output.
+- Contradictions: 567 aspect matches shown after filter, 420 unique review pairs. Sample checks show many pairs are real opposing sentences, but not all. The NLI label is a model output.
 - Suspicion: heuristic, no ground truth. Flags are warnings. Frequent flags come from common phrases such as "five stars" in review titles.
 - No demographic data. No fairness analysis was possible.
 
@@ -72,7 +72,7 @@ Numbers below are read from `model_card_metrics.json`, which is built from files
 - Python 3.11.15, Darwin 27.0.0, arm64.
 - Packages: scikit-learn 1.6.1, numpy 2.4.6, pandas 3.0.6, scipy 1.17.1, joblib 1.6.0, sentence-transformers 6.1.0, hdbscan 0.8.44, transformers 5.19.0, torch 2.14.1, vaderSentiment 3.3.2, openpyxl 3.1.5.
 - Embedding model: all-MiniLM-L6-v2 (sentence-transformers). NLI model: cross-encoder/nli-deberta-v3-small. Random seed: 42.
-- Runtime: insights build 3.5 s. Full analysis run: see `reports/quality_check.md` (check 1).
+- Runtime: insights build 6.6 s. Full analysis run: see `reports/quality_check.md` (check 1).
 
 ## 13. Reproducibility (run from the project root, in order)
 ```bash

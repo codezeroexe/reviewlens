@@ -4,7 +4,7 @@
 
 - Input: first 20000 rows of `data/amazon_reviews_us_Electronics_v1_00.tsv` (head sample, not random)
 - Rows read after cleaning: 20000 (load report: {'rows_in': 20000, 'dropped_empty_text': 0, 'rating_set_null': 0, 'date_set_null': 0, 'votes_set_null': 0, 'verified_set_null': 0, 'dropped_duplicate_review_id': 0, 'bad_lines_skipped': 0, 'rows_kept': 20000})
-- Runtime: 15.5 s
+- Runtime: 15.1 s
 - Embedding method: sentence-transformers all-MiniLM-L6-v2; clustering: HDBSCAN min_cluster_size=10
 - Complaint rule: rating <= 3
 - Clusters: 2

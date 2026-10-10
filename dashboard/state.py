@@ -34,17 +34,18 @@ def load_demo() -> dict:
         raise FileNotFoundError(f"Demo file not found at {DEMO_FILE}.")
     df, rep = load_reviews(Path(DEMO_FILE), nrows=SAMPLE_ROWS)
     set_demo(df, Path(DEMO_FILE).name)
-    _stats.update({
-        "review_count": int(len(df)),
-        "products": int(df["product_id"].nunique()),
-        "date_min": str(df["date"].min().date()) if df["date"].notna().any() else None,
-        "date_max": str(df["date"].max().date()) if df["date"].notna().any() else None,
-        "categories": sorted(df["product_category"].dropna().unique().tolist()),
-        "source": str(DEMO_FILE),
-        "load_report": rep,
-    })
-    REPORTS.mkdir(exist_ok=True)
-    STATS_PATH.write_text(json.dumps(_stats, indent=2, default=str))
+    with _lock:
+        _stats.update({
+            "review_count": int(len(df)),
+            "products": int(df["product_id"].nunique()),
+            "date_min": str(df["date"].min().date()) if df["date"].notna().any() else None,
+            "date_max": str(df["date"].max().date()) if df["date"].notna().any() else None,
+            "categories": sorted(df["product_category"].dropna().unique().tolist()),
+            "source": str(DEMO_FILE),
+            "load_report": rep,
+        })
+        REPORTS.mkdir(exist_ok=True)
+        STATS_PATH.write_text(json.dumps(_stats, indent=2, default=str))
     return get_status()
 
 
